@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+:root{
+	--bg-color1: rgb(37, 44, 51);
+	--bg-color2: rgb(188, 212, 233);
+	--bg-gradient: linear-gradient(90deg, rgba(255, 242, 197, 1) 0%, rgba(190, 238, 242, 1) 50%, rgba(215, 236, 250, 1) 100%);
+	--main-color1: rgb(211, 175, 55);
+	--main-color2: rgb(0, 190, 216);
+	// --bg-img: url('../../assets/images/Types-of-Motorcycles.jpg');
+	--bg-img: url('../../assets/images/bg-many_motos.jpg');
+}
+body{
+	font-family: 'Inter', sans-serif;
+	
+}
+.button{
+	background-color: var(--main-color1);
+	color: var(--bg-color1);
+	font-weight: 600;
+	transition: all .3s ease-in;
+	&:hover {
+			background-color: var(--main-color2);
+			transform: scale(0.97);
+	}
+}
+.wrapper{
+	max-width: 80em;
+	// padding: 2.5rem;
+	margin: 0 auto .5em;
+	border-radius: 10px;
+}
+.navbar, .filters{
+	background-color: var(--bg-color1);
+	color: var(--main-color1);
+}
