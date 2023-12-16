@@ -1,54 +1,132 @@
 <template>
 	<div class="card-container">
-		<card-component 
-			v-for="moto in motorcyclesListToShow"
+		<div v-if="showNothingFound" class="nothingFound">
+			Sorry, nothing corresponds to chosen options - please, try to change them
+		</div>
+		
+		<card-component
+			v-for="moto in getFilteredList"
 			:key="moto.id"
 			:motorcycle="moto"
-		/>
+		>
+			<template #additionalButton="{bikeId}">
+				<button @click="toggleIsFavorite(bikeId)">
+					<span class="material-symbols-outlined tooltip" 
+						:class="{addedToFavorites: isAdded(bikeId)}" 
+						data-tooltip="Add/remove this bike to/from favorites">
+						favorite
+					</span>
+				</button>
+
+			</template>
+		</card-component>
+
+				
 	</div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import CardComponent from './CardComponent.vue';
 
-	export default {
-		name: 'MotorcyclesCardsList',
-		components: {
-			CardComponent,
+export default {
+	name: 'MotorcyclesCardsList',
+	components: {
+		CardComponent
+	},
+	data() {
+		return {
+			
+		}
+	},
+
+	computed: {
+		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList', 'getFavoriteList']),
+
+		showNothingFound() {
+			return !this.getFilteredList.length;
 		},
 		
-		computed: {
-			...mapGetters(['getMotorcyclesList', 'getFilteredList']),
-			
-			motorcyclesListToShow(){
-				return this.getFilteredList.length? this.getFilteredList : this.getMotorcyclesList
-			}
+		
+	},
+	methods: {
+		...mapActions('moto', ['toggleIsFavorite']),
+
+		isAdded(bikeId){
+			return this.getFavoriteList.some(id => id == bikeId);
+		}
+
 		},
-	}
+}
 </script>
 
 <style lang="scss" scoped>
-.card-container{
-	display: flex;
-	flex-wrap: wrap;
-	gap:1.25rem;
-	margin: 0 auto;
-	padding: 1rem 0;
-	justify-content: center;
-	position: relative;
-	
-	&::after{
-		content:'';
+.card-container {
+	&::after
+	{
+		content: '';
 		position: absolute;
 		z-index: -1;
 		inset: 0;
-		background-image: var(--bg-img);
-		background-size: contain;
-		background-repeat: repeat;
+		background-image: var(--bg-img1);
+		background-size: cover;
+		background-repeat: repeat-y;
 		background-attachment: fixed;
 		opacity: .3;
 	}
 }
+
+.nothingFound
+{
+	font-size: 1.5rem;
+	min-width: 50%;
+	background-color: var(--bg-color1);
+	text-align: center;
+	margin: 3em;
+	padding: 2em;
+	border-radius: 10px;
+	place-self: start;
+}
+.material-symbols-outlined{
+	position: relative;
+	transition: all .4s ease;
+	font-size: 1.75rem;
+//   font-variation-settings: 'OPSZ' 32;
+}
+
+.addedToFavorites{
+	font-variation-settings: 'FILL' 1;
+	color: var(--main-color2);
+}
+
+@media (hover:hover){
+	.tooltip:hover::after{
+		content: attr(data-tooltip);
+		position: absolute;
+		top:-150%;
+		left: -110%;
+		font-size: 0.625rem;
+		font-family: var(--font-first);
+		display: block;
+		padding: 0.5em;
+		width: 9em;
+		background-color: var(--main-color2);
+		color: var(--bg-color1);
+		border-radius: 5px;
+		text-wrap: wrap;
+	}
+	.material-symbols-outlined{
+		&:hover{
+			font-variation-settings: 'FILL' 1, 'wght' 600;
+			color: var(--main-color2);
+  		}
+	}
+	
+	
+
+}
+
+
+
 
 </style>

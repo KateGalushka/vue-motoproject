@@ -14,9 +14,11 @@
 		<div class="card__price">
 			€{{ motorcycle.price}}
 		</div>
-		
-		<button class="button button-details">Details</button>
+		<div class="card__buttons">
+			<button class="button button-details" @click="goToDetails(motorcycle.id)">Details</button>
+			<slot name="additionalButton" :bikeId="motorcycle.id"></slot>
 
+		</div>
 	</div>
 </template>
 
@@ -34,19 +36,33 @@
 				return this.motorcycle.imgSrc? this.motorcycle.imgSrc : require('@/assets/images/adv_bike.svg')
 			}
 		},
+		methods: {
+			goToDetails(id) {
+				this.$router.push({
+					name: 'bike-details',
+					params: {
+						bikeId: id
+					}
+				})
+				
+			}
+		},
 	}
 </script>
 
 <style lang="scss" scoped>
 .card{
 	background-color: var(--bg-color1);
-	color: var(--main-color1);
 	width: clamp(298px, 18.65rem, 25%);
 	border-radius: 0.625rem;
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	&:hover {
+		// box-shadow: 3px -3px 5px var(--main-color2);
+		box-shadow: rgba(0, 190, 216, 0.8) 3px -3px 10px;;
+	}
 	h3{
 		text-align: center;
 		font-size: 1.25rem;
@@ -63,7 +79,7 @@
 	transition: all .5s ease-in;
 	&:hover{
 		transform: scale(1.1);
-		border: 3px solid var(--main-color2);
+		// border: 3px solid var(--main-color2);
 		border-radius: 10px;
 	}
 }
@@ -95,11 +111,15 @@
 		font-size: 1.25rem;
 	}
 }
+.card__buttons{
+	display: flex;
+	justify-content: space-evenly;
+}
 .button-details{
 	padding: .5em 2em;
 	border-radius: 10px;
 	display: block;
-	margin: 0 auto;
+	// margin: 0 auto;
 }
 
 

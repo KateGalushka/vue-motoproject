@@ -11,8 +11,25 @@ const routes = [
   {
 		path: "/guide",
 		name: "guide",
-		component: () =>
-			import("../views/GuideView.vue"),
+		component: () => import("../views/GuideView.vue"),
+
+		// children: [{
+		// 		path: 'details/:id',
+		// 		name: 'bike-details',
+		// 		props: true,
+		// 		component: () => import("../components/MotorcyclesGuide/MotorcycleDetails.vue") 
+		// 	}]
+	},
+	{
+		path: '/guide/details/:bikeId',
+		name: 'bike-details',
+		// props: true,
+		component: () => import("../views/DetailsView.vue") 
+	},
+	{
+		path: '/favorites',
+		name: 'favorites',
+		component: () => import("../views/FavoriteListView.vue")
 	},
 	{
 		path: "/contacts",

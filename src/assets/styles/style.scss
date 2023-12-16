@@ -6,12 +6,22 @@
 	--bg-gradient: linear-gradient(90deg, rgba(255, 242, 197, 1) 0%, rgba(190, 238, 242, 1) 50%, rgba(215, 236, 250, 1) 100%);
 	--main-color1: rgb(211, 175, 55);
 	--main-color2: rgb(0, 190, 216);
-	// --bg-img: url('../../assets/images/Types-of-Motorcycles.jpg');
-	--bg-img: url('../../assets/images/bg-many_motos.jpg');
+	--bg-img1: url('../../assets/images/bg-many_motos.jpg');
+	--bg-img2: url('../../assets/images/Types-of-Motorcycles.jpg');
+	--bg-img-main: url('../../assets/images/versys-mountains.jpg');
+	--bg-grad-main: url('../../assets/images/Rectangle hero.png');
+	--font-first: 'Inter', sans-serif;
+	--font-second: 'Poppins', sans-serif;
+
+
 }
 body{
-	font-family: 'Inter', sans-serif;
-	
+	font-family: var(--font-first);
+	color: var(--main-color1);
+}
+h1, h2, h3, h4 {
+	font-family: var(--font-second);
+	font-style: italic;
 }
 .button{
 	background-color: var(--main-color1);
@@ -25,6 +35,7 @@ body{
 }
 .wrapper{
 	max-width: 80em;
+	min-height: 100%;
 	// padding: 2.5rem;
 	margin: 0 auto .5em;
 	border-radius: 10px;
@@ -32,4 +43,25 @@ body{
 .navbar, .filters{
 	background-color: var(--bg-color1);
 	color: var(--main-color1);
+}
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.25rem;
+	margin: 0 auto;
+	padding: 1rem 0;
+	justify-content: center;
+	position: relative;
+	min-height: 15em;
+}
+.nothingFound
+{
+	font-size: 1.5rem;
+	min-width: 50%;
+	background-color: var(--bg-color1);
+	text-align: center;
+	margin: 3em;
+	padding: 2em;
+	border-radius: 10px;
+	place-self: start;
 }

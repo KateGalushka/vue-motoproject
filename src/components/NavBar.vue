@@ -1,14 +1,13 @@
 <template>
-	<div class="wrapper navbar">
+	<header class="wrapper navbar">
 		<img class="logo-img" src="../assets/images/logoMain2.svg" alt="logo-main">
 		<nav>
 			<router-link to="/">Home</router-link> |
 			<router-link :to="{ name: 'guide' }">Motorcycles Guide</router-link> |
-			<router-link :to="{ name: 'guide' }">Motorcycles Guide</router-link> |
+			<router-link :to="{ name: 'favorites' }">Favorite Motorcycles</router-link> |
 			<router-link :to="{ name: 'contacts' }">Contacts</router-link> |
 		</nav>
-
-	</div>
+	</header>
 </template>
 
 <script>

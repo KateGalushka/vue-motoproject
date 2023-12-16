@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<!-- <router-view/> -->
 		<motorcycles-filters/>
 		<motorcycles-cards-list/>
 	</div>
@@ -23,7 +24,7 @@
 				this.loadMotorcyclesList(moto);
 		},
 		methods: {
-			...mapActions(['loadMotorcyclesList']),
+			...mapActions('moto', ['loadMotorcyclesList']),
 		},
 	}
 </script>

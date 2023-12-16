@@ -7,7 +7,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "998.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "228.0 HP (166.4  kW)) @ 11500 RPM",
+		"power": "228.0 HP (166.4  kW) @ 11500 RPM",
 		"torque": "141.7 Nm @ 11000 RPM",
 		"fuel_system": "Injection. DFI® with 40mm throttle bodies (4) with dual injection",
 		"fuel_control": "Double Overhead Cams/Twin Cam (DOHC)",

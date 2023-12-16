@@ -3,7 +3,6 @@
 		<main-masterpage>
 			<motorcycles-guide/>
 		</main-masterpage>
-
 	</div>
 </template>
 
