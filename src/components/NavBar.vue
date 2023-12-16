@@ -2,17 +2,21 @@
 	<header class="wrapper navbar">
 		<img class="logo-img" src="../assets/images/logoMain2.svg" alt="logo-main">
 		<nav>
-			<router-link to="/">Home</router-link> |
-			<router-link :to="{ name: 'guide' }">Motorcycles Guide</router-link> |
-			<router-link :to="{ name: 'favorites' }">Favorite Motorcycles</router-link> |
-			<router-link :to="{ name: 'contacts' }">Contacts</router-link> |
+			<router-link to="/">{{ $t('nav.home') }}</router-link> |
+			<router-link :to="{ name: 'guide' }">{{ $t('nav.guide') }}</router-link> |
+			<router-link :to="{ name: 'favorites' }">{{ $t('nav.favorites') }}</router-link> |
+			<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> |
 		</nav>
+		<current-lang-component/>
 	</header>
 </template>
 
 <script>
+import CurrentLangComponent from './CurrentLangComponent.vue';
+
 export default {
-	name: 'NavBar'
+    name: 'NavBar',
+    components: { CurrentLangComponent }
 }
 </script>
 

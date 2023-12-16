@@ -1,7 +1,7 @@
 <template>
 	<div class="card-container">
 		<div v-if="showNothingFound" class="nothingFound">
-			Sorry, nothing corresponds to chosen options - please, try to change them
+			{{ $t('list.nothingFound') }}
 		</div>
 		
 		<card-component
@@ -13,7 +13,7 @@
 				<button @click="toggleIsFavorite(bikeId)">
 					<span class="material-symbols-outlined tooltip" 
 						:class="{addedToFavorites: isAdded(bikeId)}" 
-						data-tooltip="Add/remove this bike to/from favorites">
+						:data-tooltip="$t('card.tooltip1')">
 						favorite
 					</span>
 				</button>

@@ -1,11 +1,11 @@
 <template>
 	<main-masterpage>
 		<div class="wrapper">
-			<h1 class="favor-title">Your favorite motorcycles</h1>
+			<h1 class="favor-title">{{ $t('favorites.title') }}</h1>
 		
 			<div class="card-container">	
 				<div v-if="isFavoriteListEmpty" class="nothingFound">
-					You've added nothing to the list of favorites yet
+					{{ $t('favorites.nothing') }}
 				</div>
 				<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
 						<template #additionalButton="{ bikeId }">
@@ -13,14 +13,14 @@
 									Remove 
 							</v-btn> -->
 							<button @click="removeFromFavorites(bikeId)">
-								<span class="material-symbols-outlined tooltip" data-tooltip="Remove from favorites">
+								<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
 									heart_minus
 								</span>
 							</button>
 						</template>
 				</card-component>
 
-				<router-link :to="{ name: 'guide' }" class="button back">Back to catalog</router-link>
+				<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back') }}</router-link>
 			</div>
 			
 

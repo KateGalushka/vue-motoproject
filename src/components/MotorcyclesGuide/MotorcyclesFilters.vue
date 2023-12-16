@@ -3,11 +3,11 @@
 
 	</div>
 	<div class="wrapper filters">
-		<h2>Search catalog</h2>
+		<h2>{{ $t('search.title') }}</h2>
 		<div class="filter-container">
 			<div class="filter-container__item brand">
-				<label for="brand">Brand</label>
-				<v-select v-model="filterObj.brand" :items="getBrandsList" id="brand" placeholder="All brands" clearable
+				<label for="brand">{{ $t('search.brand') }}</label>
+				<v-select v-model="filterObj.brand" :items="getBrandsList" id="brand" :placeholder="$t('search.allBrands')" clearable
 					class="mt-2 w-100" variant="solo" clear-icon='mdi-close-circle' color="var(--main-color2)"
 					bg-color="grey-lighten-5" density="compact" hide-details="true"/>
 				<!-- <option value="">All brands</option>
@@ -15,8 +15,8 @@
 
 			</div>
 			<div class="filter-container__item model">
-				<label for="model">Model</label>
-				<v-select v-model="filterObj.model" :items="modelsFilter" id="model" placeholder="All models" clearable
+				<label for="model">{{ $t('search.model') }}</label>
+				<v-select v-model="filterObj.model" :items="modelsFilter" id="model" :placeholder="$t('search.allModels')" clearable
 					class="mt-2 w-100" variant="solo" clear-icon='mdi-close-circle' color="var(--main-color2)"
 					bg-color="grey-lighten-5" density="compact" hide-details="true"/>
 
@@ -27,30 +27,30 @@
 			</div>
 			<div class="filter-container__item engine">
 				<div>
-					<label for="displacementFrom">Engine from (ccm)</label>
+					<label for="displacementFrom">{{ $t('search.engFrom') }}</label>
 					<v-text-field v-model.number.lazy="filterObj.engineFrom" id="displacementFrom" type="number"
 						color="var(--main-color2)" bg-color="grey-lighten-5" variant="solo" step="100"
 						min="0" class="mt-2 mr-2 w-100" density="compact" hide-details="true" />
 
 				</div>
 				<div>
-					<label for="displacementTo">Engine to (ccm)</label>
+					<label for="displacementTo">{{ $t('search.engTo') }}</label>
 					<v-text-field v-model.lazy="filterObj.engineTo" id="displacementTo" type="number" color="var(--main-color2)" bg-color="grey-lighten-5" variant="solo" step="100"
 							min="0" class="mt-2 mr-2 w-100" density="compact" hide-details="true"/>
 				</div>
 			</div>
 			<div class="filter-container__item price">
 				<div>
-					<label for="price">Price min (€)</label>
+					<label for="price">{{ $t('search.priceMin') }}</label>
 					<v-text-field v-model.lazy="filterObj.priceMin" id="price" type="number" min="100" step="100" color="var(--main-color2)" bg-color="grey-lighten-5" variant="solo" class="mt-2 mr-2 w-100" density="compact"/>
 				</div>
 				<div>
-					<label for="price">Price max (€)</label>
+					<label for="price">{{ $t('search.priceMax') }}</label>
 					<v-text-field v-model.lazy="filterObj.priceMax" id="price" type="number" min="100" step="100" color="var(--main-color2)" bg-color="grey-lighten-5" variant="solo" class="mt-2 mr-2 w-100" density="compact" hide-details="true"/>
 				</div>
 			</div>
 			<div class="filter-container__item type">
-				<label for="type">Type</label>
+				<label for="type">{{ $t('search.type') }}</label>
 				<div class="type-checkboxes">
 					<div v-for="(type, index) in getTypesList" :key="index">
 						<input v-model="checkedTypesArr" type="checkbox" :name="type" :value="type">
@@ -60,7 +60,7 @@
 			</div>
 			<div class="filter-container__buttons">
 				<!-- <button class="button filter-button" @click="onFilter(filterData)">Search</button> -->
-				<button class="button filter-button" @click="onClearFilters">Clear filters</button>
+				<button class="button filter-button" @click="onClearFilters">{{ $t('search.clearFilters') }}</button>
 
 			</div>
 		</div>

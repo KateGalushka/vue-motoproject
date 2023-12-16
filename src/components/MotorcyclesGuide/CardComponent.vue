@@ -9,13 +9,13 @@
 			<p>{{ motorcycle.power }}</p>
 		</div>
 		<div class="card__moto-type">
-			Type: <span>{{ motorcycle.type }}</span>
+			{{ $t('card.type')}}: <span>{{ motorcycle.type }}</span>
 		</div>
 		<div class="card__price">
 			€{{ motorcycle.price}}
 		</div>
 		<div class="card__buttons">
-			<button class="button button-details" @click="goToDetails(motorcycle.id)">Details</button>
+			<button class="button button-details" @click="goToDetails(motorcycle.id)">{{ $t('card.details') }}</button>
 			<slot name="additionalButton" :bikeId="motorcycle.id"></slot>
 
 		</div>

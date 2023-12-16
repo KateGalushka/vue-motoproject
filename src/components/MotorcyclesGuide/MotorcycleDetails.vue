@@ -6,58 +6,58 @@
 				<img :src="getBike.imgSrc" :alt="getBike.model">
 			</div>
 			<div class="details__spec">
-				<h3 class="details__spec-title">Specifications</h3>
+				<h3 class="details__spec-title">{{ $t('details.specs') }}</h3>
 				<ul class="details__spec-list">
 					<li>
-						<span class="list-item type">Type: </span>
+						<span class="list-item type">{{ $t('card.type') }}: </span>
 						<span>{{ getBike.type }}</span>
 					</li>
 					<li>
-						<span class="list-item engine">Displacement: </span>
+						<span class="list-item engine">{{ $t('details.displacement') }}: </span>
 						<span>{{ getBike.displacement }}</span>
 					</li>
 					<li>
-						<span class="list-item engine">Engine: </span>
+						<span class="list-item engine">{{ $t('details.engine') }}: </span>
 						<span>{{ getBike.engine }}</span>
 					</li>
 					<li>
-						<span class="list-item power">Power: </span>
+						<span class="list-item power">{{ $t('details.power') }}: </span>
 						<span>{{ getBike.power }}</span>
 					</li>
 					<li>
-						<span class="list-item power">Torque: </span>
+						<span class="list-item power">{{ $t('details.torque') }}: </span>
 						<span>{{ getBike.torque }}</span>
 					</li>
 					<li>
-						<span class="list-item gear">Gearbox: </span>
+						<span class="list-item gear">{{ $t('details.gearbox') }}: </span>
 						<span>{{ getBike.gearbox }}</span>
 					</li>
 					<li>
-						<span class="list-item info">Weight: </span>
+						<span class="list-item info">{{ $t('details.weight') }}: </span>
 						<span>{{ getBike.total_weight }}</span>
 					</li>
 					<li>
-						<span class="list-item type">Seat height: </span>
+						<span class="list-item type">{{ $t('details.seat') }}: </span>
 						<span>{{ getBike.seat_height }}</span>
 					</li>
 					<li>
-						<span class="list-item type">Ground clearance: </span>
+						<span class="list-item type">{{ $t('details.ground') }}: </span>
 						<span>{{ getBike.ground_clearance }}</span>
 					</li>
 					<li>
-						<span class="list-item fuel">Fuel capacity: </span>
+						<span class="list-item fuel">{{ $t('details.fuelCap') }}: </span>
 						<span>{{ getBike.fuel_capacity }}</span>
 					</li>
 					<li>
-						<span class="list-item fuel">Fuel consumption: </span>
+						<span class="list-item fuel">{{ $t('details.fuelConsump') }}: </span>
 						<span>{{ getBike.fuel_consumption }}</span>
 					</li>
 				</ul>
 				<div class="links">
-					<router-link :to="{ name: 'guide' }" class="button back">Back to catalog</router-link>
+					<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link>
 
 					<button @click="addToFavorites(getBike.id)" class="button favor">
-						<span class="material-symbols-outlined">favorite</span>Add to favorites
+						<span class="material-symbols-outlined">favorite</span>{{ $t('button.addToFav') }}
 					</button>
 				</div>
 			</div>

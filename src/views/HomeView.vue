@@ -5,12 +5,12 @@
 				<!-- <img src="../assets/images/versys-mountains.jpg" alt=""> -->
 				<div class="home__descr">
 					<transition name="title" appear>
-						<h1>Two wheels - one passion</h1>
+						<h1>{{ $t('homepage.mainTitle') }}</h1>
 					</transition>
 					<transition name="descr" appear>
 						<div>
-							<p>Almost everything you want to know</p>
-							<p>about motorcycles</p>
+							<p>{{ $t('homepage.subTitle1') }}</p>
+							<p>{{ $t('homepage.subTitle2') }}</p>
 						</div>
 					</transition>
 			</div>

@@ -1,0 +1,79 @@
+{
+	"homepage": {
+		"mainTitle": "Two wheels - one passion",
+		"subTitle1": "Almost everything you want to know",
+		"subTitle2": "about motorcycles"
+
+	},
+
+	"nav": {
+		"home": "Home",
+		"guide": "Motorcycles Guide",
+		"favorites": "Your Favorites",
+		"contacts": "Contacts"
+	},
+
+	"button":{
+		"back": "Back to catalogue",
+		"addToFav": "Add to favorites"
+	},
+
+	"search": {
+		"title": "Search catalogue",
+		"brand": "Brand",
+		"allBrands": "All brands",
+		"model": "Model",
+		"allModels": "All models",
+		"engFrom": "Engine from (ccm)",
+		"engTo": "Engine to (ccm)",
+		"priceMin": "Price min (€)",
+		"priceMax": "Price max (€)",
+		"type": "Type",
+		"adventure": "adventure",
+		"classic": "classic",
+		"cruiser": "cruiser",
+		"enduro": "enduro",
+		"naked": "naked",
+		"sport": "sport",
+		"sport touring": "sport touring",
+		"touring": "touring",
+		"clearFilters": "Clear filters"
+	},
+
+	"card": {
+		"details": "Details",
+		"tooltip1": "Add/remove this bike to/from favorites",
+		"tooltip2": "Remove from favorites",
+		"type": "Type"
+	},
+
+	"favorites": {
+		"title": "Your favorite motorcycles",
+		"nothing": "You've added nothing to the list of favorites yet"
+	},
+	
+	"contacts": {
+		"email": "by email",
+		"phone": "by phone",
+		"post": "by post",
+		"smoke": "by smoke signal"
+	},
+
+	"details": {
+		"specs": "Specifications",
+		"displacement": "Displacement",
+		"engine": "Engine",
+		"power": "Power",
+		"torque": "Torque",
+		"gearbox": "Gearbox",
+		"weight": "Weight",
+		"seat": "Seat height",
+		"ground": "Ground clearance",
+		"fuelCap": "Fuel capacity",
+		"fuelConsump": "Fuel Consumption"
+	},
+
+	"list": {
+		"nothingFound": "Sorry, nothing corresponds to chosen options - please, try to change them"
+	}
+}
