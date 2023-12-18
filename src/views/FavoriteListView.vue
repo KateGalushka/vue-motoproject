@@ -7,23 +7,25 @@
 				<div v-if="isFavoriteListEmpty" class="nothingFound">
 					{{ $t('favorites.nothing') }}
 				</div>
-				<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
-						<template #additionalButton="{ bikeId }">
-							<!-- <v-btn x-small max-width="75" max-height="50" slim prepend-icon="mdi-heart-minus" variant="text" class="text-subtitle-2" @click="removeFromFavorites(bikeId)">
-									Remove 
-							</v-btn> -->
-							<button @click="removeFromFavorites(bikeId)">
-								<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
-									heart_minus
-								</span>
-							</button>
-						</template>
-				</card-component>
+				<template v-else>
+					<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
+							<template #additionalButton="{ bikeId }">
+								<!-- <v-btn x-small max-width="75" max-height="50" slim prepend-icon="mdi-heart-minus" variant="text" class="text-subtitle-2" @click="removeFromFavorites(bikeId)">
+										Remove 
+								</v-btn> -->
+								<button @click="removeFromFavorites(bikeId)">
+									<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
+										heart_minus
+									</span>
+								</button>
+							</template>
+					</card-component>
+
+				</template>
 
 				<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back') }}</router-link>
 			</div>
-			
-
+		
 		</div>
 	</main-masterpage>
 </template>
@@ -36,17 +38,12 @@ import CardComponent from '@/components/MotorcyclesGuide/CardComponent.vue';
 
 export default {
 	name: 'FavoriteListView',
-	data() {
-		return {
-			favoriteBikes: []
-			
-		}
-	},
+	
 	components: {
 		MainMasterpage, CardComponent
 	},
 	computed: {
-		...mapGetters('moto', ['getFavoriteList', 'getFavoriteListCompleted']),
+		...mapGetters('favorites', ['getFavoriteList', 'getFavoriteListCompleted']),
 
 		isFavoriteListEmpty() {
 			return !this.getFavoriteList.length;
@@ -54,7 +51,7 @@ export default {
 
 	},
 	methods: {
-		...mapActions('moto', ['removeFromFavorites']),
+		...mapActions('favorites', ['removeFromFavorites']),
 
 	// 	completeFavoritesList() {
 	// 		console.log('getFavorites', this.getFavoriteList)

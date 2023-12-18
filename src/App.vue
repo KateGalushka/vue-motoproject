@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { moto } from './store/data/moto';
 
 export default {
 	components: {
@@ -18,7 +20,11 @@ export default {
 				self.$i18n.locale = this.localStorage.getItem('lastLocale');
 				self.$router.go()
 			}
-		})
+		});
+		this.loadMotorcyclesList(moto);
+	},
+	methods: {
+		...mapActions('moto', ['loadMotorcyclesList']),
 	},
 }
 

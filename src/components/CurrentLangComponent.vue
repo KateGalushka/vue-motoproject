@@ -12,7 +12,7 @@
 			@click="toggleUkr()">
 			Ua
 		</span>
-		<span class="currentLang">{{ $t('language.current') }}: {{ currentLanguage }}</span>
+		<!-- <span class="currentLang">{{ $t('language.current') }}: {{ currentLanguage }}</span> -->
 
 	</div>
 </template>
@@ -52,30 +52,32 @@
 .english, .ukr {
 	display: inline-block;
 	position: relative;
-	width: 50px;
+	width: 4rem;
 	// border: 1px solid #000;
 	padding: 0.5rem .5rem;
-	margin: 0.5rem;
+	margin: 0.5em;
 	cursor: pointer;
 	text-align: right;
 	&.active{
-		border: 2px dotted red;
+		outline: 2px dotted var(--main-color2);
 
 	}
 }
 .english::before{
 	content: url('../assets/en.svg');
 	position: absolute;
-	top: 3px;
-	left: 3px;
-	width: 35px;
+	width: 2rem;
+	top: 50%;
+	left: 2px;
+	transform: translateY(-50%);
 }
 .ukr::before{
 	content: url('../assets/ua.svg');
 	position: absolute;
-	top: 3px;
+	width: 2rem;
+	top: 50%;
 	left: 2px;
-	width: 35px;
+	transform: translateY(-50%);
 }
 .currentLang{
 	font-size: 0.75rem;

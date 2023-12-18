@@ -16,7 +16,7 @@
 		</div>
 		<div class="card__buttons">
 			<button class="button button-details" @click="goToDetails(motorcycle.id)">{{ $t('card.details') }}</button>
-			<slot name="additionalButton" :bikeId="motorcycle.id"></slot>
+			<slot name="additionalButton" :bike-id="motorcycle.id"></slot>
 
 		</div>
 	</div>
@@ -60,8 +60,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	&:hover {
-		// box-shadow: 3px -3px 5px var(--main-color2);
-		box-shadow: rgba(0, 190, 216, 0.8) 3px -3px 10px;;
+		outline: 4px solid var(--main-color2);
 	}
 	h3{
 		text-align: center;
@@ -116,7 +115,7 @@
 	justify-content: space-evenly;
 }
 .button-details{
-	padding: .5em 2em;
+	padding: .5em 1.5em;
 	border-radius: 10px;
 	display: block;
 	// margin: 0 auto;

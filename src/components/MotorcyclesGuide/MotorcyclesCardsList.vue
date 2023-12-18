@@ -11,7 +11,8 @@
 		>
 			<template #additionalButton="{bikeId}">
 				<button @click="toggleIsFavorite(bikeId)">
-					<span class="material-symbols-outlined tooltip" 
+					<span 
+						class="material-symbols-outlined tooltip" 
 						:class="{addedToFavorites: isAdded(bikeId)}" 
 						:data-tooltip="$t('card.tooltip1')">
 						favorite
@@ -41,7 +42,8 @@ export default {
 	},
 
 	computed: {
-		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList', 'getFavoriteList']),
+		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList', ]),
+		...mapGetters('favorites', ['getFavoriteList']),
 
 		showNothingFound() {
 			return !this.getFilteredList.length;
@@ -50,13 +52,12 @@ export default {
 		
 	},
 	methods: {
-		...mapActions('moto', ['toggleIsFavorite']),
+		...mapActions('favorites', ['toggleIsFavorite']),
 
 		isAdded(bikeId){
 			return this.getFavoriteList.some(id => id == bikeId);
 		}
-
-		},
+	},
 }
 </script>
 

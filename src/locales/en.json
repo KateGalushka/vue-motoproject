@@ -15,7 +15,8 @@
 
 	"button":{
 		"back": "Back to catalogue",
-		"addToFav": "Add to favorites"
+		"addToFav": "Add to favorites",
+		"removeFromFav": "Remove from favorites"
 	},
 
 	"search": {

@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import moto from "./modules/moto";
+import favorites from "./modules/favorites";
 
 export default createStore({
   state: {
@@ -18,6 +19,7 @@ export default createStore({
 	
   },
   modules: {
-	moto
+	moto,
+	favorites
   },
 });

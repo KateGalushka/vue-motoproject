@@ -9,7 +9,7 @@ export default({
 		typesList: [],
 		filterObj: {},
 		checkedTypesArray: [],
-		favoriteList: [22,1]
+		
 
 	},
 	getters: {
@@ -66,12 +66,14 @@ export default({
 			}
 
 		},
-		getFavoriteList: ({ favoriteList }) => favoriteList,
-		getFavoriteListCompleted: (state, getters) => {
-			let favorites = [];
-			state.favoriteList.forEach(id => favorites.push(getters.getMotorcycleById(id)));
-			return favorites;
-		},
+		// getFavoriteList: ({ favoriteList }) => favoriteList,
+		// getFavoriteListCompleted: (state, getters) => {
+		// 	if (state.favoriteList.length) {
+		// 		let favorites = [];
+		// 		state.favoriteList.forEach(id => favorites.push(getters.getMotorcycleById(id)));
+		// 		return favorites;
+		// 	} else return []
+		// },
 
 
 	},
@@ -85,13 +87,13 @@ export default({
 		updateCheckedTypesArray(state, typesArr) {
 			state.checkedTypesArray = typesArr;
 		},
-		addToFavorites(state, motorcycleId) {
-			state.favoriteList.push(motorcycleId);
-		},
-		removeFromFavorites(state, motorcycleId){
-			state.favoriteList = state.favoriteList.filter(id => id !== motorcycleId);
-			console.log('after remove ', state.favoriteList)
-		}
+		// addToFavorites(state, motorcycleId) {
+		// 	state.favoriteList.push(motorcycleId);
+		// },
+		// removeFromFavorites(state, motorcycleId){
+		// 	state.favoriteList = state.favoriteList.filter(id => id !== motorcycleId);
+		// 	console.log('after remove ', state.favoriteList)
+		// }
 
 		//   filterList(state, filterData){
 		// 	  let {brand, model, engineFrom, engineTo, priceMin, priceMax, filterArr } = filterData;
@@ -133,17 +135,17 @@ export default({
 			commit('updateCheckedTypesArray', typesArr);
 			console.log('typesArr ', typesArr)
 		},
-		toggleIsFavorite({ commit, dispatch, getters }, motorcycleId) {
-			const isIncludedInFavorList = getters.getFavoriteList.find(id => id == motorcycleId);
-			if (!isIncludedInFavorList) {
-				commit('addToFavorites', motorcycleId)
-			} else {
-				dispatch('removeFromFavorites', motorcycleId)
-			}
-		},
-		removeFromFavorites({ commit }, motorcycleId){
-			commit('removeFromFavorites', motorcycleId)
-		}
+		// toggleIsFavorite({ commit, dispatch, getters }, motorcycleId) {
+		// 	const isIncludedInFavorList = getters.getFavoriteList.find(id => id == motorcycleId);
+		// 	if (!isIncludedInFavorList) {
+		// 		commit('addToFavorites', motorcycleId)
+		// 	} else {
+		// 		dispatch('removeFromFavorites', motorcycleId)
+		// 	}
+		// },
+		// removeFromFavorites({ commit }, motorcycleId){
+		// 	commit('removeFromFavorites', motorcycleId)
+		// }
 
 		//   	onFilter({ commit }, filterData){
 		// 		console.log('filterData:', filterData)

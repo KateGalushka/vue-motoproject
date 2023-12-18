@@ -2,10 +2,10 @@
 	<header class="wrapper navbar">
 		<img class="logo-img" src="../assets/images/logoMain2.svg" alt="logo-main">
 		<nav>
-			<router-link to="/">{{ $t('nav.home') }}</router-link> |
-			<router-link :to="{ name: 'guide' }">{{ $t('nav.guide') }}</router-link> |
-			<router-link :to="{ name: 'favorites' }">{{ $t('nav.favorites') }}</router-link> |
-			<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> |
+			<router-link to="/">{{ $t('nav.home') }}</router-link> 
+			<router-link :to="{ name: 'guide' }">{{ $t('nav.guide') }}</router-link> 
+			<router-link :to="{ name: 'favorites' }">{{ $t('nav.favorites') }}</router-link> 
+			<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> 
 		</nav>
 		<current-lang-component/>
 	</header>
@@ -36,10 +36,13 @@ export default {
 a {
 	font-weight: bold;
 	transition: all .3s ease-in;
+	margin: 0 1em;
 	&:hover{
 		color: var(--main-color2);
+		border-bottom: 2px solid var(--main-color2);
 	}
 	&.router-link-exact-active	{
 		color: var(--main-color2);
+		border-bottom: 2px solid var(--main-color2);
 	}
 }</style>

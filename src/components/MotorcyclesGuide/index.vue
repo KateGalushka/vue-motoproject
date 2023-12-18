@@ -8,8 +8,8 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
-	import { moto } from '../../store/data/moto';
+	// import { mapActions } from 'vuex';
+	
 	import MotorcyclesFilters from './MotorcyclesFilters.vue';
 	import MotorcyclesCardsList from './MotorcyclesCardsList.vue'
 
@@ -20,12 +20,12 @@
 			MotorcyclesFilters, MotorcyclesCardsList
 		},
 
-		created() {
-				this.loadMotorcyclesList(moto);
-		},
-		methods: {
-			...mapActions('moto', ['loadMotorcyclesList']),
-		},
+		// created() {
+		// 		this.loadMotorcyclesList(moto);
+		// },
+		// methods: {
+		// 	...mapActions('moto', ['loadMotorcyclesList']),
+		// },
 	}
 </script>
 
