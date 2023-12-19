@@ -249,7 +249,7 @@ export default {
 	border-radius: 8px;
 }
 
-@media (max-width:940px) {
+@media (max-width:992px) {
 	.filter-container {
 		grid-template-columns: 1fr 1fr;
 		padding-right: 1rem;
@@ -287,7 +287,7 @@ export default {
 }
 
 
-@media (max-width:560px){
+@media (max-width:600px){
 	.filter-container {
 		grid-template-columns: minmax(90%, 1fr);
 	}

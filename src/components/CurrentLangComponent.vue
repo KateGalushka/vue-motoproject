@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="langToggle">
 		<span
 			 class="english"
 			:class="{'active': isEngToggled}"
@@ -49,15 +49,20 @@
 </script>
 
 <style lang="scss" scoped>
+.langToggle{
+	display: flex;
+	flex-wrap: nowrap;
+}
 .english, .ukr {
 	display: inline-block;
 	position: relative;
-	width: 4rem;
+	width: 60px;
 	// border: 1px solid #000;
-	padding: 0.5rem .5rem;
-	margin: 0.5em;
+	padding: 0.5rem 0;
+	margin-left: .5em;
 	cursor: pointer;
 	text-align: right;
+	font-size: 0.75rem;
 	&.active{
 		outline: 2px dotted var(--main-color2);
 
@@ -68,7 +73,7 @@
 	position: absolute;
 	width: 2rem;
 	top: 50%;
-	left: 2px;
+	left: 6px;
 	transform: translateY(-50%);
 }
 .ukr::before{
@@ -76,11 +81,18 @@
 	position: absolute;
 	width: 2rem;
 	top: 50%;
-	left: 2px;
+	left: 7px;
 	transform: translateY(-50%);
 }
-.currentLang{
-	font-size: 0.75rem;
-}
+
+
+// @media (max-width:992px){
+// 	.langToggle{
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 0.5rem;
+// 	}
+
+// }
 
 </style>

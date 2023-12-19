@@ -37,11 +37,10 @@ h1, h2, h3, h4 {
 .wrapper{
 	max-width: 80em;
 	min-height: 100%;
-	// padding: 2.5rem;
 	margin: 0 auto .5em;
 	border-radius: 10px;
 }
-.navbar, .filters{
+.navbar, .filters, .gallery{
 	background-color: var(--bg-color1);
 	color: var(--main-color1);
 }

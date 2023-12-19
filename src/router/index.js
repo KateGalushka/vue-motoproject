@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import store from '@/store'
 import HomeView from '../views/HomeView.vue'
 
 
@@ -7,6 +8,9 @@ const routes = [
    	path: "/",
    	name: "home",
     	component: HomeView,
+		meta: {
+			requireAuth: false,
+		},
   },
   {
 		path: "/guide",
@@ -43,5 +47,20 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+router.beforeEach(async (to) => {
+	if (to.meta?.requireAuth) {
+		let isAuthenticated = store.state.auth.user;
+
+		if (!isAuthenticated) {
+			isAuthenticated = await store.dispatch('auth/loginWithCredential')
+		}
+
+		if (!isAuthenticated)
+			return {
+				name: 'login'
+			}
+	}
+})
 
 export default router;

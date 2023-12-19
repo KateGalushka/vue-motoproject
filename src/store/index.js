@@ -1,6 +1,8 @@
 import { createStore } from "vuex";
 import moto from "./modules/moto";
 import favorites from "./modules/favorites";
+import auth from "./modules/auth";
+import users from "./modules/users";
 
 export default createStore({
   state: {
@@ -20,6 +22,8 @@ export default createStore({
   },
   modules: {
 	moto,
-	favorites
+	favorites,
+	auth,
+	users
   },
 });

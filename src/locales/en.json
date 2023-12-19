@@ -10,7 +10,10 @@
 		"home": "Home",
 		"guide": "Motorcycles Guide",
 		"favorites": "Your Favorites",
-		"contacts": "Contacts"
+		"contacts": "Contacts",
+		"gallery": "Gallery",
+		"login": "Login",
+		"logout": "Logout"
 	},
 
 	"button":{

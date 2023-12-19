@@ -18,6 +18,10 @@
 			<section class="about">
 
 			</section>
+			<section class="gallery">
+				<gallery-component/>
+
+			</section>
 		</main>
 		
 
@@ -26,12 +30,13 @@
 </template>
 
 <script>
-import MainMasterpage from '../masterpages/MainMasterpage.vue'
+import MainMasterpage from '../masterpages/MainMasterpage.vue';
+import GalleryComponent from '@/components/GalleryComponent.vue';
 
 
 export default {
 	components: {
-		MainMasterpage,
+		MainMasterpage, GalleryComponent
 	},
 	data() {
 		return {
@@ -52,6 +57,7 @@ export default {
 	background-size: cover;
 	color: var(--main-color1);
 	border-radius: 10px;
+	margin-bottom: .5em;
 }
 .home__descr{
 	h1{
