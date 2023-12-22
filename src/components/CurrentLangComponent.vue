@@ -56,7 +56,7 @@
 .english, .ukr {
 	display: inline-block;
 	position: relative;
-	width: 60px;
+	width: 3.25rem;
 	// border: 1px solid #000;
 	padding: 0.5rem 0;
 	margin-left: .5em;
@@ -69,19 +69,19 @@
 	}
 }
 .english::before{
-	content: url('../assets/en.svg');
+	content: url('../assets/images/en.svg');
 	position: absolute;
-	width: 2rem;
+	width: 1.75rem;
 	top: 50%;
 	left: 6px;
 	transform: translateY(-50%);
 }
 .ukr::before{
-	content: url('../assets/ua.svg');
+	content: url('../assets/images/ua.svg');
 	position: absolute;
-	width: 2rem;
+	width: 1.75rem;
 	top: 50%;
-	left: 7px;
+	left: 5px;
 	transform: translateY(-50%);
 }
 

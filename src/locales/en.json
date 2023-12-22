@@ -1,8 +1,8 @@
 {
 	"homepage": {
-		"mainTitle": "Two wheels - one passion",
-		"subTitle1": "Almost everything you want to know",
-		"subTitle2": "about motorcycles"
+		"mainTitle1": "Two wheels - ",
+		"mainTitle2": "one passion",
+		"mainText": "A lifestyle dedicated to the art of motorcycles. Dive into the world of bikes, maintenance, raw power, and share your opinions on specific models. Whether you're a seasoned rider or a novice, discover a community that embraces the essence of the open road and offers valuable advice for every situation."
 
 	},
 
@@ -19,7 +19,8 @@
 	"button":{
 		"back": "Back to catalogue",
 		"addToFav": "Add to favorites",
-		"removeFromFav": "Remove from favorites"
+		"removeFromFav": "Remove from favorites",
+		"backHome": "Back to Home Page"
 	},
 
 	"search": {
@@ -79,5 +80,8 @@
 
 	"list": {
 		"nothingFound": "Sorry, nothing corresponds to chosen options - please, try to change them"
+	},
+	"gallery": {
+		"title": "Facts & Photos"
 	}
 }

@@ -8,7 +8,7 @@
 		</button>
 	</div>
 	<div v-else>
-		<button class="button login-btn" @click="loginWithGoogle">
+		<button class="button login-btn" @click="onLogin">
 			<!-- <span class="material-symbols-outlined">login</span> -->
 				<span>{{ $t('nav.login') }}</span>
 		</button>
@@ -29,6 +29,13 @@ import { mapGetters, mapActions } from 'vuex'
 	},
 	methods: {
 		...mapActions('auth', ['loginWithGoogle', 'logout']),
+
+		onLogin() {
+			this.$router.push({
+				name: 'login'
+			})
+
+		},
 
 		onLogout() {
 			this.logout()

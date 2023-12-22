@@ -1,26 +1,26 @@
 export const images = [
 	{
-		id:1,
+		id: 'image1',
 		src: require('@/assets/images/gallery/g1-570x570.jpg')
 	},
 	{
-		id:2,
+		id: 'image2',
 		src: require('@/assets/images/gallery/g2-570x570.jpg')
 	},
 	{
-		id:3,
+		id: 'image3',
 		src: require('@/assets/images/gallery/g3-570x570.jpg')
 	},
 	{
-		id:4,
+		id: 'image4',
 		src: require('@/assets/images/gallery/g4-570x570.jpg')
 	},
 	{
-		id:5,
+		id: 'image5',
 		src: require('@/assets/images/gallery/g5-570x570.jpg')
 	},
 	{
-		id:6,
+		id: 'image6',
 		src: require('@/assets/images/gallery/g6-570x570.jpg')
 	},
 ]

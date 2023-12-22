@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root{
 	--bg-color1: rgb(37, 44, 51);
@@ -8,10 +8,9 @@
 	--main-color2: rgb(0, 190, 216);
 	--bg-img1: url('../../assets/images/bg-many_motos.jpg');
 	--bg-img2: url('../../assets/images/Types-of-Motorcycles.jpg');
-	--bg-img-main: url('../../assets/images/versys-mountains.jpg');
 	--bg-grad-main: url('../../assets/images/Rectangle hero.png');
 	--font-first: 'Inter', sans-serif;
-	--font-second: 'Poppins', sans-serif;
+	--font-second: 'Merriweather', serif;
 	--v-medium-emphasis-opacity: 1 !important;
 
 
@@ -40,7 +39,7 @@ h1, h2, h3, h4 {
 	margin: 0 auto .5em;
 	border-radius: 10px;
 }
-.navbar, .filters, .gallery{
+.navbar, .main, .filters, .gallery, .login{
 	background-color: var(--bg-color1);
 	color: var(--main-color1);
 }
