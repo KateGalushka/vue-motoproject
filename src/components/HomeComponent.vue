@@ -18,7 +18,7 @@
 			<swiper 
 				:slides-per-view="1"
 				:space-between="20"
-				speed="800"
+				:speed="800"
 				:modules="modules"
 				:pagination="{
 					clickable: true,
@@ -85,7 +85,7 @@ export default {
 	position: relative;
 	display: flex;
 	align-items: center;
-	padding: 2rem;
+	padding: 1.75rem;
 	// background: var(--bg-img-main) right -7em center no-repeat, var(--bg-grad-main) center center no-repeat;
 	// background-size: cover;
 	color: #fff;
@@ -98,7 +98,7 @@ export default {
 	text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgba(81,67,21,0.8), 0px 4px 7px rgba(81,67,21,0.8);
 	margin-left: 1em;
 	h1, h2{
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 2px;

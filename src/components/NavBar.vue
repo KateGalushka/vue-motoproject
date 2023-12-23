@@ -112,6 +112,7 @@ a {
 	display: inline-flex;
 	gap: 1rem;
 	line-height: 1.25;
+	text-align: center;
 	// margin-right: 2em;
 }
 .navbar__user {

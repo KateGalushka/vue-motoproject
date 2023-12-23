@@ -36,10 +36,10 @@ h1, h2, h3, h4 {
 .wrapper{
 	max-width: 80em;
 	min-height: 100%;
-	margin: 0 auto .5em;
+	margin: 0 auto .25em;
 	border-radius: 10px;
 }
-.navbar, .main, .filters, .gallery, .login{
+.navbar, .main, .filters, .gallery, .login, .footer{
 	background-color: var(--bg-color1);
 	color: var(--main-color1);
 }

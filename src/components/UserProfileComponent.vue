@@ -28,7 +28,7 @@ import { mapGetters, mapActions } from 'vuex'
 		}
 	},
 	methods: {
-		...mapActions('auth', ['loginWithGoogle', 'logout']),
+		...mapActions('auth', ['logout']),
 
 		onLogin() {
 			this.$router.push({

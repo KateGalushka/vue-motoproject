@@ -20,6 +20,9 @@
 		"back": "Back to catalogue",
 		"addToFav": "Add to favorites",
 		"removeFromFav": "Remove from favorites",
+		"login": "Login",
+		"register": "Register",
+		"withGoogle": "Login with Google",
 		"backHome": "Back to Home Page"
 	},
 
@@ -58,6 +61,7 @@
 	},
 	
 	"contacts": {
+		"title": "Contacts",
 		"email": "by email",
 		"phone": "by phone",
 		"post": "by post",
@@ -83,5 +87,10 @@
 	},
 	"gallery": {
 		"title": "Facts & Photos"
+	},
+	"login": {
+		"title": "Login or Register",
+		"email": "Email",
+		"password": "Password"
 	}
 }
