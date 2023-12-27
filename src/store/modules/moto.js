@@ -1,4 +1,4 @@
-import { doesBikeMatchOneFilter, doesBikeMatchNumberFilter, doesBikeMatchArrayFilter } from '../helpers.js'
+import { doesBikeMatchOneFilter, doesBikeMatchNumberFilter, doesBikeMatchArrayFilter } from '../helpers/filterHelpers.js'
 
 export default({
 	namespaced: true,
@@ -9,8 +9,6 @@ export default({
 		typesList: [],
 		filterObj: {},
 		checkedTypesArray: [],
-		
-
 	},
 	getters: {
 		getMotorcyclesList: ({ motorcyclesList }) => motorcyclesList,
@@ -66,16 +64,7 @@ export default({
 			}
 
 		},
-		// getFavoriteList: ({ favoriteList }) => favoriteList,
-		// getFavoriteListCompleted: (state, getters) => {
-		// 	if (state.favoriteList.length) {
-		// 		let favorites = [];
-		// 		state.favoriteList.forEach(id => favorites.push(getters.getMotorcycleById(id)));
-		// 		return favorites;
-		// 	} else return []
-		// },
-
-
+	
 	},
 	mutations: {
 		setMotorcyclesList(state, data) {
@@ -87,41 +76,7 @@ export default({
 		updateCheckedTypesArray(state, typesArr) {
 			state.checkedTypesArray = typesArr;
 		},
-		// addToFavorites(state, motorcycleId) {
-		// 	state.favoriteList.push(motorcycleId);
-		// },
-		// removeFromFavorites(state, motorcycleId){
-		// 	state.favoriteList = state.favoriteList.filter(id => id !== motorcycleId);
-		// 	console.log('after remove ', state.favoriteList)
-		// }
-
-		//   filterList(state, filterData){
-		// 	  let {brand, model, engineFrom, engineTo, priceMin, priceMax, filterArr } = filterData;
-		// 	  console.log('brand', brand)
-		// 	  console.log('model', model)
-		// 	  console.log('engine', engineTo)
-		// 	  console.log('engine', engineFrom)
-		// 	  console.log('priceMin', priceMin)
-		// 	  console.log('priceMax', priceMax)
-		// 	  console.log('filterArr:', filterArr )
-		// 	  if (!brand && !model && !engineFrom && !engineTo && !priceMin && !priceMax && !filterArr.length) {
-		// 		return 
-		// 	  }
-
-		// 	  return state.filteredList = state.motorcyclesList.filter(bike => {
-		// 		  const brandMatch = doesBikeMatchOneFilter(bike, 'make', brand);
-		// 		  const modelMatch = doesBikeMatchOneFilter(bike, 'model', model);
-		// 		  const engineMatch = doesBikeMatchNumberFilter(bike, 'displacement', engineFrom, engineTo);
-		// 		  const priceMatch = doesBikeMatchNumberFilter(bike, 'price', priceMin, priceMax);
-		// 		  const typesMatch = doesBikeMatchArrayFilter(bike, 'type', filterArr);
-		// 		  return brandMatch && modelMatch && engineMatch && priceMatch && typesMatch
-		// 	  })
-		//   },
-		//   updateListAfterClearFilters(state){
-		// 	state.filteredList.length = 0;
-		// 	  console.log('state.filteredList after clear: ', state.filteredList);
-
-		//   }
+		
 	},
 	actions: {
 		loadMotorcyclesList({ commit }, data) {
@@ -135,28 +90,7 @@ export default({
 			commit('updateCheckedTypesArray', typesArr);
 			console.log('typesArr ', typesArr)
 		},
-		// toggleIsFavorite({ commit, dispatch, getters }, motorcycleId) {
-		// 	const isIncludedInFavorList = getters.getFavoriteList.find(id => id == motorcycleId);
-		// 	if (!isIncludedInFavorList) {
-		// 		commit('addToFavorites', motorcycleId)
-		// 	} else {
-		// 		dispatch('removeFromFavorites', motorcycleId)
-		// 	}
-		// },
-		// removeFromFavorites({ commit }, motorcycleId){
-		// 	commit('removeFromFavorites', motorcycleId)
-		// }
-
-		//   	onFilter({ commit }, filterData){
-		// 		console.log('filterData:', filterData)
-		// 		commit('filterList', filterData)
-		//   },
-		//   updateListAfterClearFilters({commit}){
-		// 	  commit('updateListAfterClearFilters')
-		//   }
+		
 	},
-
-
-
 
 })

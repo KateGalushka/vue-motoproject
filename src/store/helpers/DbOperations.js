@@ -1,5 +1,7 @@
 import firebaseDB from '@/firebase-config';
-import { doc, collection, getDocs, getDoc, addDoc, deleteDoc, updateDoc, query, where } from 'firebase/firestore/lite';
+import {
+	doc, collection, getDocs, getDoc, addDoc, arrayUnion,
+	arrayRemove, deleteDoc, setDoc, updateDoc, query, where } from 'firebase/firestore/lite';
 
 class DbOperations {
 	constructor(collectionTitle) {
@@ -30,6 +32,57 @@ class DbOperations {
 	addItem(item) {
 		return new Promise((resolve, reject) => {
 			addDoc(this.dbCollection, item)
+				.then(() => {
+					resolve(true)
+				})
+				.catch((error) => {
+					reject(error)
+				})
+		})
+	};
+	addItemWithCustomId(id, item) {
+		return new Promise((resolve, reject) => {
+			setDoc(doc(this.dbCollection, id), item)
+				.then(() => {
+					resolve(true)
+				})
+				.catch((error) => {
+					reject(error)
+				})
+		})
+	};
+	addItemToArray(id, arrayProperty, value) {
+		return new Promise((resolve, reject) => {
+			this.getItemById(id).then((item) => {
+				if (item.favoriteBikes) {
+					updateDoc(doc(this.dbCollection, id), {
+						[arrayProperty]: arrayUnion(value)
+					})
+						.then(() => {
+							resolve(true)
+						})
+						.catch((error) => {
+							reject(error)
+						})
+				} else {
+					this.addItemWithCustomId(id, {
+						[arrayProperty]: [value]
+					})
+						.then(() => {
+							resolve(true)
+						})
+						.catch((error) => {
+							reject(error)
+						})
+				}
+			})
+		})
+	};
+	removeItemFromArray(id, arrayProperty, value) {
+		return new Promise((resolve, reject) => {
+			updateDoc(doc(this.dbCollection, id), {
+				[arrayProperty]: arrayRemove(value)
+			})
 				.then(() => {
 					resolve(true)
 				})

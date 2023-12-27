@@ -40,8 +40,20 @@
 	 			 	</v-form>
 				</div>
 				<div class="login__buttons">
-						<button class="button btn-login">{{ $t('button.login') }}</button>
-						<button class="button btn-login">{{ $t('button.register') }}</button>
+						<button 
+							@click="loginWithEmailAndPassword(user)"
+	      				:disabled="!isDataValid"
+							class="button btn-login"
+						>
+							{{ $t('button.login') }}
+						</button>
+						<button 
+							@click="registerWithEmailAndPassword(user)"
+	      				:disabled="!isDataValid"
+							class="button btn-login"
+						>
+							{{ $t('button.register') }}
+						</button>
 				</div>
 				<div class="login__buttons">
 						<button class="button btn-login-google" @click="onLoginWithGoogle">
@@ -58,7 +70,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 
 	export default {
@@ -69,7 +81,10 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 			return {
 				valid: false,
 				show: false,
-				user: {},
+				user: {
+					email: null,
+					password: null
+				},
 			
 				emailRules: [
 					value => {
@@ -96,25 +111,79 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 		},
 
 		computed: {
+			...mapGetters('auth', ['getIntendedRoute']),
+
+			isDataValid() {
+				return this.user.email && this.user.password
+			},
+
 			isEng() {
-				return this.$i18n.locale == 'en'? true :false;
+				return this.$i18n.locale == 'en'? true :false
+			},
+			errorMsg1() {
+				return this.$i18n.locale == 'en' ? "User is already registered - please, login" : "Користувач вже зареєстрований - будь ласка, увійдіть"
+			},
+			errorMsg2() {
+				return this.$i18n.locale == 'en'? "User not found - please, register (sign up)" : "Користувач не знайдений - будь ласка, зареєструйтесь"
 			}
 		},
 		methods: {
-			...mapActions('auth', ['loginWithGoogle']),
+			...mapActions('auth', ['loginWithGoogle', 'signUpWithWithEmailAndPassword', 'signInWithWithEmailAndPassword']),
 
 			async onLoginWithGoogle() {
 				try {
 					await this.loginWithGoogle();
-						this.$router.push({
-							name: 'home'
-						})
-				}
+					// if (this.getIntendedRoute) {
+					// 	this.$router.push({
+					// 		name: this.getIntendedRoute
+					// 	})
+					// } else {
+						this.$router.go(-1)
+
+					}
+				
 				catch (error) {
 					alert(error.message);
 				}
+			},
+			async registerWithEmailAndPassword(user) {
+				const {email, password} = user
+				console.log('email: ', email)
+				console.log('passw: ', password)
+				try {
+					await this.signUpWithWithEmailAndPassword({email, password});
+					this.$router.push({
+						name: 'home'
+					})
+				}
+				catch (error) {
+					// console.log(error);
+					if (error =="Firebase: Error (auth/email-already-in-use).") {
+						alert(this.errorMsg1);
+					}
+					
+				}
+			},
+
+			async loginWithEmailAndPassword(user) {
+				const { email, password } = user
+				console.log('email: ', email)
+				console.log('passw: ', password)
+				try {
+					await this.signInWithWithEmailAndPassword({email, password});
+					this.$router.push({
+						name: 'home'
+					})
+				}
+				catch (error) {
+					if (error.message == "Firebase: Error (auth/invalid-credential).") {
+						alert(this.errorMsg2);
+					}
+				}
 			}
-		},
+		}
+
+		
 	}
 </script>
 
@@ -184,6 +253,9 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 .btn-login, .btn-login-google, .back {
 	padding: .75rem 2.25rem;
 	border-radius: 10px;
+	&[disabled] {
+		background-color: rgba(167, 185, 201, 0.5);
+	}
 }
 .btn-login-google {
 	background-color: rgba(211, 175, 55, 0.8);

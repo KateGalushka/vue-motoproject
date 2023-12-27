@@ -52,7 +52,8 @@
 		"details": "Details",
 		"tooltip1": "Add/remove this bike to/from favorites",
 		"tooltip2": "Remove from favorites",
-		"type": "Type"
+		"type": "Type",
+		"reviews": "Reviews"
 	},
 
 	"favorites": {
@@ -91,6 +92,7 @@
 	"login": {
 		"title": "Login or Register",
 		"email": "Email",
-		"password": "Password"
+		"password": "Password",
+		"errorMsg": "User not found - please, register (sign up)"
 	}
 }

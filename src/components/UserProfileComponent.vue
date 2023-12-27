@@ -1,7 +1,8 @@
 <template>
 	<div v-if="getUser" class="user-profile">
-		<span>{{ getUser.displayName }}</span>
+		<span>{{ getUser.displayName ?? getUser.email }}</span>
 		<img :src="imgSrc">
+		<!-- <img src="./../assets/images/user.png"> -->
 		<button class="button login-btn" @click="onLogout">
 			<span class="material-symbols-outlined">logout</span>
 				<!-- <span>{{ $t('nav.logout') }}</span> -->
@@ -23,8 +24,9 @@ import { mapGetters, mapActions } from 'vuex'
 
 		computed: {
 		...mapGetters('auth', ['getUser']),
+		
 		imgSrc(){
-			return this.getUser.photoURL? this.getUser.photoURL : '../assets/images/user.jpg'
+			return this.getUser.photoURL? this.getUser.photoURL : require('./../assets/images/user.png')
 		}
 	},
 	methods: {

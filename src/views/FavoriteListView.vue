@@ -10,9 +10,6 @@
 				<template v-else>
 					<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
 							<template #additionalButton="{ bikeId }">
-								<!-- <v-btn x-small max-width="75" max-height="50" slim prepend-icon="mdi-heart-minus" variant="text" class="text-subtitle-2" @click="removeFromFavorites(bikeId)">
-										Remove 
-								</v-btn> -->
 								<button @click="removeFromFavorites(bikeId)">
 									<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
 										heart_minus

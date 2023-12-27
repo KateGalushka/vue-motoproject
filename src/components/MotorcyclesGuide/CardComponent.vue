@@ -19,6 +19,16 @@
 			<slot name="additionalButton" :bike-id="motorcycle.id"></slot>
 
 		</div>
+		<div>
+			<router-link :to="{name: 'bike-reviews', params: {bikeId: motorcycle.id}}" class="review-link">
+				<span class="material-symbols-outlined">star</span>
+				<span class="material-symbols-outlined">star</span>
+				<span class="material-symbols-outlined">star</span>
+				<span class="material-symbols-outlined">star</span>
+				<span class="material-symbols-outlined">star</span>
+				<p>{{ $t('card.reviews') }}</p>
+			</router-link>
+		</div>
 	</div>
 </template>
 
@@ -114,11 +124,22 @@
 	display: flex;
 	justify-content: space-evenly;
 }
-.button-details{
+.button-details, .review-link{
 	padding: .5em 1.5em;
 	border-radius: 10px;
 	display: block;
 	// margin: 0 auto;
+}
+.review-link {
+	background-color: #fff;
+	color: var(--bg-color1);
+	text-align: center;
+	margin-top: 1em;
+	.material-symbols-outlined {
+		font-size: 1rem;
+
+	}
+
 }
 
 
