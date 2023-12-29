@@ -41,16 +41,16 @@
 				</div>
 				<div class="login__buttons">
 						<button 
-							@click="loginWithEmailAndPassword(user)"
-	      				:disabled="!isDataValid"
+							:disabled="!isDataValid"
 							class="button btn-login"
+							@click="loginWithEmailAndPassword(user)"
 						>
 							{{ $t('button.login') }}
 						</button>
 						<button 
-							@click="registerWithEmailAndPassword(user)"
-	      				:disabled="!isDataValid"
+							:disabled="!isDataValid"
 							class="button btn-login"
+							@click="registerWithEmailAndPassword(user)"
 						>
 							{{ $t('button.register') }}
 						</button>

@@ -1,11 +1,11 @@
 export default ({
 	namespaced: true,
 	state: {
-		favoriteList: [2, 7]
+		favoriteList: []
 	},
 	getters:{
 		getFavoriteList: ({ favoriteList }) => favoriteList,
-		getFavoriteListCompleted: (state, getters, rootstate, rootgetters, ) => {
+		getFavoriteListCompleted: (state, getters, rootstate, rootgetters) => {
 			if (state.favoriteList.length) {
 				let favorites = [];
 				state.favoriteList.forEach(id => favorites.push(rootgetters['moto/getMotorcycleById'](id)));
@@ -14,6 +14,9 @@ export default ({
 		},
 	},
 	mutations:{
+		setFavoriteList(state, list) {
+			state.favoriteList = list;
+		},
 		addToFavorites(state, motorcycleId) {
 			state.favoriteList.push(motorcycleId);
 		},
@@ -23,6 +26,9 @@ export default ({
 		}
 	},
 	actions: {
+		loadFavoriteList({ commit }, list){
+			commit('setFavoriteList', list);
+		},
 		toggleIsFavorite({ commit, dispatch, getters }, motorcycleId) {
 			const isIncludedInFavorList = getters.getFavoriteList.find(id => id == motorcycleId);
 			if (!isIncludedInFavorList) {

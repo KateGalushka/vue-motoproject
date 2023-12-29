@@ -5,7 +5,7 @@
 		</div>
 		
 		<card-component
-			v-for="moto in getFilteredList"
+			v-for="moto in displayedCards"
 			:key="moto.id"
 			:motorcycle="moto"
 		>
@@ -18,26 +18,32 @@
 						favorite
 					</span>
 				</button>
-
 			</template>
 		</card-component>
-
-				
 	</div>
+		<pagination-component
+			v-model="currentPage"
+			:total-items="totalItems"
+			:items-per-page="itemsPerPage"
+			:max-pages-shown="pagesShown"
+			@page-clicked="handlePageChange"
+		/> 
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import CardComponent from './CardComponent.vue';
+import PaginationComponent from '../PaginationComponent.vue';
 
 export default {
 	name: 'MotorcyclesCardsList',
 	components: {
-		CardComponent
+		CardComponent, PaginationComponent
 	},
 	data() {
 		return {
-			
+			currentPage: 1,
+			itemsPerPage: 8,
 		}
 	},
 
@@ -48,15 +54,35 @@ export default {
 		showNothingFound() {
 			return !this.getFilteredList.length;
 		},
-		
+		totalItems() {
+			return this.getFilteredList.length;
+		},
+		pagesShown(){
+			return Math.ceil(this.getFilteredList.length / this.itemsPerPage) || 1;
+		},
+		displayedCards(){
+			const startIndex = (this.currentPage * this.itemsPerPage) -this.itemsPerPage;
+			const endIndex = startIndex + this.itemsPerPage;
+			// console.log(this.getFilteredList.slice(startIndex, endIndex))
+			return this.getFilteredList.slice(startIndex, endIndex); 
+		},
 		
 	},
+	async created() {
+		await this.fetchImagesUrlsFromStorage();
+	},
+
 	methods: {
 		...mapActions('favorites', ['toggleIsFavorite']),
+		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 
 		isAdded(bikeId){
 			return this.getFavoriteList.some(id => id == bikeId);
+		},
+		handlePageChange(page) {
+			this.currentPage = page;
 		}
+		
 	},
 }
 </script>

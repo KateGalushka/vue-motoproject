@@ -37,7 +37,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 32000,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja H2 SX.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja H2 SX.webp')
 	},
 	{
 		id:2,
@@ -75,12 +75,12 @@ export const moto = [
 		"fuel_capacity": "8.00 litres",
 		"starter": "Electric & kick",
 		price: 9400,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki KLX450R.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki KLX450R.webp')
 	},
 	{
 		id:3,
 		"make": "Kawasaki",
-		"model": "Ninja 650 ",
+		"model": "Ninja 650",
 		"year": "2022",
 		"type": "sport",
 		"displacement": "649.0 ccm",
@@ -117,7 +117,7 @@ export const moto = [
 		"fuel_capacity": "15.14 litres",
 		"starter": "Electric",
 		price: 9500,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja 650.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja 650.webp')
 	},
 	{
 		id:4,
@@ -161,7 +161,7 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 17000,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 1000 SE.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 1000 SE.webp')
 	},
 	{
 		id:5,
@@ -202,12 +202,12 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 10400,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 650.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 650.webp')
 	},
 	{
 		id:6,
 		"make": "Kawasaki",
-		"model": "Vulcan S ",
+		"model": "Vulcan S",
 		"year": "2022",
 		"type": "cruiser",
 		"displacement": "649.0 ccm",
@@ -243,7 +243,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9500,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Vulcan S.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Vulcan S.webp')
 	},
 	{
 		id:7,
@@ -286,7 +286,7 @@ export const moto = [
 		"fuel_capacity": "15.14 litres",
 		"starter": "Electric",
 		price: 8700,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki Z650.webp')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Z650.webp')
 	},
 	{
 		id:8,
@@ -330,7 +330,7 @@ export const moto = [
 		"fuel_capacity": "17.03 litres",
 		"starter": "Electric",
 		price: 16200,
-		imgSrc: require('@/assets/images/motorcycles/kawasaki z900rs.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/kawasaki Z900RS.jpg')
 	},
 	{
 		id:9,
@@ -371,7 +371,7 @@ export const moto = [
 		"fuel_capacity": "17.40 litres",
 		"starter": "Electric",
 		price: 15800,
-		imgSrc: require('@/assets/images/motorcycles/triumph Street Triple RS.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Street Triple RS.webp')
 	},
 	{
 		id:10,
@@ -411,7 +411,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 17000,
-		imgSrc: require('@/assets/images/motorcycles/triumph speed twin.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Speed Twin.webp')
 	},
 	{
 		id:11,
@@ -452,7 +452,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 13900,
-		imgSrc: require('@/assets/images/motorcycles/triumph BonnevilleT100.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Bonneville T100.webp')
 	},
 	{
 		id:12,
@@ -492,7 +492,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 30000,
-		imgSrc: require('@/assets/images/motorcycles/triumph Rocket 3 R.png')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Rocket 3 R.png')
 	},
 	{
 		id: 13,
@@ -533,7 +533,7 @@ export const moto = [
 		"fuel_capacity": "15.50 litres",
 		"starter": "Electric",
 		price: 21500,
-		imgSrc: require('@/assets/images/motorcycles/triumph speed triple 1200RS.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Speed Triple 1200 RS.webp')
 	},
 	{
 		id:14,
@@ -574,7 +574,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 24000,
-		imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Pro.png')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Pro.png')
 	},
 	{
 		id:15,
@@ -613,7 +613,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 16000,
-		imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 GT.png')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 GT.png')
 	},
 	{
 		id:16,
@@ -654,7 +654,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 18900,
-		imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 Rally Pro.png')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 Rally Pro.png')
 	},
 	{
 		id:17,
@@ -694,7 +694,7 @@ export const moto = [
 		"fuel_capacity": "17.20 litres",
 		"starter": "Electric",
 		price: 11800,
-		imgSrc: require('@/assets/images/motorcycles/triumph Tiger Sport_660.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger Sport 660.webp')
 	},
 	{
 		id:18,
@@ -733,7 +733,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 10800,
-		imgSrc: require('@/assets/images/motorcycles/triumph Trident.webp')
+		// imgSrc: require('@/assets/images/motorcycles/triumph Trident 660.webp')
 	},
 	{
 		id:19,
@@ -773,7 +773,7 @@ export const moto = [
 		"wheelbase": "1520 mm (59.8 inches)",
 		"fuel_capacity": "29.90 litres",
 		"starter": "Electric",
-		imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Explorer.webp'),
+		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Explorer.webp'),
 		price: 27000
 	},
 	{
@@ -813,7 +813,7 @@ export const moto = [
 		"fuel_capacity": "15.00 litres",
 		"starter": "Electric",
 		price: 14500,
-		imgSrc: require('@/assets/images/motorcycles/aprilia RS 660.webp')
+		// imgSrc: require('@/assets/images/motorcycles/aprilia RS 660.webp')
 	},
 	{
 		id:21,
@@ -858,7 +858,7 @@ export const moto = [
 		"fuel_capacity": "18.50 litres",
 		"starter": "Electric",
 		price: 24500,
-		imgSrc: require('@/assets/images/motorcycles/aprilia RSV4.webp')
+		// imgSrc: require('@/assets/images/motorcycles/aprilia RSV4.webp')
 	},
 	{
 		id:22,
@@ -901,7 +901,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 15000,
-		imgSrc: require('@/assets/images/motorcycles/aprilia Tuareg.webp')
+		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuareg 660.webp')
 	},
 	{
 		id:23,
@@ -938,7 +938,7 @@ export const moto = [
 		"fuel_capacity": "15.00 litres",
 		"starter": "Electric",
 		price: 14000,
-		imgSrc: require('@/assets/images/motorcycles/aprilia Tuono 660.webp')
+		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuono 660.webp')
 	},
 	{
 		id:70,
@@ -982,7 +982,7 @@ export const moto = [
 		"fuel_capacity": "17.90 litres",
 		"starter": "Electric",
 		price: 24500,
-		imgSrc: require('@/assets/images/motorcycles/aprilia Tuono V4 factory.webp')
+		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuono V4 Factory.webp')
 	},
 	{
 		id:24,
@@ -1021,7 +1021,7 @@ export const moto = [
 		"fuel_capacity": "15.40 litres",
 		"starter": "Electric",
 		price: 10500,
-		imgSrc: require('@/assets/images/motorcycles/honda CB650R.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB650R.jpg')
 	},
 	{
 		id:25,
@@ -1064,7 +1064,7 @@ export const moto = [
 		"fuel_capacity": "16.20 litres",
 		"starter": "Electric",
 		price: 13000,
-		imgSrc: require('@/assets/images/motorcycles/honda CB1000R.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB1000R.jpg')
 	},
 	{
 		id:26,
@@ -1107,7 +1107,7 @@ export const moto = [
 		"fuel_capacity": "11.20 litres",
 		"starter": "Electric",
 		price: 8000,
-		imgSrc: require('@/assets/images/motorcycles/honda Rebel_500.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CMX500 Rebel.jpg')
 	},
 	{
 		id:27,
@@ -1147,7 +1147,7 @@ export const moto = [
 		"fuel_capacity": "13.60 litres",
 		"starter": "Electric",
 		price: 12000,
-		imgSrc: require('@/assets/images/motorcycles/honda cmx1100 rebel.png')
+		// imgSrc: require('@/assets/images/motorcycles/honda CMX1100 Rebel.png')
 	},
 	{
 		id:28,
@@ -1190,12 +1190,12 @@ export const moto = [
 		"fuel_capacity": "24.80 litres",
 		"starter": "Electric",
 		price: 17500,
-		imgSrc: require('@/assets/images/motorcycles/honda Africa Twin.png')
+		// imgSrc: require('@/assets/images/motorcycles/honda Africa Twin.png')
 	},
 	{
 		id:29,
 		"make": "Honda",
-		"model": "Africa Twin CRF1100L Adventure Sports",
+		"model": "CRF1100L Africa Twin Adventure Sports",
 		"year": "2022",
 		"type": "adventure",
 		"displacement": "1084.0 ccm",
@@ -1231,7 +1231,7 @@ export const moto = [
 		"fuel_capacity": "24.80 litres",
 		"starter": "Electric",
 		price: 19300,
-		imgSrc: require('@/assets/images/motorcycles/honda CRF1100L-Africa-Twin-Adventure-Sports.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda Africa Twin CRF1100L Adventure Sports.jpg')
 	},
 	{
 		id:30,
@@ -1274,7 +1274,7 @@ export const moto = [
 		"fuel_capacity": "17.50 litres",
 		"starter": "Electric",
 		price: 9200,
-		imgSrc: require('@/assets/images/motorcycles/honda CB500X.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB500X.jpg')
 	},
 	{
 		id:31,
@@ -1318,7 +1318,7 @@ export const moto = [
 		"fuel_capacity": "16.70 litres",
 		"starter": "Electric",
 		price: 8000,
-		imgSrc: require('@/assets/images/motorcycles/honda CB500F.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB500F.jpg')
 	},
 	{
 		id:32,
@@ -1360,7 +1360,7 @@ export const moto = [
 		"fuel_capacity": "15.40 litres",
 		"starter": "Electric",
 		price: 11000,
-		imgSrc: require('@/assets/images/motorcycles/honda CBR650R.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CBR650R.jpg')
 	},
 	{
 		id:33,
@@ -1401,12 +1401,12 @@ export const moto = [
 		"fuel_capacity": "21.10 litres",
 		"starter": "Electric",
 		price: 40000,
-		imgSrc: require('@/assets/images/motorcycles/honda GL1800 Gold Wing.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda GL1800 Gold Wing DCT.jpg')
 	},
 	{
 		id:34,
 		"make": "Honda",
-		"model": "CB125R                                          ",
+		"model": "CB125R", 
 		"year": "2022",
 		"type": "naked",
 		"displacement": "124.9 ccm",
@@ -1441,7 +1441,7 @@ export const moto = [
 		"fuel_capacity": "10.10 litres",
 		"starter": "Electric",
 		price: 3500,
-		imgSrc: require('@/assets/images/motorcycles/honda CB125R.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB125R.jpg')
 	},
 	{
 		id:35,
@@ -1483,7 +1483,7 @@ export const moto = [
 		"fuel_capacity": "20.40 litres",
 		"starter": "Electric",
 		price: 16000,
-		imgSrc: require('@/assets/images/motorcycles/honda NT1100.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda NT1100 DCT.jpg')
 	},
 	{
 		id:36,
@@ -1520,7 +1520,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9500,
-		imgSrc: require('@/assets/images/motorcycles/honda Shadow-Phantom.webp')
+		// imgSrc: require('@/assets/images/motorcycles/honda Shadow Phantom.webp')
 	},
 	{
 		id:37,
@@ -1561,7 +1561,7 @@ export const moto = [
 		"fuel_capacity": "12.80 litres",
 		"starter": "Electric",
 		price: 8300,
-		imgSrc: require('@/assets/images/motorcycles/honda CRF300_Rally.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda CRF300 Rally.jpg')
 	},
 	{
 		id:38,
@@ -1597,12 +1597,12 @@ export const moto = [
 		"wheelbase": "1360 mm (53.5 inches)",
 		"starter": "Electric & kick",
 		price: 2800,
-		imgSrc: require('@/assets/images/motorcycles/honda 150XR.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda XR150L.jpg')
 	},
 	{
 		id:39,
 		"make": "Honda",
-		"model": "CB300R Neo Sports Cafe ",
+		"model": "CB300R Neo Sports Cafe",
 		"year": "2022",
 		"type": "naked",
 		"displacement": "286.0 ccm",
@@ -1639,7 +1639,7 @@ export const moto = [
 		"fuel_capacity": "10.22 litres",
 		"starter": "Electric",
 		price: 6000,
-		imgSrc: require('@/assets/images/motorcycles/honda cb300r Neo Sorts Cafe.png')
+		// imgSrc: require('@/assets/images/motorcycles/honda CB300R Neo Sports Cafe.png')
 	},
 	{
 		id:40,
@@ -1682,7 +1682,7 @@ export const moto = [
 		"fuel_capacity": "14.38 litres",
 		"starter": "Electric",
 		price: 11000,
-		imgSrc: require('@/assets/images/motorcycles/honda NC750X.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/honda NC750X DCT.jpg')
 	},
 	{
 		id:41,
@@ -1726,7 +1726,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 6700,
-		imgSrc: require('@/assets/images/motorcycles/yamaha mt-03.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-03.jpeg')
 	},
 	{
 		id:42,
@@ -1770,7 +1770,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9200,
-		imgSrc: require('@/assets/images/motorcycles/yamaha mt-07.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-07.jpeg')
 	},
 	{
 		id:43,
@@ -1814,7 +1814,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 11800,
-		imgSrc: require('@/assets/images/motorcycles/yamaha mt-09.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-09.jpeg')
 	},
 	{
 		id:44,
@@ -1858,7 +1858,7 @@ export const moto = [
 		"fuel_capacity": "11.00 litres (2.91 US gallons)",
 		"starter": "Electric",
 		price: 6300,
-		imgSrc: require('@/assets/images/motorcycles/yamaha mt-125.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-125.jpeg')
 	},
 	{
 		id:45,
@@ -1901,7 +1901,7 @@ export const moto = [
 		"fuel_capacity": "17.03 litres",
 		"starter": "Electric",
 		price:21500,
-		imgSrc: require('@/assets/images/motorcycles/yamaha yzf-r1.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R1.jpeg')
 	},
 	{
 		id:46,
@@ -1944,7 +1944,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 6300,
-		imgSrc: require('@/assets/images/motorcycles/yamaha yzf-r3.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R3.jpeg')
 	},
 	{
 		id:47,
@@ -1987,12 +1987,12 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price:14900,
-		imgSrc: require('@/assets/images/motorcycles/yamaha yzf-r6.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R6.jpeg')
 	},
 	{
 		id:48,
 		"make": "Yamaha",
-		"model": "Tracer 7 ",
+		"model": "Tracer 7",
 		"year": "2022",
 		"type": "sport touring",
 		"displacement": "689.0 ccm",
@@ -2031,12 +2031,12 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 10700,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Tracer-7.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 7.jpeg')
 	},
 	{
 		id:49,
 		"make": "Yamaha",
-		"model": "Tracer 9 ",
+		"model": "Tracer-9",
 		"year": "2022",
 		"type": "sport touring",
 		"displacement": "890.0 ccm",
@@ -2075,7 +2075,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 12700,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Tracer-9.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 9.jpeg')
 	},
 	{
 		id:50,
@@ -2119,7 +2119,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 16500,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Tracer-9GT.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 9 GT.jpg')
 	},
 	{
 		id:51,
@@ -2161,7 +2161,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 20500,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Niken GT.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Niken GT.jpeg')
 	},
 	{
 		id:52,
@@ -2205,12 +2205,12 @@ export const moto = [
 		"fuel_capacity": "15.90 litres",
 		"starter": "Electric",
 		price: 12800,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Tenere.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Tenere 700.jpeg')
 	},
 	{
 		id:53,
 		"make": "Yamaha",
-		"model": "Tenere 700 Rally ",
+		"model": "Tenere 700 Rally",
 		"year": "2022",
 		"type": "enduro",
 		"displacement": "689.0 ccm",
@@ -2249,7 +2249,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 15400,
-		imgSrc: require('@/assets/images/motorcycles/yamaha Tenere 700 Rally.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Tenere 700 Rally.jpeg')
 	},
 	{
 		id:54,
@@ -2292,7 +2292,7 @@ export const moto = [
 		"fuel_capacity": "23.09 litres",
 		"starter": "Electric",
 		price: 18000,
-		imgSrc: require('@/assets/images/motorcycles/yamaha super Tenere.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha Super Tenere ES.jpg')
 	},
 	{
 		id:55,
@@ -2334,7 +2334,7 @@ export const moto = [
 		"fuel_capacity": "13.00 litres",
 		"starter": "Electric",
 		price: 1950,
-		imgSrc: require('@/assets/images/motorcycles/yamaha ybr-125.jpeg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha YBR125 ED.jpeg')
 	},
 	{
 		id:56,
@@ -2377,7 +2377,7 @@ export const moto = [
 		"fuel_capacity": "25.00 litres",
 		"starter": "Electric",
 		price: 24000,
-		imgSrc: require('@/assets/images/motorcycles/yamaha FJR1300AE.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/yamaha FJR1300AE.jpg')
 	},
 	{
 		id:57,
@@ -2418,7 +2418,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 13000,
-		imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000.png')
 	},
 	{
 		id:58,
@@ -2460,7 +2460,7 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 22000,
-		imgSrc: require('@/assets/images/motorcycles/suzuki Hayabusa.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki Hayabusa.png')
 	},
 	{
 		id:59,
@@ -2500,7 +2500,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 19500,
-		imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R1000R.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R1000.png')
 	},
 	{
 		id:60,
@@ -2539,7 +2539,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 12500,
-		imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R600Z.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R600Z.png')
 	},
 	{
 		id:61,
@@ -2581,7 +2581,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 9500,
-		imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S750.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S750A.png')
 	},
 	{
 		id:62,
@@ -2625,7 +2625,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 8700,
-		imgSrc: require('@/assets/images/motorcycles/suzuki SV650.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki SV650.png')
 	},
 	{
 		id:63,
@@ -2665,7 +2665,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 16000,
-		imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000GTplus.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000GT Plus.png')
 	},
 	{
 		id:64,
@@ -2706,7 +2706,7 @@ export const moto = [
 		"fuel_capacity": "15.52 litres",
 		"starter": "Electric",
 		price: 9500,
-		imgSrc: require('@/assets/images/motorcycles/suzuki Boulevard VL800.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki Boulevard.png')
 	},
 	{
 		id:65,
@@ -2748,7 +2748,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 16500,
-		imgSrc: require('@/assets/images/motorcycles/suzuki V-strom DL1050.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki V-Strom 1050.png')
 	},
 	{
 		id:66,
@@ -2791,7 +2791,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 11000,
-		imgSrc: require('@/assets/images/motorcycles/suzuki V-strom DL650XT.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki V-Strom 650XT.png')
 	},
 	{
 		id:67,
@@ -2833,7 +2833,7 @@ export const moto = [
 		"fuel_capacity": "10.00 litres",
 		"starter": "Electric",
 		price: 7800,
-		imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z400S.png')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z400S.png')
 	},
 	{
 		id:68,
@@ -2872,7 +2872,7 @@ export const moto = [
 		"fuel_capacity": "4.80 litres",
 		"starter": "Kick",
 		price: 3900,
-		imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z125L.jpg')
+		// imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z125L.jpg')
 	},
 
 ]

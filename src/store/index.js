@@ -3,6 +3,7 @@ import moto from "./modules/moto";
 import favorites from "./modules/favorites";
 import auth from "./modules/auth";
 import users from "./modules/users";
+import storage from "./modules/storage"
 
 export default createStore({
   state: {
@@ -48,6 +49,7 @@ export default createStore({
 	moto,
 	favorites,
 	auth,
-	users
+	users,
+	storage
   },
 });

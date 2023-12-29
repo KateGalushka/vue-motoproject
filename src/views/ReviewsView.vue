@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="reviews__img">
-					<img :src="getBike.imgSrc" :alt="getBike.model">
+					<img :src="imageUrl" :alt="getBike.model">
 				</div>
 			</div>
 		</div>
@@ -53,15 +53,21 @@ import { mapGetters } from 'vuex';
 		},
 		props: {
 			bikeId: {
+				type: Number,
 				required: true
 			},
 		},
-			computed: {
-		...mapGetters('moto', ['getMotorcycleById']),
+		computed: {
+			...mapGetters('moto', ['getMotorcycleById']),
+			...mapGetters('storage', ['getImagesReferences']),
 
-		getBike() {
-			return this.getMotorcycleById(this.bikeId);
-		},
+			getBike() {
+				return this.getMotorcycleById(this.bikeId);
+			},
+			imageUrl() {
+			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
+			return image ? image.url : require('@/assets/images/adv_bike.svg')
+			},
 		}
 	}
 </script>

@@ -3,7 +3,7 @@
 		<h2>{{ getBike.make }} {{ getBike.model }}</h2>
 		<div class="details-container">
 			<div class="details__img">
-				<img :src="getBike.imgSrc" :alt="getBike.model">
+				<img :src="imageUrl" :alt="getBike.model">
 			</div>
 			<div class="details__spec">
 				<h3 class="details__spec-title">{{ $t('details.specs') }}</h3>
@@ -77,12 +77,17 @@ export default {
 	computed: {
 		...mapGetters('moto', ['getMotorcycleById']),
 		...mapGetters('favorites', ['getFavoriteList']),
+		...mapGetters('storage', ['getImagesReferences']),
 
 		bikeId() {
 			return this.$route.params.bikeId;
 		},
 		getBike() {
 			return this.getMotorcycleById(this.bikeId);
+		},
+		imageUrl() {
+			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
+			return image ? image.url : require('@/assets/images/adv_bike.svg')
 		},
 		
 		btnFavorTitle(){

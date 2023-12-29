@@ -197,9 +197,7 @@ export default {
 		h2 {
 			align-self: flex-end;
 		}
-
-}
-
+	}
 }
 
 </style>

@@ -39,7 +39,13 @@ export default {
 	components: {
 		MainMasterpage, CardComponent
 	},
+	data() {
+		return {
+			myUser: null
+		}
+	},
 	computed: {
+		...mapGetters('auth', ['getUser']),
 		...mapGetters('favorites', ['getFavoriteList', 'getFavoriteListCompleted']),
 
 		isFavoriteListEmpty() {
@@ -47,8 +53,17 @@ export default {
 		},
 
 	},
+	async created() {
+		await this.fetchImagesUrlsFromStorage();
+	},
+	mounted() {
+		this.loadUserFavoriteBikes()
+	},
+
 	methods: {
-		...mapActions('favorites', ['removeFromFavorites']),
+		...mapActions('users', ['loadUserById']),
+		...mapActions('favorites', ['loadFavoriteList', 'removeFromFavorites']),
+		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 
 	// 	completeFavoritesList() {
 	// 		console.log('getFavorites', this.getFavoriteList)
@@ -58,9 +73,15 @@ export default {
 	// 	},
 
 	// },
-	// created () {
-	// 	this.completeFavoritesList();
-	// },
+		async loadUserFavoriteBikes(){
+			const userId = this.getUser.uid
+			const user = await this.loadUserById(userId);
+			let favorites = user.favoriteBikes
+			console.log("f", favorites)
+			if (favorites?.length) {
+				this.loadFavoriteList(favorites);
+			} else return null;
+		},
 	}
 }
 </script>

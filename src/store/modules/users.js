@@ -1,5 +1,6 @@
-import DbOperations from '../helpers/DbOperations'
-const collectionDB = new DbOperations('users')
+import DbOperations from '../helpers/DbOperations';
+const collectionDB = new DbOperations('users');
+
 export default {
     namespaced: true,
     state: () => ({
@@ -12,7 +13,6 @@ export default {
     getters: {
         isLoading: (state) => state.loading,
         hasError: (state) => state.error,
-
         userPermissions: (state) => state.permissions,
     },
     mutations: {
@@ -70,6 +70,11 @@ export default {
 				if (this.currentUser.email === data.email) {
 					this.currentUser = data
 				}
+			},
+			async updateUserFavoriteBikes({ dispatch }, {id, arrayProperty, bikeId}) {
+				await dispatch('generalApiOperation', {
+					operation: () => collectionDB.addItemToArray(id, arrayProperty, bikeId)}, { root:true })
+			
 			},
 
 			async deleteUser({dispatch}, userData) {

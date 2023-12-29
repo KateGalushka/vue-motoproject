@@ -66,7 +66,9 @@ export default {
 							id: loginResult?.user?.uid,
 							data: {
 								email: loginResult?.user?.email,
-								role: 'authedUser'
+								role: 'authedUser',
+								favoriteBikes: [],
+								reviews: []
 							}
 						}, {root:true})
 						console.log('loginResult: ',loginResult)
@@ -119,7 +121,9 @@ export default {
 								id: loginResult?.user?.uid,
 								data: {
 									email: loginResult?.user?.email,
-									role: 'authedUser'
+									role: 'authedUser',
+									favoriteBikes: [],
+									reviews: []
 								}
 							}, { root: true })
 							console.log('register with email:', loginResult)
@@ -141,13 +145,13 @@ export default {
 					signInWithEmailAndPassword(auth, email, password)
 						.then((loginResult) => {
 							dispatch('saveLoginUserData', loginResult)
-							dispatch('users/addUserWithCustomId', {
-								id: loginResult?.user?.uid,
-								data: {
-									email: loginResult?.user?.email,
-									role: 'authedUser'
-								}
-							}, { root: true })
+							// dispatch('users/addUserWithCustomId', {
+							// 	id: loginResult?.user?.uid,
+							// 	data: {
+							// 		email: loginResult?.user?.email,
+							// 		role: 'authedUser'
+							// 	}
+							// }, { root: true })
 							console.log('loginResult after signIn', loginResult)
 							resolve(loginResult)
 						})

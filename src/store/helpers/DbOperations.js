@@ -54,7 +54,7 @@ class DbOperations {
 	addItemToArray(id, arrayProperty, value) {
 		return new Promise((resolve, reject) => {
 			this.getItemById(id).then((item) => {
-				if (item.favoriteBikes) {
+				if (item.arrayProperty) {
 					updateDoc(doc(this.dbCollection, id), {
 						[arrayProperty]: arrayUnion(value)
 					})

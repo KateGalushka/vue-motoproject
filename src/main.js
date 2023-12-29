@@ -18,6 +18,10 @@ const vuetify = createVuetify({
 	directives,
 })
 
+// Pagination
+import VueAwesomePaginate from "vue-awesome-paginate";
+import "vue-awesome-paginate/dist/style.css";
+
 const app = createApp(App);
 
 // Check if user data exists in LocalStorage and update the store
@@ -32,4 +36,4 @@ if (storedCredential) {
 		});
 }
 
-app.use(store).use(router).use(vuetify).use(i18n).mount("#app");
+app.use(store).use(router).use(vuetify).use(i18n).use(VueAwesomePaginate).mount("#app");
