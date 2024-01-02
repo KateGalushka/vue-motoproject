@@ -9,8 +9,8 @@
 			:key="moto.id"
 			:motorcycle="moto"
 		>
-			<template #additionalButton="{bikeId}">
-				<button @click="toggleIsFavorite(bikeId)">
+			<template v-if="getUser" #additionalButton="{bikeId}">
+				<button @click="onToggleIsFavorite(bikeId)">
 					<span 
 						class="material-symbols-outlined tooltip" 
 						:class="{addedToFavorites: isAdded(bikeId)}" 
@@ -49,6 +49,7 @@ export default {
 
 	computed: {
 		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList', ]),
+		...mapGetters('auth', ['getUser']),
 		...mapGetters('favorites', ['getFavoriteList']),
 
 		showNothingFound() {
@@ -66,22 +67,33 @@ export default {
 			// console.log(this.getFilteredList.slice(startIndex, endIndex))
 			return this.getFilteredList.slice(startIndex, endIndex); 
 		},
+		myUserId() {
+			return this.getUser.uid
+		},
 		
 	},
 	async created() {
-		await this.fetchImagesUrlsFromStorage();
+		// await this.fetchImagesUrlsFromStorage();
 	},
 
 	methods: {
 		...mapActions('favorites', ['toggleIsFavorite']),
 		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
+		...mapActions('users', ['updateUserFavoriteBikes']),
 
 		isAdded(bikeId){
 			return this.getFavoriteList.some(id => id == bikeId);
 		},
 		handlePageChange(page) {
 			this.currentPage = page;
+		},
+		onToggleIsFavorite(bikeId){
+			this.toggleIsFavorite({
+				userId: this.myUserId,
+				bikeId: bikeId
+			})
 		}
+
 		
 	},
 }

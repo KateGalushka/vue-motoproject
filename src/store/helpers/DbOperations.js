@@ -53,29 +53,15 @@ class DbOperations {
 	};
 	addItemToArray(id, arrayProperty, value) {
 		return new Promise((resolve, reject) => {
-			this.getItemById(id).then((item) => {
-				if (item.arrayProperty) {
-					updateDoc(doc(this.dbCollection, id), {
-						[arrayProperty]: arrayUnion(value)
-					})
-						.then(() => {
-							resolve(true)
-						})
-						.catch((error) => {
-							reject(error)
-						})
-				} else {
-					this.addItemWithCustomId(id, {
-						[arrayProperty]: [value]
-					})
-						.then(() => {
-							resolve(true)
-						})
-						.catch((error) => {
-							reject(error)
-						})
-				}
+			updateDoc(doc(this.dbCollection, id), {
+				[arrayProperty]: arrayUnion(value)
 			})
+				.then(() => {
+					resolve(true)
+				})
+				.catch((error) => {
+					reject(error)
+				})
 		})
 	};
 	removeItemFromArray(id, arrayProperty, value) {

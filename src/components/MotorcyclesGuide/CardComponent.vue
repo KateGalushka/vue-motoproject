@@ -1,11 +1,15 @@
 <template>
 	<div class="card">
 		<div class="card__img">
-			<img :src="imageUrl" alt="{{motorcycle.model}}">
+			<img :src="imageUrl" :alt="motorcycle.model">
 		</div>
-		<h3>
-			{{motorcycle.make}} {{ motorcycle.model }}
-		</h3>
+		<div class="card__title"> 
+			<img :src="logoUrl" class="card__title-logo" :alt="motorcycle.make">
+			<h3>
+				{{motorcycle.make}} {{ motorcycle.model }}
+			</h3>
+
+		</div>
 		<div class="card__descr">
 			<p>{{ motorcycle.displacement }}</p>
 			<p>{{ motorcycle.power }}</p>
@@ -47,6 +51,9 @@ import { mapGetters } from 'vuex'
 		computed: {
 			...mapGetters('storage', ['getImagesReferences']),
 
+			logoUrl(){
+				return require(`@/assets/images/logo/${this.motorcycle.make.toLowerCase()}.svg`)
+			},
 			imageUrl() {
 				const image = this.getImagesReferences.find((image) => image.name.includes(this.motorcycle.model))
 				return image? image.url : require('@/assets/images/adv_bike.svg')
@@ -78,13 +85,25 @@ import { mapGetters } from 'vuex'
 	&:hover {
 		outline: 4px solid var(--main-color2);
 	}
+}
+.card__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin-bottom: 1.25rem;
+	.card__title-logo {
+		display: block;
+		width: 50px;
+	}
 	h3{
-		text-align: center;
 		font-size: 1.25rem;
 		font-weight: 600;
-		margin-bottom: 1.25rem;
 	}
+	
 }
+
 .card__img{
 	height: calc(45% - 2rem);
 	max-width: 100%;

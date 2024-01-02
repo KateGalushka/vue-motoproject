@@ -28,25 +28,33 @@ export default {
         },
     },
     actions: {
-        loadUserPermissions({ commit }, userId) {
-            // userId ??= rootGetters['bar/someGetter'].getUser.uid
-            collectionDB.getItemById(userId).then((permissions) => {
-					 commit('setPermissions', permissions)
-            })
-        },
-        clearPermissions({ commit }) {
-            commit('setPermissions', {})
-        },
-
-		  async loadUserById({dispatch}, userId) {
-				if (userId) {
-					this.currentUser = await dispatch('generalApiOperation', {
-						operation: () => collectionDB.getItemById(userId)
+		 async loadUserById({dispatch}, userId) {
+			 if (userId) {
+				 this.currentUser = await dispatch('generalApiOperation', {
+					 operation: () => collectionDB.getItemById(userId)
 					}, { root:true })
-				return this.currentUser
+					return this.currentUser
 				}
-		 	},
+			},
+			
+			loadUserPermissions({ commit }, userId) {
+				collectionDB.getItemById(userId).then((permissions) => {
+				  commit('setPermissions', permissions)
+				})
+			},
+			clearPermissions({ commit }) {
+				 commit('setPermissions', {})
+			},
 
+			async loadUserFavoriteBikes({ dispatch }, userId) {
+				const userObj = await dispatch('loadUserById', userId);
+				console.log(userObj)
+				if (userObj?.favoriteBikes?.length) {
+					dispatch('favorites/setFavoriteList', userObj.favoriteBikes, { root: true })
+				} else {
+					dispatch('favorites/setFavoriteList', [], { root: true })
+				}
+			},
 			async addUser({dispatch}, userData) {
 				this.currentUser = await dispatch('generalApiOperation', {
 					operation: () => collectionDB.addItem(userData)
@@ -71,11 +79,38 @@ export default {
 					this.currentUser = data
 				}
 			},
-			async updateUserFavoriteBikes({ dispatch }, {id, arrayProperty, bikeId}) {
-				await dispatch('generalApiOperation', {
-					operation: () => collectionDB.addItemToArray(id, arrayProperty, bikeId)}, { root:true })
-			
+			async updateUserFavoriteBikes({ dispatch }, {userId, bikeId}) {
+				console.log('in users update: ', userId, bikeId)
+				try {
+					const result = await dispatch('generalApiOperation', {
+					operation: () => collectionDB.addItemToArray(userId, 'favoriteBikes', bikeId)
+				}, { root:true });
+					if (result) {
+						await dispatch('loadUserFavoriteBikes', userId)
+					}
+				} catch(error) {
+					console.log('An error occurred:', error);
+				}
 			},
+						
+		
+		 async removeUserFavoriteBike({ dispatch }, { userId, bikeId}) {
+			console.log('in users- removing, userId and bikeId', userId, bikeId)
+				try {
+					const result = await dispatch('generalApiOperation', {
+						operation: () => collectionDB.removeItemFromArray(userId, 'favoriteBikes', bikeId)
+					}, { root:true });
+					console.log('result', result)
+					if (result) {
+						console.log('success', userId)
+						await dispatch('loadUserFavoriteBikes', userId)
+					}
+				} catch (error) {
+					console.log('An error occurred:', error);
+				}
+			},
+				
+			
 
 			async deleteUser({dispatch}, userData) {
 				this.currentUser = await dispatch('generalApiOperation', {

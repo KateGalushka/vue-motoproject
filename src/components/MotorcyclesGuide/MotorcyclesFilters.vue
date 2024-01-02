@@ -174,16 +174,18 @@ export default {
 	},
 	created() {
 		this.modelsFilter = this.getModelsList;
-		console.log('modelsList:', this.getModelsList);
+		// console.log('modelsList:', this.getModelsList);
 	},
 	methods: {
-		...mapActions('moto', ['updateFilterObj', 'updateCheckedTypesArray', 'onFilter', 'updateListAfterClearFilters']),
+		...mapActions('moto', ['updateFilterObj', 'updateCheckedTypesArray', 'updateListAfterClearFilters']),
 
 		onClearFilters() {
 			this.filterObj = {};
 			this.checkedTypesArr.length = 0;
 			this.modelsFilter = this.getModelsList;
 			// this.updateListAfterClearFilters();
+			this.updateFilterObj({});
+			this.updateCheckedTypesArray([]);
 		}
 	},
 

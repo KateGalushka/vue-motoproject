@@ -1,6 +1,7 @@
 import { auth } from '@/firebase-config.js'
 import {
 	GoogleAuthProvider,
+	// EmailAuthProvider,
 	signInWithPopup,
 	signInWithCredential,
 	signOut,
@@ -41,18 +42,13 @@ export default {
 
 		},
 		async saveLoginUserData({ commit, dispatch }, loginResult) {
-			// console.log('loginResult', loginResult)
-			//--------- user data -------
-			const user = loginResult?.user // об'єкт користувача
+			const user = loginResult?.user 
 			commit('setUser', user)
-			
-			//--------- user access token -------
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			let credential = GoogleAuthProvider.credentialFromResult(loginResult)
 			console.log('credential: ', credential)
 
 			localStorage.setItem('authCredential', JSON.stringify(credential)),
-
 			dispatch('users/loadUserPermissions', user.uid, { root: true })
 		},
 
@@ -113,7 +109,6 @@ export default {
 				if (!email || !password) reject(false)
 				else {
 					const auth = getAuth()
-					
 					createUserWithEmailAndPassword(auth, email, password)
 						.then((loginResult) => {
 							dispatch('saveLoginUserData', loginResult)
@@ -145,13 +140,6 @@ export default {
 					signInWithEmailAndPassword(auth, email, password)
 						.then((loginResult) => {
 							dispatch('saveLoginUserData', loginResult)
-							// dispatch('users/addUserWithCustomId', {
-							// 	id: loginResult?.user?.uid,
-							// 	data: {
-							// 		email: loginResult?.user?.email,
-							// 		role: 'authedUser'
-							// 	}
-							// }, { root: true })
 							console.log('loginResult after signIn', loginResult)
 							resolve(loginResult)
 						})
@@ -168,7 +156,8 @@ export default {
 				.then(() => {
 					localStorage.removeItem('authCredential')
 					commit('setUser', null);
-					dispatch('users/clearPermissions', null, { root: true })
+					dispatch('users/clearPermissions', null, { root: true });
+					dispatch('favorites/setFavoriteList', [], { root: true });
 				})
 				.catch((error) => {
 					commit('setError', error)

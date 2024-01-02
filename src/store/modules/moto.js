@@ -51,7 +51,7 @@ export default({
 			// console.log('filterArr:', arr)
 
 			if (!brand && !model && !engineFrom && !engineTo && !priceMin && !priceMax && !checkedTypesArray.length) {
-				return motorcyclesList;
+				return motorcyclesList.sort((a, b) => a.make.localeCompare(b.make));
 			} else {
 				return motorcyclesList = motorcyclesList.filter(bike => {
 					const brandMatch = doesBikeMatchOneFilter(bike, 'make', brand);
@@ -60,7 +60,7 @@ export default({
 					const priceMatch = doesBikeMatchNumberFilter(bike, 'price', priceMin, priceMax);
 					const typesMatch = doesBikeMatchArrayFilter(bike, 'type', arr);
 					return brandMatch && modelMatch && engineMatch && priceMatch && typesMatch
-				})
+				}).sort((a, b) => a.make.localeCompare(b.make))
 			}
 
 		},
@@ -84,11 +84,11 @@ export default({
 		},
 		updateFilterObj({ commit }, filterObjData) {
 			commit('updateFilterObj', filterObjData);
-			console.log('filterObjData: ', filterObjData)
+			// console.log('filterObjData: ', filterObjData)
 		},
 		updateCheckedTypesArray({ commit }, typesArr) {
 			commit('updateCheckedTypesArray', typesArr);
-			console.log('typesArr ', typesArr)
+			// console.log('typesArr ', typesArr)
 		},
 		
 	},

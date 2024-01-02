@@ -10,7 +10,7 @@
 				<template v-else>
 					<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
 							<template #additionalButton="{ bikeId }">
-								<button @click="removeFromFavorites(bikeId)">
+								<button @click="removeBikeFromFavorites(bikeId)">
 									<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
 										heart_minus
 									</span>
@@ -39,11 +39,7 @@ export default {
 	components: {
 		MainMasterpage, CardComponent
 	},
-	data() {
-		return {
-			myUser: null
-		}
-	},
+	
 	computed: {
 		...mapGetters('auth', ['getUser']),
 		...mapGetters('favorites', ['getFavoriteList', 'getFavoriteListCompleted']),
@@ -51,37 +47,39 @@ export default {
 		isFavoriteListEmpty() {
 			return !this.getFavoriteList.length;
 		},
+		myUserId() {
+			return this.getUser.uid
+		},
 
 	},
 	async created() {
-		await this.fetchImagesUrlsFromStorage();
+		// await this.fetchImagesUrlsFromStorage();
 	},
-	mounted() {
-		this.loadUserFavoriteBikes()
+	async mounted() {
+		await this.loadUserFavoriteBikes(this.myUserId);
+		console.log('favorite list from state: ', this.getFavoriteList)
 	},
 
 	methods: {
-		...mapActions('users', ['loadUserById']),
-		...mapActions('favorites', ['loadFavoriteList', 'removeFromFavorites']),
+		...mapActions('users', ['loadUserById', 'loadUserFavoriteBikes','removeUserFavoriteBike']),
+		// ...mapActions('favorites', ['setFavoriteList']),
 		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 
-	// 	completeFavoritesList() {
-	// 		console.log('getFavorites', this.getFavoriteList)
-	// 		this.getFavoriteList.forEach(id => this.favoriteBikes.push(this.getMotorcycleById(id)));
-	// 		console.log('favoriteBikes', this.favoriteBikes);
-	// 		// return this.favoriteBikes;
-	// 	},
-
-	// },
-		async loadUserFavoriteBikes(){
-			const userId = this.getUser.uid
-			const user = await this.loadUserById(userId);
-			let favorites = user.favoriteBikes
-			console.log("f", favorites)
-			if (favorites?.length) {
-				this.loadFavoriteList(favorites);
-			} else return null;
-		},
+		// async loadUserFavoriteBikes(){
+		// 	// const userId = this.getUser.uid
+		// 	const user = await this.loadUserById(this.myUserId);
+		// 	let favorites = user.favoriteBikes
+		// 	console.log("f", favorites)
+		// 	if (favorites?.length) {
+		// 		this.setFavoriteList(favorites);
+		// 	} else return null;
+		// },
+		removeBikeFromFavorites(bikeId) {
+			this.removeUserFavoriteBike({
+				userId: this.myUserId,
+				bikeId: bikeId
+			})
+		}
 	}
 }
 </script>
