@@ -4,34 +4,38 @@
 			<h2>{{ getBike.make }} {{ getBike.model }} - reviews</h2>
 			<div class="reviews-container">
 				<div class="reviews__text">
-					<div class="review__item">
-						<p>userName</p>
-						<p>data</p>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus temporibus mollitia veniam, saepe repellendus provident.</p>
+					<div v-if="isReviewsListEmpty" class="review__item">
+						{{ $t('reviews.noReviews') }}
 					</div>
-					<div class="review__item">
-						<p>userName</p>
-						<p>data</p>
-						<p>userReview</p>
+					<div v-for="review in completedReviews" :key="review.id" class="review__item">
+						<div class="review__item-title">
+							<p>{{ review.author}}</p>
+							<p>{{ review.date}}</p>
+						</div>
+						<p class="review__item-text">{{ review.text }}</p>
 					</div>
-					<div class="review__item">
-						<p>userName</p>
-						<p>data</p>
-						<p>userReview</p>
-					</div>
-					<div class="reviews__input">
-						<v-textarea
-							label="Your review about the model"
-							variant="solo"
-							color="rgb(37, 44, 51)"
-							clearable
-							auto-grow
-						/>
-						<div class="reviews__buttons">
-							<button class="button submit">Submit</button>
-							<router-link :to="{name:'guide'}" class="button submit">Cancel</router-link>
+					<div v-if="getUser">
+						<div class="reviews__input">
+							<v-textarea
+								v-model="review.text"
+								:label="$t('reviews.write')"
+								variant="solo"
+								color="rgb(37, 44, 51)"
+								clearable
+								auto-grow
+							/>
+							<div class="reviews__buttons">
+								<button class="button submit" @click="onSubmitReview(review.text)">Submit</button>
+								<router-link :to="{name:'guide'}" class="button submit">Cancel</router-link>
+							</div>
 						</div>
 					</div>
+					<div v-else class="review__item">
+						<p>{{ $t('reviews.addReview') }}</p>
+						<router-link :to="{name: 'login'}" class="button review-login">{{ $t('button.login') }}</router-link>
+
+					</div>
+
 				</div>
 				<div class="reviews__img">
 					<img :src="imageUrl" :alt="getBike.model">
@@ -44,7 +48,8 @@
 
 <script>
 import MainMasterpage from '@/masterpages/MainMasterpage.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+import { maskEmail } from '@/store/helpers/formattingHelper';
 
 	export default {
 		name: 'ReviewsView',
@@ -53,21 +58,89 @@ import { mapGetters } from 'vuex';
 		},
 		props: {
 			bikeId: {
-				type: Number,
 				required: true
 			},
+		},
+		data() {
+			return {
+				completedReviews: [],
+				review: {
+					author: null,
+					date: null,
+					bikeId: null,
+					text: ''
+				}
+			}
 		},
 		computed: {
 			...mapGetters('moto', ['getMotorcycleById']),
 			...mapGetters('storage', ['getImagesReferences']),
+			...mapGetters('reviews', ['getReviewsList']),
+			...mapGetters('auth', ['getUser']),
 
 			getBike() {
 				return this.getMotorcycleById(this.bikeId);
 			},
 			imageUrl() {
-			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
-			return image ? image.url : require('@/assets/images/adv_bike.svg')
+				const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
+				return image ? image.url : require('@/assets/images/adv_bike.svg')
 			},
+			isReviewsListEmpty(){
+				return !this.completedReviews.length;
+			}
+			
+		},
+		async created () {
+			await this.loadReviewsListByMotorcycleId(this.bikeId);
+			console.log('2mounted - list', this.loadReviewsListByMotorcycleId(this.bikeId));
+			await this.getCompletedReviewsList();
+			
+		},
+		
+		methods: {
+			...mapActions('reviews', ['loadReviewsList', 'loadReviewsListByMotorcycleId', 'addReview']),
+			...mapActions('users', ['loadUserById']),
+
+			async getCompletedReviewsList() {
+				this.completedReviews = await Promise.all(
+					 this.getReviewsList.map(async (review) => {
+						let userName;
+						try{
+							const currentUser = await this.loadUserById(review.author);
+							if (currentUser) {
+								userName = currentUser.name || maskEmail(currentUser.email);
+							}
+						} catch(error) {
+							console.error('Error loading user:', error);
+						}
+						return {
+							id: review.id,
+							date: new Date(review.date.seconds * 1000).toLocaleDateString(),
+							text: review.text,
+							author: userName
+						};
+					})
+				)
+				return this.completedReviews;
+			},
+			async onSubmitReview(text) {
+				try{
+					await this.addReview({
+						author: this.getUser.uid,
+						date: new Date(),
+						bikeId: parseInt(this.bikeId),
+						text: text
+					});
+					
+				} catch(error) {
+					console.error("Error submitting review", error)
+				} finally {
+					this.$router.go();
+
+				}
+
+
+			}
 		}
 	}
 </script>
@@ -90,7 +163,7 @@ import { mapGetters } from 'vuex';
 	gap: 2rem;
 }
 .reviews__text {
-	max-width: clamp(250px, 80%, 500px);
+	width: clamp(250px, 80%, 500px);
 	display: flex;
 	flex-flow: column wrap;
 	gap: 1rem;
@@ -100,7 +173,15 @@ import { mapGetters } from 'vuex';
 	background: var(--bg-gradient);
 	color: var(--bg-color1);
 	padding: 1rem;
-	border-radius: 10px;
+	border-radius: 6px;
+
+}
+.review__item-title{
+	display: flex;
+	justify-content: space-between;
+	gap: 1em;
+	margin-bottom: 1em;
+	font-weight: bold;
 
 }
 .reviews__input {
@@ -115,6 +196,12 @@ import { mapGetters } from 'vuex';
 		width: 100%;
 		border-radius: 10px;
 	}
+}
+.review-login{
+	padding:  0.5rem 0.75rem;
+	border-radius: 5px;
+	display: inline-block;
+	margin: 0.5rem 0;
 }
 .reviews__buttons {
 	display: flex;

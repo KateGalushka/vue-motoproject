@@ -3,7 +3,8 @@ import moto from "./modules/moto";
 import favorites from "./modules/favorites";
 import auth from "./modules/auth";
 import users from "./modules/users";
-import storage from "./modules/storage"
+import storage from "./modules/storage";
+import reviews from "./modules/reviews";
 
 export default createStore({
   state: {
@@ -50,6 +51,7 @@ export default createStore({
 	favorites,
 	auth,
 	users,
-	storage
+	storage,
+	reviews
   },
 });

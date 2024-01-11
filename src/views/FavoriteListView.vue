@@ -20,7 +20,10 @@
 
 				</template>
 
-				<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back') }}</router-link>
+				<router-link :to="{ name: 'guide' }" class="button back">
+					<font-awesome-icon :icon="['fas', 'backward-step']" style="margin-right: 0.5rem;"/>
+					{{ $t('button.back') }}
+				</router-link>
 			</div>
 		
 		</div>
@@ -57,7 +60,7 @@ export default {
 	},
 	async mounted() {
 		await this.loadUserFavoriteBikes(this.myUserId);
-		console.log('favorite list from state: ', this.getFavoriteList)
+		// console.log('favorite list from state: ', this.getFavoriteList)
 	},
 
 	methods: {
@@ -65,20 +68,11 @@ export default {
 		// ...mapActions('favorites', ['setFavoriteList']),
 		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 
-		// async loadUserFavoriteBikes(){
-		// 	// const userId = this.getUser.uid
-		// 	const user = await this.loadUserById(this.myUserId);
-		// 	let favorites = user.favoriteBikes
-		// 	console.log("f", favorites)
-		// 	if (favorites?.length) {
-		// 		this.setFavoriteList(favorites);
-		// 	} else return null;
-		// },
 		removeBikeFromFavorites(bikeId) {
 			this.removeUserFavoriteBike({
 				userId: this.myUserId,
 				bikeId: bikeId
-			})
+			});
 		}
 	}
 }

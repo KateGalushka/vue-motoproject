@@ -18,7 +18,10 @@
 			{{ $t('card.type')}}: <span>{{ motorcycle.type }}</span>
 		</div>
 		<div class="card__price">
-			€{{ motorcycle.price}}
+			<span>€{{ motorcycle.price}}</span>
+			<a :href="motorcycle.link" target="_blank">
+				<img class="auto-ria" src="../../assets/images/autoRia-logo.png" alt="autoRia-link">
+			</a>
 		</div>
 		<div class="card__buttons">
 			<button class="button button-details" @click="goToDetails(motorcycle.id)">{{ $t('card.details') }}</button>
@@ -26,11 +29,10 @@
 		</div>
 		<div>
 			<router-link :to="{name: 'bike-reviews', params: {bikeId: motorcycle.id}}" class="review-link">
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
+				<span v-for="n in 5" :key="n">
+					<font-awesome-icon :icon ="['far', 'star']"/>
+				</span>
+				
 				<p>{{ $t('card.reviews') }}</p>
 			</router-link>
 		</div>
@@ -95,11 +97,12 @@ import { mapGetters } from 'vuex'
 	margin-bottom: 1.25rem;
 	.card__title-logo {
 		display: block;
-		width: 50px;
+		width: 35px;
 	}
 	h3{
 		font-size: 1.25rem;
 		font-weight: 600;
+		text-align: center;
 	}
 	
 }
@@ -138,8 +141,16 @@ import { mapGetters } from 'vuex'
 .card__price{
 	font-size: 1.5rem;
 	font-weight: 600;
-	text-align: center;
+	// text-align: center;
 	margin-bottom: 1.25rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 1em;
+	.auto-ria {
+		width: 60px;
+		
+	}
 }
 .card__moto-type{
 	font-size: 1.125rem;

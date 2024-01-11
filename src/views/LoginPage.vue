@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		<router-link :to="{ name: 'home' }" class="button back">
-			<!-- <span class="material-symbols-outlined">backspace</span> -->
+			<font-awesome-icon :icon="['fas', 'house']" />
 			{{ $t('button.backHome') }}
 		</router-link>
 	</div>
@@ -171,9 +171,7 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 				console.log('passw: ', password)
 				try {
 					await this.signInWithWithEmailAndPassword({email, password});
-					this.$router.push({
-						name: 'home'
-					})
+					this.$router.go(-1);
 				}
 				catch (error) {
 					if (error.message == "Firebase: Error (auth/invalid-credential).") {

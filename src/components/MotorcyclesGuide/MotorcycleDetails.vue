@@ -1,9 +1,12 @@
 <template>
 	<div class="wrapper details">
-		<h2>{{ getBike.make }} {{ getBike.model }}</h2>
+		<div class="details__title">
+			<img :src="logoUrl" class="details__title-logo" :alt="getBike.make">
+			<h2>{{ getBike.make }} {{ getBike.model }}</h2>
+		</div>
 		<div class="details-container">
 			<div class="details__img">
-				<img :src="imageUrl" :alt="getBike.model">
+				<img :src="imageUrl" class="details__img-image" :alt="getBike.model">
 			</div>
 			<div class="details__spec">
 				<h3 class="details__spec-title">{{ $t('details.specs') }}</h3>
@@ -56,7 +59,7 @@
 				<div class="links">
 					<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link>
 
-					<button class="button favor" @click="toggleIsFavorite(bikeId)" >
+					<button v-if="getUser" class="button favor" @click="toggleIsFavorite(bikeId)" >
 						<span v-if="isAdded(bikeId)" class="material-symbols-outlined">heart_minus</span>
 						<span v-else class="material-symbols-outlined">favorite</span>
 						{{ btnFavorTitle }}
@@ -77,6 +80,7 @@ export default {
 	computed: {
 		...mapGetters('moto', ['getMotorcycleById']),
 		...mapGetters('favorites', ['getFavoriteList']),
+		...mapGetters('auth', ['getUser']),
 		...mapGetters('storage', ['getImagesReferences']),
 
 		bikeId() {
@@ -84,6 +88,10 @@ export default {
 		},
 		getBike() {
 			return this.getMotorcycleById(this.bikeId);
+		},
+		logoUrl() {
+			let brand = this.getBike.make;
+			return require(`@/assets/images/logo/${brand.toLowerCase()}.svg`)
 		},
 		imageUrl() {
 			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
@@ -110,11 +118,21 @@ export default {
 .details {
 	background-color: var(--bg-color1);
 	padding: 2rem;
+}
+.details__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1em;
 	h2	{
 		font-size: 2rem;
 		font-weight: 600;
-		margin-bottom: 1em;
 		color: var(--main-color2);
+	}
+	.details__title-logo {
+		width: 100px;
+		
 	}
 }
 .details-container {
@@ -129,12 +147,16 @@ export default {
 	max-width: 50%;
 	background: var(--bg-gradient);
 	border-radius: 3rem 0  3rem 0;
-	img
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.details__img-image
 	{
-		width: 100%;
+		width: 95%;
 		object-fit: cover;
 		border-radius: 3rem 0  3rem 0;
 	}
+	
 }
 
 .details__spec
@@ -250,9 +272,14 @@ export default {
 @media (max-width:800px) {
 	.details{
 		padding: 1.25rem;
+	}
+	.details__title{
 		h2 {
 			font-size: 1.5rem;
 			text-align: center;
+		}
+		.details__title-logo {
+			width: 70px;
 		}
 	}
 	
@@ -262,9 +289,6 @@ export default {
 	}
 	.details__img{
 		max-width: 75%;
-		img {
-			width: 100%;
-		}
 	} 
 	.details__spec-title {
 		font-size: 1.25rem;
@@ -287,8 +311,11 @@ export default {
 	}
 }
 @media (max-width:425px) {
+	.details__title .details__title-logo{
+		width: 50px;
+	}
 	.details-container {
-		// font-size: 0.75rem;
+		font-size: 0.75rem;
 	}
 }
 

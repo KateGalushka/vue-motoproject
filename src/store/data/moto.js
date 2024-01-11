@@ -7,7 +7,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "998.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "228.0 HP (166.4  kW) @ 11500 RPM",
+		"power": "228.0 HP @ 11500 RPM",
 		"torque": "141.7 Nm @ 11000 RPM",
 		"fuel_system": "Injection. DFI® with 40mm throttle bodies (4) with dual injection",
 		"fuel_control": "Double Overhead Cams/Twin Cam (DOHC)",
@@ -37,6 +37,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 32000,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/ninja'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja H2 SX.webp')
 	},
 	{
@@ -75,6 +76,7 @@ export const moto = [
 		"fuel_capacity": "8.00 litres",
 		"starter": "Electric & kick",
 		price: 9400,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/klx'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki KLX450R.webp')
 	},
 	{
@@ -117,6 +119,7 @@ export const moto = [
 		"fuel_capacity": "15.14 litres",
 		"starter": "Electric",
 		price: 9500,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/ninja'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Ninja 650.webp')
 	},
 	{
@@ -161,6 +164,7 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 17000,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/versys'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 1000 SE.webp')
 	},
 	{
@@ -171,7 +175,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "649.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "69.0 HP (50.4  kW)) @ 8500 RPM",
+		"power": "69.0 HP @ 8500 RPM",
 		"torque": "60.8 Nm @ 7000 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "83.0 x 60.0 mm (3.3 x 2.4 inches)",
@@ -202,6 +206,7 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 10400,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/versys'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Versys 650.webp')
 	},
 	{
@@ -212,7 +217,7 @@ export const moto = [
 		"type": "cruiser",
 		"displacement": "649.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "60.4 HP (44.1  kW)) @ 7500 RPM",
+		"power": "60.4 HP @ 7500 RPM",
 		"torque": "63.0 Nm @ 6600 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "83.0 x 60.0 mm (3.3 x 2.4 inches)",
@@ -243,6 +248,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9500,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/vulcan'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Vulcan S.webp')
 	},
 	{
@@ -253,7 +259,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "649.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "67.3 HP (49.1  kW)) @ 8000 RPM",
+		"power": "67.3 HP @ 8000 RPM",
 		"torque": "65.7 Nm @ 6500 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "83.0 x 60.0 mm (3.3 x 2.4 inches)",
@@ -286,6 +292,7 @@ export const moto = [
 		"fuel_capacity": "15.14 litres",
 		"starter": "Electric",
 		price: 8700,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/z-650'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Z650.webp')
 	},
 	{
@@ -296,7 +303,7 @@ export const moto = [
 		"type": "classic",
 		"displacement": "948.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "110.0 HP (80.3  kW)) @ 8500 RPM",
+		"power": "110.0 HP @ 8500 RPM",
 		"torque": "98.0 Nm @ 6500 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "73.4 x 56.0 mm (2.9 x 2.2 inches)",
@@ -330,6 +337,7 @@ export const moto = [
 		"fuel_capacity": "17.03 litres",
 		"starter": "Electric",
 		price: 16200,
+		link: 'https://auto.ria.com/uk/moto/kawasaki/z900'
 		// imgSrc: require('@/assets/images/motorcycles/kawasaki Z900RS.jpg')
 	},
 	{
@@ -340,7 +348,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "765.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "121.0 HP (88.3  kW)) @ 11750 RPM",
+		"power": "121.0 HP @ 11750 RPM",
 		"torque": "79.0 Nm @ 9350 RPM",
 		"compression": "12.5:1",
 		"bore_stroke": "78.0 x 53.4 mm (3.1 x 2.1 inches)",
@@ -371,6 +379,7 @@ export const moto = [
 		"fuel_capacity": "17.40 litres",
 		"starter": "Electric",
 		price: 15800,
+		link: 'https://auto.ria.com/uk/moto/triumph/street-triple'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Street Triple RS.webp')
 	},
 	{
@@ -381,7 +390,7 @@ export const moto = [
 		"type": "classic",
 		"displacement": "1200.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "98.6 HP (72.0  kW)) @ 7250 RPM",
+		"power": "98.6 HP @ 7250 RPM",
 		"torque": "112.0 Nm @ 4250 RPM",
 		"compression": "12.1:1",
 		"bore_stroke": "97.6 x 80.0 mm (3.8 x 3.1 inches)",
@@ -411,6 +420,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 17000,
+		link: 'https://auto.ria.com/uk/moto/triumph/speed-twin'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Speed Twin.webp')
 	},
 	{
@@ -421,7 +431,7 @@ export const moto = [
 		"type": "classic",
 		"displacement": "900.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "64.1 HP (46.8  kW)) @ 7400 RPM",
+		"power": "64.1 HP @ 7400 RPM",
 		"torque": "80.0 Nm @ 3750 RPM",
 		"compression": "11.0:1",
 		"bore_stroke": "84.6 x 80.0 mm (3.3 x 3.1 inches)",
@@ -452,6 +462,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 13900,
+		link: 'https://auto.ria.com/uk/moto/triumph/bonneville'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Bonneville T100.webp')
 	},
 	{
@@ -462,7 +473,7 @@ export const moto = [
 		"type": "cruiser",
 		"displacement": "2458.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "165.0 HP (120.4  kW)) @ 6000 RPM",
+		"power": "165.0 HP @ 6000 RPM",
 		"torque": "221.0 Nm @ 4000 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "110.2 x 85.9 mm (4.3 x 3.4 inches)",
@@ -492,6 +503,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 30000,
+		link: 'https://auto.ria.com/uk/moto/triumph/rocket-iii'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Rocket 3 R.png')
 	},
 	{
@@ -502,7 +514,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "1160.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "180.0 HP (131.4  kW)) @ 10750 RPM",
+		"power": "180.0 HP @ 10750 RPM",
 		"torque": "124.8 Nm @ 9000 RPM",
 		"compression": "13.2:1",
 		"bore_stroke": "90.0 x 60.8 mm (3.5 x 2.4 inches)",
@@ -533,6 +545,7 @@ export const moto = [
 		"fuel_capacity": "15.50 litres",
 		"starter": "Electric",
 		price: 21500,
+		link: 'https://auto.ria.com/uk/moto/triumph/speed-triple'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Speed Triple 1200 RS.webp')
 	},
 	{
@@ -543,7 +556,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1160.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "150.0 HP (109.5  kW)) @ 9000 RPM",
+		"power": "150.0 HP @ 9000 RPM",
 		"torque": "130.0 Nm @ 7000 RPM",
 		"compression": "13.2:1",
 		"bore_stroke": "89.9 x 60.5 mm (3.5 x 2.4 inches)",
@@ -574,6 +587,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 24000,
+		link: 'https://auto.ria.com/uk/moto/triumph/tiger'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Pro.png')
 	},
 	{
@@ -584,7 +598,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "888.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "93.9 HP (68.5  kW)) @ 8750 RPM",
+		"power": "93.9 HP @ 8750 RPM",
 		"torque": "87.0 Nm @ 7250 RPM",
 		"top_speed": "196.0 km/h (121.8 mph)",
 		"compression": "11.3:1",
@@ -613,6 +627,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 16000,
+		link: 'https://auto.ria.com/uk/moto/triumph/tiger'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 GT.png')
 	},
 	{
@@ -623,7 +638,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "888.0 ccm (54.19 cubic inches)",
 		"engine": "In-line three, four-stroke",
-		"power": "93.9 HP (68.5  kW)) @ 8750 RPM",
+		"power": "93.9 HP @ 8750 RPM",
 		"torque": "87.0 Nm @ 7250 RPM",
 		"top_speed": "196.0 km/h (121.8 mph)",
 		"compression": "11.3:1",
@@ -654,6 +669,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 18900,
+		link: 'https://auto.ria.com/uk/moto/triumph/tiger'
 		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 900 Rally Pro.png')
 	},
 	{
@@ -664,7 +680,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "660.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "81.0 HP (59.1  kW)) @ 10250 RPM",
+		"power": "81.0 HP @ 10250 RPM",
 		"torque": "47.2 Nm @ 6250 RPM",
 		"compression": "12.0:1",
 		"bore_stroke": "74.0 x 51.1 mm (2.9 x 2.0 inches)",
@@ -694,6 +710,7 @@ export const moto = [
 		"fuel_capacity": "17.20 litres",
 		"starter": "Electric",
 		price: 11800,
+		link: 'https://auto.ria.com/uk/moto/triumph/tiger',
 		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger Sport 660.webp')
 	},
 	{
@@ -704,7 +721,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "660.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "81.0 HP (59.1  kW)) @ 10250 RPM",
+		"power": "81.0 HP @ 10250 RPM",
 		"torque": "63.7 Nm @ 6250 RPM",
 		"compression": "12.0:1",
 		"bore_stroke": "74.0 x 51.1 mm (2.9 x 2.0 inches)",
@@ -733,6 +750,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 10800,
+		link: 'https://auto.ria.com/uk/moto/triumph/trident',
 		// imgSrc: require('@/assets/images/motorcycles/triumph Trident 660.webp')
 	},
 	{
@@ -743,7 +761,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1160.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "150.0 HP (109.5  kW)) @ 9000 RPM",
+		"power": "150.0 HP @ 9000 RPM",
 		"torque": "130.0 Nm @ 7000 RPM",
 		"compression": "13.2:1",
 		"bore_stroke": "89.9 x 60.5 mm (3.5 x 2.4 inches)",
@@ -774,7 +792,8 @@ export const moto = [
 		"fuel_capacity": "29.90 litres",
 		"starter": "Electric",
 		// imgSrc: require('@/assets/images/motorcycles/triumph Tiger 1200 GT Explorer.webp'),
-		price: 27000
+		price: 27000,
+		link: 'https://auto.ria.com/uk/moto/triumph/tiger',
 	},
 	{
 		id:20,
@@ -784,7 +803,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "659.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "100.0 HP (73.0  kW)) @ 10500 RPM",
+		"power": "100.0 HP @ 10500 RPM",
 		"torque": "67.0 Nm @ 8500 RPM",
 		"top_speed": "235.0 km/h (146.0 mph)",
 		"bore_stroke": "81.0 x 63.9 mm (3.2 x 2.5 inches)",
@@ -813,6 +832,7 @@ export const moto = [
 		"fuel_capacity": "15.00 litres",
 		"starter": "Electric",
 		price: 14500,
+		link: 'https://auto.ria.com/uk/moto/aprilia/rs',
 		// imgSrc: require('@/assets/images/motorcycles/aprilia RS 660.webp')
 	},
 	{
@@ -823,7 +843,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "1099.0 ccm",
 		"engine": "V4, four-stroke",
-		"power": "217.0 HP (158.4  kW)) @ 13000 RPM",
+		"power": "217.0 HP @ 13000 RPM",
 		"torque": "125.0 Nm @ 10500 RPM",
 		"compression": "13.6:1",
 		"bore_stroke": "85.0 x 52.3 mm (3.3 x 2.1 inches)",
@@ -858,6 +878,7 @@ export const moto = [
 		"fuel_capacity": "18.50 litres",
 		"starter": "Electric",
 		price: 24500,
+		link: 'https://auto.ria.com/uk/moto/aprilia/rsv4',
 		// imgSrc: require('@/assets/images/motorcycles/aprilia RSV4.webp')
 	},
 	{
@@ -868,7 +889,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "660.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "80.0 HP (58.4  kW)) @ 9250 RPM",
+		"power": "80.0 HP @ 9250 RPM",
 		"torque": "70.0 Nm @ 6500 RPM",
 		"compression": "13.5:1",
 		"bore_stroke": "81.0 x 63.9 mm (3.2 x 2.5 inches)",
@@ -901,6 +922,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 15000,
+		link: 'https://auto.ria.com/uk/moto/aprilia/tuareg/',
 		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuareg 660.webp')
 	},
 	{
@@ -911,7 +933,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "660.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "95.0 HP (69.3  kW)) @ 10500 RPM",
+		"power": "95.0 HP @ 10500 RPM",
 		"torque": "67.0 Nm @ 8500 RPM",
 		"bore_stroke": "81.0 x 63.9 mm (3.2 x 2.5 inches)",
 		"valves_per_cylinder": "4",
@@ -938,6 +960,7 @@ export const moto = [
 		"fuel_capacity": "15.00 litres",
 		"starter": "Electric",
 		price: 14000,
+		link: 'https://auto.ria.com/uk/moto/aprilia/tuono',
 		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuono 660.webp')
 	},
 	{
@@ -948,7 +971,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "1077.0 ccm",
 		"engine": "V4, four-stroke",
-		"power": "175.0 HP (127.7  kW)) @ 11300 RPM",
+		"power": "175.0 HP @ 11300 RPM",
 		"torque": "121.0 Nm @ 9000 RPM",
 		"bore_stroke": "81.0 x 52.3 mm (3.2 x 2.1 inches)",
 		"valves_per_cylinder": "4",
@@ -982,6 +1005,7 @@ export const moto = [
 		"fuel_capacity": "17.90 litres",
 		"starter": "Electric",
 		price: 24500,
+		link: 'https://auto.ria.com/uk/moto/aprilia/tuono',
 		// imgSrc: require('@/assets/images/motorcycles/aprilia Tuono V4 Factory.webp')
 	},
 	{
@@ -992,7 +1016,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "649.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "93.9 HP (68.5  kW)) @ 12000 RPM",
+		"power": "93.9 HP @ 12000 RPM",
 		"torque": "63.0 Nm @ 9500 RPM",
 		"compression": "11.6:1",
 		"bore_stroke": "67.0 x 46.0 mm (2.6 x 1.8 inches)",
@@ -1021,6 +1045,7 @@ export const moto = [
 		"fuel_capacity": "15.40 litres",
 		"starter": "Electric",
 		price: 10500,
+		link: 'https://auto.ria.com/uk/moto/honda/cb-650r',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB650R.jpg')
 	},
 	{
@@ -1031,7 +1056,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "998.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "143.5 HP (104.7  kW)) @ 10500 RPM",
+		"power": "143.5 HP @ 10500 RPM",
 		"torque": "104.0 Nm @ 8250 RPM",
 		"compression": "11.6:1",
 		"bore_stroke": "76.0 x 56.5 mm (3.0 x 2.2 inches)",
@@ -1064,6 +1089,7 @@ export const moto = [
 		"fuel_capacity": "16.20 litres",
 		"starter": "Electric",
 		price: 13000,
+		link: 'https://auto.ria.com/uk/moto/honda/cb-1000r',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB1000R.jpg')
 	},
 	{
@@ -1074,7 +1100,7 @@ export const moto = [
 		"type": "cruiser",
 		"displacement": "471.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "45.6 HP (33.3  kW)) @ 8500 RPM",
+		"power": "45.6 HP @ 8500 RPM",
 		"torque": "43.3 Nm @ 6000 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "67.0 x 66.8 mm (2.6 x 2.6 inches)",
@@ -1107,6 +1133,7 @@ export const moto = [
 		"fuel_capacity": "11.20 litres",
 		"starter": "Electric",
 		price: 8000,
+		link: 'https://auto.ria.com/uk/moto/honda/cmx-500-rebel',
 		// imgSrc: require('@/assets/images/motorcycles/honda CMX500 Rebel.jpg')
 	},
 	{
@@ -1117,7 +1144,7 @@ export const moto = [
 		"type": "cruiser",
 		"displacement": "1084.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "85.8 HP (62.6  kW)) @ 7000 RPM",
+		"power": "85.8 HP @ 7000 RPM",
 		"torque": "98.0 Nm @ 4750 RPM",
 		"compression": "10.1:1",
 		"bore_stroke": "91.0 x 81.5 mm (3.6 x 3.2 inches)",
@@ -1147,6 +1174,7 @@ export const moto = [
 		"fuel_capacity": "13.60 litres",
 		"starter": "Electric",
 		price: 12000,
+		link: 'https://auto.ria.com/uk/moto/honda/cmx-1100dp',
 		// imgSrc: require('@/assets/images/motorcycles/honda CMX1100 Rebel.png')
 	},
 	{
@@ -1157,7 +1185,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1084.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "101.0 HP (73.7  kW)) @ 7500 RPM",
+		"power": "101.0 HP @ 7500 RPM",
 		"torque": "105.0 Nm @ 6250 RPM",
 		"compression": "10.1:1",
 		"bore_stroke": "92.0 x 81.5 mm (3.6 x 3.2 inches)",
@@ -1190,6 +1218,7 @@ export const moto = [
 		"fuel_capacity": "24.80 litres",
 		"starter": "Electric",
 		price: 17500,
+		link: 'https://auto.ria.com/uk/moto/honda/crf-1100l-africa-twin',
 		// imgSrc: require('@/assets/images/motorcycles/honda Africa Twin.png')
 	},
 	{
@@ -1200,7 +1229,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1084.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "101.0 HP (73.7  kW)) @ 7500 RPM",
+		"power": "101.0 HP @ 7500 RPM",
 		"torque": "105.0 Nm @ 6250 RPM",
 		"compression": "10.1:1",
 		"bore_stroke": "92.0 x 81.5 mm (3.6 x 3.2 inches)",
@@ -1231,6 +1260,7 @@ export const moto = [
 		"fuel_capacity": "24.80 litres",
 		"starter": "Electric",
 		price: 19300,
+		link: 'https://auto.ria.com/uk/moto/honda/crf-1100l-africa-twin',
 		// imgSrc: require('@/assets/images/motorcycles/honda Africa Twin CRF1100L Adventure Sports.jpg')
 	},
 	{
@@ -1241,7 +1271,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "471.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "46.9 HP (34.3  kW)) @ 8600 RPM",
+		"power": "46.9 HP @ 8600 RPM",
 		"torque": "43.0 Nm @ 6500 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "67.0 x 66.8 mm (2.6 x 2.6 inches)",
@@ -1274,6 +1304,7 @@ export const moto = [
 		"fuel_capacity": "17.50 litres",
 		"starter": "Electric",
 		price: 9200,
+		link: 'https://auto.ria.com/uk/moto/honda/cb-500x',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB500X.jpg')
 	},
 	{
@@ -1284,7 +1315,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "471.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "46.9 HP (34.3  kW)) @ 8600 RPM",
+		"power": "46.9 HP @ 8600 RPM",
 		"torque": "43.0 Nm  @ 6500 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "67.0 x 66.8 mm (2.6 x 2.6 inches)",
@@ -1318,6 +1349,7 @@ export const moto = [
 		"fuel_capacity": "16.70 litres",
 		"starter": "Electric",
 		price: 8000,
+		link: 'https://auto.ria.com/uk/moto/honda/cb-500f',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB500F.jpg')
 	},
 	{
@@ -1328,7 +1360,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "649.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "93.9 HP (68.5  kW)) @ 12000 RPM",
+		"power": "93.9 HP @ 12000 RPM",
 		"torque": "63.0 Nm @ 8500 RPM",
 		"compression": "11.6:1",
 		"bore_stroke": "67.0 x 46.0 mm (2.6 x 1.8 inches)",
@@ -1360,6 +1392,7 @@ export const moto = [
 		"fuel_capacity": "15.40 litres",
 		"starter": "Electric",
 		price: 11000,
+		link: 'https://auto.ria.com/uk/moto/honda/cbr-650r',
 		// imgSrc: require('@/assets/images/motorcycles/honda CBR650R.jpg')
 	},
 	{
@@ -1370,7 +1403,7 @@ export const moto = [
 		"type": "touring",
 		"displacement": "1833.0 ccm",
 		"engine": "Six cylinder boxer, four-stroke",
-		"power": "124.7 HP (91.0  kW)) @ 5500 RPM",
+		"power": "124.7 HP @ 5500 RPM",
 		"torque": "170.0 Nm @ 4500 RPM",
 		"compression": "10.5:1",
 		"bore_stroke": "73.0 x 73.0 mm (2.9 x 2.9 inches)",
@@ -1401,6 +1434,7 @@ export const moto = [
 		"fuel_capacity": "21.10 litres",
 		"starter": "Electric",
 		price: 40000,
+		link: 'https://auto.ria.com/uk/moto/honda/gl-1800-gold-wing',
 		// imgSrc: require('@/assets/images/motorcycles/honda GL1800 Gold Wing DCT.jpg')
 	},
 	{
@@ -1411,7 +1445,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "124.9 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "14.8 HP (10.8  kW)) @ 10000 RPM",
+		"power": "14.8 HP @ 10000 RPM",
 		"torque": "11.6 Nm @ 8000 RPM",
 		"top_speed": "105.0 km/h (65.2 mph)",
 		"compression": "11.3:1",
@@ -1441,6 +1475,7 @@ export const moto = [
 		"fuel_capacity": "10.10 litres",
 		"starter": "Electric",
 		price: 3500,
+		link: 'https://auto.ria.com/uk/moto/honda/cbr-125r',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB125R.jpg')
 	},
 	{
@@ -1451,7 +1486,7 @@ export const moto = [
 		"type": "touring",
 		"displacement": "1084.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "100.6 HP (73.4  kW)) @ 7500 RPM",
+		"power": "100.6 HP @ 7500 RPM",
 		"torque": "104.0 Nm @ 6250 RPM",
 		"compression": "10.0:1",
 		"bore_stroke": "92.0 x 81.5 mm (3.6 x 3.2 inches)",
@@ -1483,6 +1518,7 @@ export const moto = [
 		"fuel_capacity": "20.40 litres",
 		"starter": "Electric",
 		price: 16000,
+		link: 'https://auto.ria.com/uk/moto/honda/nt-1100dp',
 		// imgSrc: require('@/assets/images/motorcycles/honda NT1100 DCT.jpg')
 	},
 	{
@@ -1492,7 +1528,7 @@ export const moto = [
 		"year": "2022",
 		"type": "cruiser",
 		"displacement": "745.0 ccm",
-		"power": "44.9 HP (33.5  kW)) @ 5500 RPM",
+		"power": "44.9 HP @ 5500 RPM",
 		"torque": "65 Nm @ 3500 RPM",
 		"engine": "V2, four-stroke",
 		"compression": "9.6:1",
@@ -1520,6 +1556,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9500,
+		link: 'https://auto.ria.com/uk/moto/honda/vt-750-shadow',
 		// imgSrc: require('@/assets/images/motorcycles/honda Shadow Phantom.webp')
 	},
 	{
@@ -1530,7 +1567,7 @@ export const moto = [
 		"type": "enduro",
 		"displacement": "286.0 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "27.0 HP (19.7  kW)) @ 8500 RPM",
+		"power": "27.0 HP @ 8500 RPM",
 		"torque": "26.6 Nm @ 6500 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "76.0 x 63.0 mm (3.0 x 2.5 inches)",
@@ -1561,6 +1598,7 @@ export const moto = [
 		"fuel_capacity": "12.80 litres",
 		"starter": "Electric",
 		price: 8300,
+		link: 'https://auto.ria.com/uk/moto/honda/crf-300l',
 		// imgSrc: require('@/assets/images/motorcycles/honda CRF300 Rally.jpg')
 	},
 	{
@@ -1597,6 +1635,7 @@ export const moto = [
 		"wheelbase": "1360 mm (53.5 inches)",
 		"starter": "Electric & kick",
 		price: 2800,
+		link: 'https://auto.ria.com/uk/moto/honda/xr-150l',
 		// imgSrc: require('@/assets/images/motorcycles/honda XR150L.jpg')
 	},
 	{
@@ -1607,7 +1646,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "286.0 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "38.9 HP (28.4  kW)) @ 9000 RPM",
+		"power": "38.9 HP @ 9000 RPM",
 		"torque": "27.5 Nm @ 7750 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "76.0 x 63.0 mm (3.0 x 2.5 inches)",
@@ -1639,6 +1678,7 @@ export const moto = [
 		"fuel_capacity": "10.22 litres",
 		"starter": "Electric",
 		price: 6000,
+		link: 'https://auto.ria.com/uk/moto/honda/cb-300r',
 		// imgSrc: require('@/assets/images/motorcycles/honda CB300R Neo Sports Cafe.png')
 	},
 	{
@@ -1649,7 +1689,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "745.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "57.8 HP (42.2  kW)) @ 6000 RPM",
+		"power": "57.8 HP @ 6000 RPM",
 		"torque": "69.0 Nm @ 4750 RPM",
 		"compression": "10.7:1",
 		"bore_stroke": "77.0 x 80.0 mm (3.0 x 3.1 inches)",
@@ -1682,6 +1722,7 @@ export const moto = [
 		"fuel_capacity": "14.38 litres",
 		"starter": "Electric",
 		price: 11000,
+		link: 'https://auto.ria.com/uk/moto/honda/nc-750x',
 		// imgSrc: require('@/assets/images/motorcycles/honda NC750X DCT.jpg')
 	},
 	{
@@ -1692,7 +1733,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "321.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "42.0 HP (30.7  kW)) @ 10750 RPM",
+		"power": "42.0 HP @ 10750 RPM",
 		"torque": "29.6 Nm @ 9000 RPM",
 		"compression": "11.2:1",
 		"bore_stroke": "68.0 x 44.1 mm (2.7 x 1.7 inches)",
@@ -1726,6 +1767,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 6700,
+		link: 'https://auto.ria.com/uk/moto/yamaha/mt-03',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-03.jpeg')
 	},
 	{
@@ -1736,7 +1778,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "689.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "74.0 HP (54.0  kW)) @ 9000 RPM",
+		"power": "74.0 HP @ 9000 RPM",
 		"torque": "68.0 Nm @ 6500 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "80.0 x 68.6 mm (3.1 x 2.7 inches)",
@@ -1770,6 +1812,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 9200,
+		link: 'https://auto.ria.com/uk/moto/yamaha/mt-07',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-07.jpeg')
 	},
 	{
@@ -1814,6 +1857,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 11800,
+		link: 'https://auto.ria.com/uk/moto/yamaha/mt-09',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-09.jpeg')
 	},
 	{
@@ -1824,7 +1868,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "124.7 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "14.8 HP (10.8  kW)) @ 10000 RPM",
+		"power": "14.8 HP @ 10000 RPM",
 		"torque": "11.5 Nm @ 8000 RPM",
 		"compression": "11.2:1",
 		"bore_stroke": "52.0 x 58.6 mm (2.0 x 2.3 inches)",
@@ -1858,6 +1902,7 @@ export const moto = [
 		"fuel_capacity": "11.00 litres (2.91 US gallons)",
 		"starter": "Electric",
 		price: 6300,
+		link: 'https://auto.ria.com/uk/moto/yamaha/yz-125',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha MT-125.jpeg')
 	},
 	{
@@ -1868,7 +1913,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "998.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "200.0 HP (146.0  kW)) @ 13500 RPM",
+		"power": "200.0 HP @ 13500 RPM",
 		"torque": "112.4 Nm @ 11500 RPM",
 		"compression": "13.0:1",
 		"bore_stroke": "79.0 x 50.9 mm (3.1 x 2.0 inches)",
@@ -1901,6 +1946,7 @@ export const moto = [
 		"fuel_capacity": "17.03 litres",
 		"starter": "Electric",
 		price:21500,
+		link: 'https://auto.ria.com/uk/moto/yamaha/yzf-r1',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R1.jpeg')
 	},
 	{
@@ -1911,7 +1957,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "321.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "42.0 HP (30.7  kW)) @ 10750 RPM",
+		"power": "42.0 HP @ 10750 RPM",
 		"torque": "29.6 Nm @ 9000 RPM",
 		"compression": "11.2:1",
 		"bore_stroke": "68.0 x 44.1 mm (2.7 x 1.7 inches)",
@@ -1944,6 +1990,7 @@ export const moto = [
 		"fuel_capacity": "14.00 litres",
 		"starter": "Electric",
 		price: 6300,
+		link: 'https://auto.ria.com/uk/moto/yamaha/yzf-r',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R3.jpeg')
 	},
 	{
@@ -1954,7 +2001,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "599.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "123.5 HP (90.1  kW)) @ 14500 RPM",
+		"power": "123.5 HP @ 14500 RPM",
 		"torque": "67.5 Nm @ 10500 RPM",
 		"compression": "13.1:1",
 		"bore_stroke": "67.0 x 42.5 mm (2.6 x 1.7 inches)",
@@ -1987,6 +2034,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price:14900,
+		link: 'https://auto.ria.com/uk/moto/yamaha/yzf-r6',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha YZF-R6.jpeg')
 	},
 	{
@@ -1997,7 +2045,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "689.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "72.4 HP (52.9  kW)) @ 8750 RPM",
+		"power": "72.4 HP @ 8750 RPM",
 		"torque": "68.6 Nm @ 6500 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "80.0 x 68.6 mm (3.1 x 2.7 inches)",
@@ -2031,6 +2079,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 10700,
+		link: 'https://auto.ria.com/uk/moto/yamaha/tracer',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 7.jpeg')
 	},
 	{
@@ -2041,7 +2090,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "890.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "119.0 HP (86.9  kW)) @ 10000 RPM",
+		"power": "119.0 HP @ 10000 RPM",
 		"torque": "93.0 Nm @ 7000 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "78.0 x 62.1 mm (3.1 x 2.4 inches)",
@@ -2075,6 +2124,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 12700,
+		link: 'https://auto.ria.com/uk/moto/yamaha/tracer',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 9.jpeg')
 	},
 	{
@@ -2085,7 +2135,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "890.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "119.0 HP (86.9  kW)) @ 10000 RPM",
+		"power": "119.0 HP @ 10000 RPM",
 		"torque": "93.0 Nm @ 7000 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "78.0 x 62.1 mm (3.1 x 2.4 inches)",
@@ -2119,6 +2169,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 16500,
+		link: 'https://auto.ria.com/uk/moto/yamaha/tracer',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Tracer 9 GT.jpg')
 	},
 	{
@@ -2129,7 +2180,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "847.0 ccm",
 		"engine": "In-line three, four-stroke",
-		"power": "113.5 HP (82.8  kW)) @ 10000 RPM",
+		"power": "113.5 HP @ 10000 RPM",
 		"torque": "87.5 Nm @ 8500 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "78.0 x 59.0 mm (3.1 x 2.3 inches)",
@@ -2161,6 +2212,7 @@ export const moto = [
 		"fuel_capacity": "18.00 litres",
 		"starter": "Electric",
 		price: 20500,
+		link: 'https://auto.ria.com/uk/moto/yamaha',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Niken GT.jpeg')
 	},
 	{
@@ -2171,7 +2223,7 @@ export const moto = [
 		"type": "enduro",
 		"displacement": "689.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "73.8 HP (53.8  kW)) @ 9000 RPM",
+		"power": "73.8 HP @ 9000 RPM",
 		"torque": "68.0 Nm @ 6500 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "80.0 x 68.6 mm (3.1 x 2.7 inches)",
@@ -2205,6 +2257,7 @@ export const moto = [
 		"fuel_capacity": "15.90 litres",
 		"starter": "Electric",
 		price: 12800,
+		link: 'https://auto.ria.com/uk/moto/yamaha/tenere',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Tenere 700.jpeg')
 	},
 	{
@@ -2215,7 +2268,7 @@ export const moto = [
 		"type": "enduro",
 		"displacement": "689.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "72.4 HP (52.9  kW)) @ 9000 RPM",
+		"power": "72.4 HP @ 9000 RPM",
 		"torque": "68.0 Nm @ 6500 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "80.0 x 68.6 mm (3.1 x 2.7 inches)",
@@ -2249,6 +2302,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 15400,
+		link: 'https://auto.ria.com/uk/moto/yamaha/tenere',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Tenere 700 Rally.jpeg')
 	},
 	{
@@ -2259,7 +2313,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1199.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "112.0 HP (81.8  kW)) @ 7250 RPM",
+		"power": "112.0 HP @ 7250 RPM",
 		"torque": "117.0 Nm @ 6000 RPM",
 		"compression": "11.0:1",
 		"bore_stroke": "98.0 x 79.5 mm (3.9 x 3.1 inches)",
@@ -2292,6 +2346,7 @@ export const moto = [
 		"fuel_capacity": "23.09 litres",
 		"starter": "Electric",
 		price: 18000,
+		link: 'https://auto.ria.com/uk/moto/yamaha/xt-1200z-super-tenere',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha Super Tenere ES.jpg')
 	},
 	{
@@ -2302,7 +2357,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "124.0 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "10.1 HP (7.3  kW)) @ 10000 RPM",
+		"power": "10.1 HP @ 10000 RPM",
 		"torque": "9.6 Nm @ 6000 RPM",
 		"compression": "10.0:1",
 		"bore_stroke": "54.0 x 54.0 mm (2.1 x 2.1 inches)",
@@ -2334,6 +2389,7 @@ export const moto = [
 		"fuel_capacity": "13.00 litres",
 		"starter": "Electric",
 		price: 1950,
+		link: 'https://auto.ria.com/uk/moto/yamaha/ybr125',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha YBR125 ED.jpeg')
 	},
 	{
@@ -2344,7 +2400,7 @@ export const moto = [
 		"type": "sport touring",
 		"displacement": "1298.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "144.2 HP (105.2  kW)) @ 8000 RPM",
+		"power": "144.2 HP @ 8000 RPM",
 		"torque": "138.0 Nm @ 7000 RPM",
 		"compression": "10.8:1",
 		"bore_stroke": "79.0 x 66.2 mm (3.1 x 2.6 inches)",
@@ -2377,6 +2433,7 @@ export const moto = [
 		"fuel_capacity": "25.00 litres",
 		"starter": "Electric",
 		price: 24000,
+		link: 'https://auto.ria.com/uk/moto/yamaha/fjr-1300',
 		// imgSrc: require('@/assets/images/motorcycles/yamaha FJR1300AE.jpg')
 	},
 	{
@@ -2418,6 +2475,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 13000,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-s-1000',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000.png')
 	},
 	{
@@ -2428,7 +2486,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "1340.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "197.0 HP (143.8  kW)) @ 9500 RPM",
+		"power": "197.0 HP @ 9500 RPM",
 		"torque": "155.0 Nm @ 7200 RPM",
 		"compression": "12.5:1",
 		"bore_stroke": "81.0 x 65.0 mm (3.2 x 2.6 inches)",
@@ -2460,6 +2518,7 @@ export const moto = [
 		"fuel_capacity": "21.00 litres",
 		"starter": "Electric",
 		price: 22000,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-1300r-hayabusa',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki Hayabusa.png')
 	},
 	{
@@ -2470,7 +2529,7 @@ export const moto = [
 		"type": "sport",
 		"displacement": "999.8 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "198.5 HP (144.9  kW)) @ 13200 RPM",
+		"power": "198.5 HP @ 13200 RPM",
 		"torque": "117.0 Nm @ 10800 RPM",
 		"compression": "13.2:1",
 		"bore_stroke": "76.0 x 55.1 mm (3.0 x 2.2 inches)",
@@ -2500,6 +2559,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 19500,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-r-1000',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R1000.png')
 	},
 	{
@@ -2539,6 +2599,7 @@ export const moto = [
 		"fuel_capacity": "17.00 litres",
 		"starter": "Electric",
 		price: 12500,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-r-600',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-R600Z.png')
 	},
 	{
@@ -2549,7 +2610,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "749.0 ccm",
 		"engine": "In-line four, four-stroke",
-		"power": "112.7 HP (82.2  kW)) @ 10500 RPM",
+		"power": "112.7 HP @ 10500 RPM",
 		"torque": "81.0 Nm @ 9000 RPM",
 		"compression": "12.3:1",
 		"bore_stroke": "72.0 x 46.0 mm (2.8 x 1.8 inches)",
@@ -2581,6 +2642,7 @@ export const moto = [
 		"fuel_capacity": "16.00 litres",
 		"starter": "Electric",
 		price: 9500,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-r-750',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S750A.png')
 	},
 	{
@@ -2591,7 +2653,7 @@ export const moto = [
 		"type": "classic",
 		"displacement": "645.0 ccm",
 		"engine": "V2, four-stroke",
-		"power": "73.0 HP (53.3  kW)) @ 8500 RPM",
+		"power": "73.0 HP @ 8500 RPM",
 		"torque": "64.0 Nm @ 6800 RPM",
 		"compression": "11.2:1",
 		"bore_stroke": "81.0 x 62.6 mm (3.2 x 2.5 inches)",
@@ -2625,6 +2687,7 @@ export const moto = [
 		"fuel_capacity": "14.50 litres",
 		"starter": "Electric",
 		price: 8700,
+		link: 'https://auto.ria.com/uk/moto/suzuki/sv-650',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki SV650.png')
 	},
 	{
@@ -2634,7 +2697,7 @@ export const moto = [
 		"year": "2022",
 		"type": "sport touring",
 		"displacement": "999.8 ccm",
-		"power": "152 HP (112 kW)) @ 11000 RPM",
+		"power": "152 HP @ 11000 RPM",
 		"torque": "106 Nm @ 9250 RPM",
 		"engine": "In-line four, four-stroke",
 		"compression": "12.2:1",
@@ -2665,6 +2728,7 @@ export const moto = [
 		"fuel_capacity": "19.00 litres",
 		"starter": "Electric",
 		price: 16000,
+		link: 'https://auto.ria.com/uk/moto/suzuki/gsx-s-1000',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki GSX-S1000GT Plus.png')
 	},
 	{
@@ -2675,7 +2739,7 @@ export const moto = [
 		"type": "cruiser",
 		"displacement": "805.0 ccm",
 		"engine": "V2, four-stroke",
-		"power": "53.0 HP (38.7  kW)) @ 6000 RPM",
+		"power": "53.0 HP @ 6000 RPM",
 		"torque": "69.0 Nm @ 3200 RPM",
 		"top_speed": "160.0 km/h (99.4 mph)",
 		"compression": "9.4:1",
@@ -2706,6 +2770,7 @@ export const moto = [
 		"fuel_capacity": "15.52 litres",
 		"starter": "Electric",
 		price: 9500,
+		link: 'https://auto.ria.com/uk/moto/suzuki/boulevard',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki Boulevard.png')
 	},
 	{
@@ -2716,7 +2781,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1037.0 ccm",
 		"engine": "V2, four-stroke",
-		"power": "100.0 HP (73.0  kW)) @ 8000 RPM",
+		"power": "100.0 HP @ 8000 RPM",
 		"torque": "103.0 Nm @ 4000 RPM",
 		"compression": "11.5:1",
 		"bore_stroke": "100.0 x 66.0 mm (3.9 x 2.6 inches)",
@@ -2748,6 +2813,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 16500,
+		link: 'https://auto.ria.com/uk/moto/suzuki/v-strom-1050',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki V-Strom 1050.png')
 	},
 	{
@@ -2758,7 +2824,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "645.0 ccm",
 		"engine": "V2, four-stroke",
-		"power": "69.7 HP (50.9  kW)) @ 8800 RPM",
+		"power": "69.7 HP @ 8800 RPM",
 		"torque": "69.0 Nm @ 6300 RPM",
 		"top_speed": "185.0 km/h (115.0 mph)",
 		"compression": "11.2:1",
@@ -2791,6 +2857,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres",
 		"starter": "Electric",
 		price: 11000,
+		link: 'https://auto.ria.com/uk/moto/suzuki/v-strom-650',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki V-Strom 650XT.png')
 	},
 	{
@@ -2801,7 +2868,7 @@ export const moto = [
 		"type": "enduro",
 		"displacement": "398.0 ccm",
 		"engine": "Single cylinder, four-stroke",
-		"power": "40 HP (30 kW)) @ 7600 RPM",
+		"power": "40 HP @ 7600 RPM",
 		"torque": "39 Nm @ 6600 RPM",
 		"compression": "11.3:1",
 		"bore_stroke": "90.0 x 62.6 mm (3.5 x 2.5 inches)",
@@ -2833,6 +2900,7 @@ export const moto = [
 		"fuel_capacity": "10.00 litres",
 		"starter": "Electric",
 		price: 7800,
+		link: 'https://auto.ria.com/uk/moto/suzuki/dr-z-400',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z400S.png')
 	},
 	{
@@ -2842,7 +2910,7 @@ export const moto = [
 		"year": "2022",
 		"type": "enduro",
 		"displacement": "124.0 ccm (7.57 cubic inches)",
-		"power": "12 HP (8.8 kW)) @ 9500 RPM",
+		"power": "12 HP @ 9500 RPM",
 		"torque": "12 Nm @ 8600 RPM",
 		"engine": "Single cylinder, four-stroke",
 		"compression": "9.5:1",
@@ -2872,6 +2940,7 @@ export const moto = [
 		"fuel_capacity": "4.80 litres",
 		"starter": "Kick",
 		price: 3900,
+		link: 'https://auto.ria.com/uk/moto/suzuki',
 		// imgSrc: require('@/assets/images/motorcycles/suzuki DR-Z125L.jpg')
 	},
 	{
@@ -2914,6 +2983,7 @@ export const moto = [
 		"fuel_capacity": "16.50 litres (4.36 US gallons)",
 		"starter": "Electric",
 		"price": 30000,
+		link: 'https://auto.ria.com/uk/moto/bmw/s-1000rr',
 	},
 	{
 		id: 72,
@@ -2954,6 +3024,7 @@ export const moto = [
 		"fuel_capacity": "15.50 litres (4.10 US gallons)",
 		"starter": "Electric",
 		"price": 16000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/f-900xr',
 	},
 	{
 		id: 73,
@@ -2994,7 +3065,8 @@ export const moto = [
 		"wheelbase": "1457 mm (57.4 inches)",
 		"fuel_capacity": "16.50 litres (4.36 US gallons)",
 		"starter": "Electric",
-		"price": 28000
+		"price": 35000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/m-1000rr',
 	},
 	{
 		id: 74,
@@ -3036,7 +3108,8 @@ export const moto = [
 		"wheelbase": "1485 mm (58.5 inches)",
 		"fuel_capacity": "25.00 litres (6.61 US gallons)",
 		"starter": "Electric",
-		"price": 28000
+		"price": 28000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/r-1250',
 	},
 	{
 		id: 75,
@@ -3078,7 +3151,8 @@ export const moto = [
 		"wheelbase": "1618 mm (63.7 inches)",
 		"fuel_capacity": "26.50 litres (7.00 US gallons)",
 		"starter": "Electric",
-		"price": 30000
+		"price": 30000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/k-1600gt',
 	},
 	{
 		id: 76,
@@ -3121,6 +3195,7 @@ export const moto = [
 		"fuel_capacity": "13.00 litres (3.43 US gallons)",
 		"starter": "Electric",
 		"price": 11500,
+		"link": 'https://auto.ria.com/uk/moto/bmw/f-900r',
 	},
 	{
 		id: 77,
@@ -3161,7 +3236,8 @@ export const moto = [
 		"wheelbase": "1420 mm (55.9 inches)",
 		"fuel_capacity": "11.50 litres (3.04 US gallons)",
 		"starter": "Electric",
-		"price": 7500
+		"price": 7500,
+		"link": 'https://auto.ria.com/uk/moto/bmw/g-310gs',
 	},
 	{
 		id: 78,
@@ -3171,7 +3247,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "853.0 ccm",
 		"engine": "Twin, four-stroke",
-		"power": "77.0 HP (56.2  kW)) @ 7500 RPM",
+		"power": "77.0 HP @ 7500 RPM",
 		"torque": "83.0 Nm (8.5 kgf-m or 61.2 ft.lbs) @ 6000 RPM",
 		"top_speed": "190.0 km/h (118.1 mph)",
 		"compression": "12.7:1",
@@ -3204,6 +3280,7 @@ export const moto = [
 		"fuel_capacity": "15.00 litres (3.96 US gallons)",
 		"starter": "Electric",
 		"price": 15000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/f-750gs',
 	},
 	{
 		id: 79,
@@ -3245,7 +3322,8 @@ export const moto = [
 		"wheelbase": "1593 mm (62.7 inches)",
 		"fuel_capacity": "23.00 litres (6.08 US gallons)",
 		"starter": "Electric",
-		"price": 15500
+		"price": 15500,
+		"link": 'https://auto.ria.com/uk/moto/bmw/f-850gs',
 	},
 	{
 		id: 80,
@@ -3255,7 +3333,7 @@ export const moto = [
 		"type": "adventure",
 		"displacement": "1254.0 ccm",
 		"engine": "Two cylinder boxer, four-stroke",
-		"power": "136.0 HP (99.3  kW)) @ 7750 RPM",
+		"power": "136.0 HP @ 7750 RPM",
 		"torque": "143.0 Nm (14.6 kgf-m or 105.5 ft.lbs) @ 6500 RPM",
 		"top_speed": "193.1 km/h (120.0 mph)",
 		"compression": "12.5:1",
@@ -3287,7 +3365,8 @@ export const moto = [
 		"wheelbase": "1504 mm (59.2 inches)",
 		"fuel_capacity": "29.90 litres (7.90 US gallons)",
 		"starter": "Electric",
-		"price": 30000
+		"price": 30000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/r-1250gs',
 	},
 	{
 		id: 81,
@@ -3326,7 +3405,8 @@ export const moto = [
 		"wheelbase": "1730 mm (68.1 inches)",
 		"fuel_capacity": "16.01 litres (4.23 US gallons)",
 		"starter": "Electric",
-		"price": 20000
+		"price": 20000,
+		"link": 'https://auto.ria.com/uk/moto/bmw/r-18',
 	},
 	{
 		id: 82,
@@ -3336,7 +3416,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "1170.0 ccm",
 		"engine": "Two cylinder boxer, four-stroke",
-		"power": "109.0 HP (79.6  kW)) @ 7250 RPM",
+		"power": "109.0 HP @ 7250 RPM",
 		"torque": "116.0 Nm (11.8 kgf-m or 85.6 ft.lbs) @ 6000 RPM",
 		"top_speed": "200.0 km/h (124.3 mph)",
 		"compression": "12.0:1",
@@ -3367,7 +3447,8 @@ export const moto = [
 		"wheelbase": "1493 mm (58.8 inches)",
 		"fuel_capacity": "17.00 litres (4.49 US gallons)",
 		"starter": "Electric",
-		"price": 17500
+		"price": 17500,
+		"link": 'https://auto.ria.com/uk/moto/bmw/r-ninet',
 	},
 	{
 		id: 83,
@@ -3405,7 +3486,8 @@ export const moto = [
 		"wheelbase": "1608 mm (63.3 inches)",
 		"fuel_capacity": "21.00 litres (5.55 US gallons)",
 		"starter": "Electric",
-		"price": 17000
+		"price": 17000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/desert-x',
 	},
 	{
 		id: 84,
@@ -3445,7 +3527,8 @@ export const moto = [
 		"wheelbase": "1600 mm (63.0 inches)",
 		"fuel_capacity": "17.00 litres (4.49 US gallons)",
 		"starter": "Electric",
-		"price": 27000
+		"price": 27000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/diavel',
 	},
 	{
 		id: 85,
@@ -3484,6 +3567,7 @@ export const moto = [
 		"fuel_capacity": "20.00 litres (5.28 US gallons)",
 		"starter": "Electric",
 		"price": 20000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/multistrada',
 	},
 	{
 		id: 86,
@@ -3520,7 +3604,8 @@ export const moto = [
 		"wheelbase": "1567 mm (61.7 inches)",
 		"fuel_capacity": "22.00 litres (5.81 US gallons)",
 		"starter": "Electric",
-		"price": 32000
+		"price": 32000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/multistrada',
 	},
 	{
 		id: 87,
@@ -3556,7 +3641,8 @@ export const moto = [
 		"wheelbase": "1474 mm (58.0 inches)",
 		"fuel_capacity": "14.00 litres (3.70 US gallons)",
 		"starter": "Electric",
-		"price": 17000
+		"price": 17000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/monster',
 	},
 	{
 		id: 88,
@@ -3595,7 +3681,8 @@ export const moto = [
 		"wheelbase": "1469 mm (57.8 inches)",
 		"fuel_capacity": "17.00 litres (4.49 US gallons)",
 		"starter": "Electric",
-		"price": 26000
+		"price": 26000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/panigale',
 	},
 	{
 		id: 89,
@@ -3636,7 +3723,8 @@ export const moto = [
 		"wheelbase": "1436 mm (56.5 inches)",
 		"fuel_capacity": "17.00 litres (4.49 US gallons)",
 		"starter": "Electric",
-		"price": 24000
+		"price": 24000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/panigale',
 	},
 	{
 		id: 90,
@@ -3674,7 +3762,8 @@ export const moto = [
 		"wheelbase": "1498 mm (59.0 inches)",
 		"fuel_capacity": "14.50 litres (3.83 US gallons)",
 		"starter": "Electric",
-		"price": 19500
+		"price": 19500,
+		"link": 'https://auto.ria.com/uk/moto/ducati/hypermotard-1100s'
 	},
 	{
 		id: 91,
@@ -3712,7 +3801,8 @@ export const moto = [
 		"wheelbase": "1465 mm (57.7 inches)",
 		"fuel_capacity": "17.00 litres (4.49 US gallons)",
 		"starter": "Electric",
-		"price": 19500
+		"price": 19500,
+		"link": 'https://auto.ria.com/uk/moto/ducati/streetfighter'
 	},
 	{
 		id: 92,
@@ -3722,7 +3812,7 @@ export const moto = [
 		"type": "naked",
 		"displacement": "1103.0 ccm",
 		"engine": "V4, four-stroke",
-		"power": "208.0 HP (151.8  kW)) @ 12750 RPM",
+		"power": "208.0 HP @ 12750 RPM",
 		"torque": "123.0 Nm (12.5 kgf-m or 90.7 ft.lbs) @ 9500 RPM",
 		"compression": "14.0:1",
 		"bore_stroke": "81.0 x 53.5 mm (3.2 x 2.1 inches)",
@@ -3750,7 +3840,8 @@ export const moto = [
 		"wheelbase": "1488 mm (58.6 inches)",
 		"fuel_capacity": "16.00 litres (4.23 US gallons)",
 		"starter": "Electric",
-		"price": 39000
+		"price": 39000,
+		"link": 'https://auto.ria.com/uk/moto/ducati/streetfighter'
 	},
-
+	
 ]

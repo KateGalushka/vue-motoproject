@@ -6,7 +6,6 @@ export default {
     state: () => ({
         permissions: {},
 		  currentUser: {},
-
         loading: false,
         error: null,
     }),
@@ -19,7 +18,6 @@ export default {
         setPermissions(state, permissions) {
             state.permissions = permissions
         },
-
         setLoading(state, value) {
             state.loading = value
         },
@@ -32,8 +30,8 @@ export default {
 			 if (userId) {
 				 this.currentUser = await dispatch('generalApiOperation', {
 					 operation: () => collectionDB.getItemById(userId)
-					}, { root:true })
-					return this.currentUser
+					}, { root:true });
+					return this.currentUser;
 				}
 			},
 			
@@ -48,11 +46,11 @@ export default {
 
 			async loadUserFavoriteBikes({ dispatch }, userId) {
 				const userObj = await dispatch('loadUserById', userId);
-				console.log(userObj)
+				console.log(userObj);
 				if (userObj?.favoriteBikes?.length) {
-					dispatch('favorites/setFavoriteList', userObj.favoriteBikes, { root: true })
+					dispatch('favorites/setFavoriteList', userObj.favoriteBikes, { root: true });
 				} else {
-					dispatch('favorites/setFavoriteList', [], { root: true })
+					dispatch('favorites/setFavoriteList', [], { root: true });
 				}
 			},
 			async addUser({dispatch}, userData) {
@@ -63,7 +61,7 @@ export default {
 
 			async addUserWithCustomId({dispatch}, { id, data }) {
 				const userObj = await dispatch('loadUserById', id)
-				console.log("after loading", userObj)
+				// console.log("after loading", userObj)
 				if (!userObj?.email) {
 					this.currentUser = await dispatch('generalApiOperation', {
 						operation: () => collectionDB.addItemWithCustomId(id, data)
@@ -100,7 +98,6 @@ export default {
 					const result = await dispatch('generalApiOperation', {
 						operation: () => collectionDB.removeItemFromArray(userId, 'favoriteBikes', bikeId)
 					}, { root:true });
-					console.log('result', result)
 					if (result) {
 						console.log('success', userId)
 						await dispatch('loadUserFavoriteBikes', userId)

@@ -18,6 +18,20 @@ const vuetify = createVuetify({
 	directives,
 })
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import icons */
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
+/* add icons to the library */
+library.add(fas, far)
+
+
 // Pagination
 import VueAwesomePaginate from "vue-awesome-paginate";
 import "vue-awesome-paginate/dist/style.css";
@@ -34,6 +48,11 @@ if (storedCredential) {
 		.catch((error) => {
 			console.error('Error while logging in with stored credential:', error);
 		});
+} else {
+	const storedUser = localStorage.getItem('user');
+	if (storedUser) {
+		store.commit('auth/setUser', JSON.parse(storedUser))
+	}
 }
 
-app.use(store).use(router).use(vuetify).use(i18n).use(VueAwesomePaginate).mount("#app");
+app.use(store).use(router).use(vuetify).use(i18n).use(VueAwesomePaginate).component('font-awesome-icon', FontAwesomeIcon).mount("#app");

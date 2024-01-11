@@ -94,5 +94,10 @@
 		"email": "Email",
 		"password": "Password",
 		"errorMsg": "User not found - please, register (sign up)"
+	},
+	"reviews": {
+		"noReviews": "There is no review on this motorcycle yet.",
+		"addReview": "If you want to add a review - please, log in.",
+		"write": "Write your review here:"
 	}
 }

@@ -8,10 +8,24 @@
 		</button>
 		<div class="navbar__menu" >
 			<nav class="navbar__menu-links">
-				<router-link to="/">{{ $t('nav.home') }}</router-link> 
+				<router-link to="/">
+					<font-awesome-icon :icon="['fas', 'house']" />
+					{{ $t('nav.home') }}
+				</router-link> 
 				<router-link :to="{ name: 'guide' }">{{ $t('nav.guide') }}</router-link> 
-				<router-link :to="{ name: 'favorites' }">{{ $t('nav.favorites') }}</router-link> 
-				<router-link :to="{ name: 'favorites' }">{{ $t('nav.gallery') }}</router-link> 
+				<router-link :to="{ name: 'favorites' }">
+					<v-badge
+						:content="favoritesCount"
+						color="rgb(0, 190, 216)"
+						bordered
+						floating
+						offset-x="-5"
+						offset-y="10"
+					>
+						{{ $t('nav.favorites') }} 
+					</v-badge>
+				</router-link>
+				<!-- <router-link :to="{ name: 'favorites' }">{{ $t('nav.gallery') }}</router-link>  -->
 				<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> 
 			</nav>
 			<div class="navbar__user">
@@ -24,8 +38,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CurrentLangComponent from './CurrentLangComponent.vue';
-import UserProfileComponent from './UserProfileComponent.vue'
+import UserProfileComponent from './UserProfileComponent.vue';
 
 export default {
     name: 'NavBar',
@@ -34,6 +49,13 @@ export default {
 		return {
 			isMenuOpen: false
 		}
+	 },
+	 computed: {
+		...mapGetters('favorites', ['getFavoriteList']),
+
+		favoritesCount() {
+			return this.getFavoriteList.length 
+		} 
 	 },
 	 methods: {
 		toggleMenu() {

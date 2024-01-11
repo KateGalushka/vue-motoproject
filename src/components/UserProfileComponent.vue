@@ -4,7 +4,8 @@
 		<img :src="imgSrc">
 		<!-- <img src="./../assets/images/user.png"> -->
 		<button class="button login-btn" @click="onLogout">
-			<span class="material-symbols-outlined">logout</span>
+			<font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" />
+			<!-- <span class="material-symbols-outlined">logout</span> -->
 				<!-- <span>{{ $t('nav.logout') }}</span> -->
 		</button>
 	</div>
@@ -26,7 +27,7 @@ import { mapGetters, mapActions } from 'vuex'
 		...mapGetters('auth', ['getUser']),
 		
 		imgSrc(){
-			return this.getUser.photoURL? this.getUser.photoURL : require('./../assets/images/user.png')
+			return this.getUser.photoURL ?? require('./../assets/images/user.png')
 		}
 	},
 	methods: {
@@ -62,11 +63,8 @@ import { mapGetters, mapActions } from 'vuex'
 	}
 }
 .login-btn {
-	padding:  0.5rem 0.75rem;
+	padding:  0.4rem 0.75rem;
 	border-radius: 5px;
-}
-.material-symbols-outlined{
-	font-size: 16px;
 }
 
 @media (max-width:768px) {

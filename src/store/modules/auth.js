@@ -24,7 +24,7 @@ export default {
 	},
 	mutations: {
 		setUser(state, user) {
-			state.user = user
+			state.user = user;
 		},
 		setLoading(state, loading) {
 			state.loading = loading
@@ -42,14 +42,16 @@ export default {
 
 		},
 		async saveLoginUserData({ commit, dispatch }, loginResult) {
-			const user = loginResult?.user 
-			commit('setUser', user)
-			// This gives you a Google Access Token. You can use it to access the Google API.
-			let credential = GoogleAuthProvider.credentialFromResult(loginResult)
-			console.log('credential: ', credential)
+			const user = loginResult?.user; 
+			commit('setUser', user);
+			if (user) {
+				localStorage.setItem('user', JSON.stringify(user));
+			}
 
-			localStorage.setItem('authCredential', JSON.stringify(credential)),
-			dispatch('users/loadUserPermissions', user.uid, { root: true })
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			let credential = GoogleAuthProvider.credentialFromResult(loginResult);
+			localStorage.setItem('authCredential', JSON.stringify(credential));
+			dispatch('users/loadUserPermissions', user.uid, { root: true });
 		},
 
 		loginWithGoogle({ commit, dispatch }) {
@@ -62,6 +64,7 @@ export default {
 							id: loginResult?.user?.uid,
 							data: {
 								email: loginResult?.user?.email,
+								name: loginResult?.user?.displayName,
 								role: 'authedUser',
 								favoriteBikes: [],
 								reviews: []
@@ -81,11 +84,11 @@ export default {
 			return new Promise((resolve, reject) => {
 				commit('setLoading', true);
 				commit('setError' , null);
-				let credential = localStorage.getItem('authCredential')
+				let credential = localStorage.getItem('authCredential');
 
 				if (credential) {
 					credential = JSON.parse(credential);
-					const token = GoogleAuthProvider.credential(credential.idToken)
+					const token = GoogleAuthProvider.credential(credential.idToken);
 
 					signInWithCredential(auth, token)
 						.then((loginResult) => {
@@ -154,7 +157,9 @@ export default {
 		logout({ commit, dispatch }) {
 			signOut(auth)
 				.then(() => {
-					localStorage.removeItem('authCredential')
+					localStorage.removeItem('authCredential');
+					localStorage.removeItem('user');
+
 					commit('setUser', null);
 					dispatch('users/clearPermissions', null, { root: true });
 					dispatch('favorites/setFavoriteList', [], { root: true });

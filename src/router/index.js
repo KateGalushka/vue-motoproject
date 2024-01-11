@@ -43,7 +43,7 @@ const routes = [
 		props: true,
 		component: () => import("../views/ReviewsView.vue"),
 		meta: {
-			requiresAuth: true,
+			requiresAuth: false,
 		},  
 	},
 	{
