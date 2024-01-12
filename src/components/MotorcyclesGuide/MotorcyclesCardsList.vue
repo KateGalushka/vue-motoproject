@@ -44,11 +44,12 @@ export default {
 		return {
 			currentPage: 1,
 			itemsPerPage: 8,
+			// myUserId: this.getUser?.uid
 		}
 	},
 
 	computed: {
-		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList', ]),
+		...mapGetters('moto', ['getMotorcyclesList', 'getFilteredList']),
 		...mapGetters('auth', ['getUser']),
 		...mapGetters('favorites', ['getFavoriteList']),
 
@@ -64,37 +65,47 @@ export default {
 		displayedCards(){
 			const startIndex = (this.currentPage * this.itemsPerPage) -this.itemsPerPage;
 			const endIndex = startIndex + this.itemsPerPage;
-			// console.log(this.getFilteredList.slice(startIndex, endIndex))
 			return this.getFilteredList.slice(startIndex, endIndex); 
 		},
 		myUserId() {
-			return this.getUser.uid
-		},
+			return this.getUser?.uid
+		}
+		
 		
 	},
 	async created() {
 		// await this.fetchImagesUrlsFromStorage();
+		await this.loadReviewsList();
 	},
-
+	// watch: {
+	// 	myUserId: {
+	// 		immediate: true,
+	// 		handler(newValue) {
+	// 			if (newValue) {
+	// 				this.loadUserFavoriteBikes(newValue)
+	// 			}
+	// 		}
+	// 	},
+	// },
+	
 	methods: {
-		...mapActions('favorites', ['toggleIsFavorite']),
+		...mapActions('favorites', ['setFavoriteList', 'toggleIsFavorite']),
 		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
-		...mapActions('users', ['updateUserFavoriteBikes']),
+		...mapActions('users', ['loadUserFavoriteBikes', 'updateUserFavoriteBikes']),
+		...mapActions('reviews', ['loadReviewsList']),
 
-		isAdded(bikeId){
-			return this.getFavoriteList.some(id => id == bikeId);
-		},
 		handlePageChange(page) {
 			this.currentPage = page;
+		},
+		isAdded(bikeId){
+			return this.getFavoriteList.some(id => id == bikeId);
 		},
 		onToggleIsFavorite(bikeId){
 			this.toggleIsFavorite({
 				userId: this.myUserId,
-				bikeId: bikeId
+				bikeId: bikeId.toString()
 			})
 		}
-
-		
 	},
 }
 </script>
@@ -115,17 +126,6 @@ export default {
 	}
 }
 
-.nothingFound
-{
-	font-size: 1.5rem;
-	min-width: 50%;
-	background-color: var(--bg-color1);
-	text-align: center;
-	margin: 3em;
-	padding: 2em;
-	border-radius: 10px;
-	place-self: start;
-}
 .material-symbols-outlined{
 	position: relative;
 	transition: all .4s ease;

@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import i18n from "./plugins/i18n";
 import './assets/styles/style.scss'
-import './assets/styles/resetMy.css'
+import './assets/styles/resetMy.scss'
 
 
 // Vuetify

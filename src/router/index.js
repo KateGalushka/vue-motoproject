@@ -62,6 +62,14 @@ const routes = [
 			requiresAuth: false,
 		},
 	},
+	{
+		path: '/:path(.*)*',
+		name: 'page-not-found',
+		meta: {
+			requireAuth: false,
+		},
+		component: () => import('../views/PageNotFound.vue')
+	}
 ];
 
 const router = createRouter({

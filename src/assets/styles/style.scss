@@ -29,8 +29,8 @@ h1, h2, h3, h4 {
 	font-weight: 600;
 	transition: all .3s ease-in;
 	&:hover {
-			background-color: var(--main-color2);
-			transform: scale(0.97);
+		background-color: var(--main-color2);
+		transform: scale(0.97);
 	}
 }
 .wrapper{

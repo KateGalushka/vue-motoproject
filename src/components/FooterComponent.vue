@@ -1,7 +1,7 @@
 <template>
 	<footer class="wrapper footer">
 		<div class="footer-container">
-			<img class="footer__logo" src="../assets/images/logoMain2.svg" alt="logo-main">
+			<img class="footer__logo" src="../assets/images/logo-main.svg" alt="logo-main">
 			<p>©2023 MotoHub by Kate Galushka</p>
 			<router-link :to="{ name: 'contacts' }" class="footer__router">{{ $t('nav.contacts') }}</router-link> 
 			<div>
@@ -14,12 +14,8 @@
 				<a href="#" class="footer__links">
 					<img src="../assets/images/1/telegram.png" alt="telegram">
 				</a>
-
 			</div>
-
-
 		</div>
-
 	</footer>
 </template>
 
@@ -42,7 +38,6 @@
 	width: 4.5rem;
 }
 .footer__links {
-	// display: inline-block;
 	padding: 0.25rem;
 	margin: 0.5em;	
 	img {

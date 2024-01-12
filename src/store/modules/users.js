@@ -77,7 +77,7 @@ export default {
 					this.currentUser = data
 				}
 			},
-			async updateUserFavoriteBikes({ dispatch }, {userId, bikeId}) {
+			async updateUserFavoriteBikes({ dispatch, commit }, {userId, bikeId}) {
 				console.log('in users update: ', userId, bikeId)
 				try {
 					const result = await dispatch('generalApiOperation', {
@@ -87,7 +87,7 @@ export default {
 						await dispatch('loadUserFavoriteBikes', userId)
 					}
 				} catch(error) {
-					console.log('An error occurred:', error);
+					commit('setError', error);
 				}
 			},
 						

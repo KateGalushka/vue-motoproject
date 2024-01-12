@@ -71,7 +71,7 @@ export default {
 		removeBikeFromFavorites(bikeId) {
 			this.removeUserFavoriteBike({
 				userId: this.myUserId,
-				bikeId: bikeId
+				bikeId: bikeId.toString()
 			});
 		}
 	}

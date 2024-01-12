@@ -12,6 +12,10 @@ export default {
 		isLoading: (state) => state.loading,
 		hasError: (state) => state.error,
 		getReviewsList: (state) => state.reviewsList,
+		getReviewsListByBikeId: (state) => (bikeId) => {
+			return state.reviewsList.filter(review => review.bikeId == bikeId)
+
+		}
 		
 	},
 	mutations: {
@@ -50,7 +54,6 @@ export default {
 					operation: () => collectionDB.loadItemsList()
 				}, { root: true })
 				if (result) {
-					console.log('result', result)
 					commit('setReviewsList', result)
 				}
 			}
@@ -64,7 +67,6 @@ export default {
 					operation: () => collectionDB.loadFilteredData("bikeId", "==", parseInt(bikeId))
 				}, { root: true });
 				if(result) {
-					console.log('result', result)
 					commit('setReviewsList', result)
 				}
 			} 

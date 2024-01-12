@@ -98,6 +98,14 @@
 	"reviews": {
 		"noReviews": "There is no review on this motorcycle yet.",
 		"addReview": "If you want to add a review - please, log in.",
-		"write": "Write your review here:"
+		"write": "Write your review here:",
+		"rate": "Rate"
+	},
+	"pageNotFound": {
+		"notFound": "Page not found",
+		"possibleReasons": "Possible reasons",
+		"incorrectURL": "incorrect page URL - check it for errors",
+		"exists": "the page does not exist",
+		"unavailable": " the page is temporarily unavailable or has been deleted"
 	}
 }

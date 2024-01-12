@@ -12,10 +12,25 @@
 							<p>{{ review.author}}</p>
 							<p>{{ review.date}}</p>
 						</div>
+						<div class="review__item-rating">
+							<star-rating-component
+								:size="24"
+								density="compact"
+								readonly
+								:model-value="review.rating"
+								/>
+						</div>
 						<p class="review__item-text">{{ review.text }}</p>
 					</div>
 					<div v-if="getUser">
 						<div class="reviews__input">
+							<div class="review__item-editable">
+								<h3>{{ $t('reviews.rate') }} {{ getBike.make }} {{ getBike.model }}:</h3>
+								<star-rating-component
+									:size="32"
+									v-model="review.rating"
+								/>
+							</div>
 							<v-textarea
 								v-model="review.text"
 								:label="$t('reviews.write')"
@@ -25,15 +40,17 @@
 								auto-grow
 							/>
 							<div class="reviews__buttons">
-								<button class="button submit" @click="onSubmitReview(review.text)">Submit</button>
+								<button class="button submit" @click="onSubmitReview">Submit</button>
 								<router-link :to="{name:'guide'}" class="button submit">Cancel</router-link>
 							</div>
 						</div>
 					</div>
 					<div v-else class="review__item">
 						<p>{{ $t('reviews.addReview') }}</p>
-						<router-link :to="{name: 'login'}" class="button review-login">{{ $t('button.login') }}</router-link>
-
+						<div class="reviews__buttons">
+							<router-link :to="{name: 'login'}" class="button review-login">{{ $t('button.login') }}</router-link>
+							<router-link :to="{ name: 'guide' }" class="button review-back">{{ $t('button.back') }}</router-link>
+						</div>
 					</div>
 
 				</div>
@@ -48,13 +65,14 @@
 
 <script>
 import MainMasterpage from '@/masterpages/MainMasterpage.vue';
+import StarRatingComponent from '@/components/StarRatingComponent.vue';
 import { mapGetters, mapActions } from 'vuex';
 import { maskEmail } from '@/store/helpers/formattingHelper';
 
 	export default {
 		name: 'ReviewsView',
 		components: {
-			MainMasterpage,
+			MainMasterpage, StarRatingComponent
 		},
 		props: {
 			bikeId: {
@@ -68,6 +86,7 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 					author: null,
 					date: null,
 					bikeId: null,
+					rating: null,
 					text: ''
 				}
 			}
@@ -92,7 +111,6 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 		},
 		async created () {
 			await this.loadReviewsListByMotorcycleId(this.bikeId);
-			console.log('2mounted - list', this.loadReviewsListByMotorcycleId(this.bikeId));
 			await this.getCompletedReviewsList();
 			
 		},
@@ -116,30 +134,30 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 						return {
 							id: review.id,
 							date: new Date(review.date.seconds * 1000).toLocaleDateString(),
+							author: userName,
 							text: review.text,
-							author: userName
+							rating: review.rating
 						};
 					})
 				)
 				return this.completedReviews;
 			},
-			async onSubmitReview(text) {
+			async onSubmitReview() {
 				try{
 					await this.addReview({
 						author: this.getUser.uid,
 						date: new Date(),
 						bikeId: parseInt(this.bikeId),
-						text: text
+						rating: this.review.rating,
+						text: this.review.text
 					});
 					
 				} catch(error) {
 					console.error("Error submitting review", error)
-				} finally {
+				} 
+				finally {
 					this.$router.go();
-
 				}
-
-
 			}
 		}
 	}
@@ -174,15 +192,27 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 	color: var(--bg-color1);
 	padding: 1rem;
 	border-radius: 6px;
-
 }
+.review__item-editable {
+		// background: var(--bg-color2);
+		margin-bottom: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
 .review__item-title{
 	display: flex;
 	justify-content: space-between;
 	gap: 1em;
-	margin-bottom: 1em;
+	margin-bottom: .5em;
 	font-weight: bold;
-
+}
+.review__item-rating{
+	margin-bottom: 1em;
 }
 .reviews__input {
 	text-area {
@@ -197,14 +227,15 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 		border-radius: 10px;
 	}
 }
-.review-login{
+.review-login, .review-back{
 	padding:  0.5rem 0.75rem;
 	border-radius: 5px;
-	display: inline-block;
-	margin: 0.5rem 0;
+	margin-top: 0.75rem;
 }
+ 
 .reviews__buttons {
 	display: flex;
+	justify-content: center;
 	gap: 1rem;
 }
 .submit {

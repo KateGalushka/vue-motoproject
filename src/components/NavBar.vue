@@ -1,6 +1,6 @@
 <template>
 	<header class="wrapper navbar" :class="{'open': isMenuOpen}">
-		<img class="logo-img" src="../assets/images/logoMain2.svg" alt="logo-main">
+		<img class="logo-img" src="../assets/images/logo-main.svg" alt="logo-main">
 		<button class="navbar__burger-btn" @click="toggleMenu">
 			<span></span>
 			<span></span>
@@ -33,7 +33,6 @@
 				<user-profile-component/>
 			</div>
 		</div>
-		
 	</header>
 </template>
 
@@ -110,7 +109,6 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	// width: 75%;
 	z-index: 4;
 	gap: clamp(1rem, 2rem, 3rem)
 }
@@ -142,7 +140,6 @@ a {
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 1rem;
-	// margin-left: 2rem;
 }
 
 @media (max-width:992px) {
@@ -222,11 +219,7 @@ a {
 	.navbar__menu-links,
 	.navbar__user {
 		align-items: center;
-		// justify-content: end;
-
 	}
 }
-
-
 
 </style>

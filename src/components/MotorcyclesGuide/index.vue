@@ -1,15 +1,11 @@
 <template>
 	<div>
-		<!-- <router-view/> -->
 		<motorcycles-filters/>
 		<motorcycles-cards-list/>
 	</div>
 </template>
 
 <script>
-
-	// import { mapActions } from 'vuex';
-	
 	import MotorcyclesFilters from './MotorcyclesFilters.vue';
 	import MotorcyclesCardsList from './MotorcyclesCardsList.vue'
 
@@ -20,12 +16,6 @@
 			MotorcyclesFilters, MotorcyclesCardsList
 		},
 
-		// created() {
-		// 		this.loadMotorcyclesList(moto);
-		// },
-		// methods: {
-		// 	...mapActions('moto', ['loadMotorcyclesList']),
-		// },
 	}
 </script>
 

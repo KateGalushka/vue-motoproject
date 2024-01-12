@@ -17,17 +17,9 @@ export default ({
 		setFavoriteList(state, list) {
 			state.favoriteList = list;
 		},
-		// addToFavorites(state, motorcycleId) {
-		// 	state.favoriteList.push(motorcycleId);
-		// },
-		// removeFromFavorites(state, motorcycleId) {
-		// 	state.favoriteList = state.favoriteList.filter(id => id !== motorcycleId);
-		// 	console.log('after remove ', state.favoriteList)
-		// }
 	},
 	actions: {
 		setFavoriteList({ commit }, list){
-			console.log('favor list: ', list)
 			commit('setFavoriteList', list);
 		},
 		toggleIsFavorite({ dispatch, getters }, { userId, bikeId }) {
@@ -39,8 +31,6 @@ export default ({
 				dispatch('users/removeUserFavoriteBike', { userId, bikeId }, { root: true })
 			}
 		},
-		// removeFromFavorites({ commit }, motorcycleId) {
-		// 	commit('removeFromFavorites', motorcycleId)
-		// }
+	
 	}
 })

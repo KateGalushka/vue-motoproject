@@ -10,11 +10,35 @@
 			</h3>
 
 		</div>
+		<div class="card__reviews">
+			<star-rating-component
+				:size="20"
+				half-increments
+				readonly
+				:model-value="overallRating"
+			/>
+			<span v-if="overallRating">{{ overallRating.toFixed(2) }}/5</span>
+			<router-link 
+				:to="{
+					name: 'bike-reviews',
+					params: {
+						bikeId: motorcycle.id
+					}
+				}"
+				class="review-link">
+					<span>{{ reviewsCount }} {{ $t('card.reviews') }}</span>
+			</router-link>
+		</div>
 		<div class="card__descr">
-			<p>{{ motorcycle.displacement }}</p>
-			<p>{{ motorcycle.power }}</p>
+			<font-awesome-icon :icon="['fas', 'bolt']" />
+			<span>{{ motorcycle.displacement }}</span>
+		</div>
+		<div class="card__descr">
+			<font-awesome-icon :icon="['fas', 'bolt']" />
+			<span>{{ motorcycle.power }}</span>
 		</div>
 		<div class="card__moto-type">
+			<font-awesome-icon :icon="['fas', 'motorcycle']" class="icon"/>
 			{{ $t('card.type')}}: <span>{{ motorcycle.type }}</span>
 		</div>
 		<div class="card__price">
@@ -23,26 +47,26 @@
 				<img class="auto-ria" src="../../assets/images/autoRia-logo.png" alt="autoRia-link">
 			</a>
 		</div>
+		
 		<div class="card__buttons">
 			<button class="button button-details" @click="goToDetails(motorcycle.id)">{{ $t('card.details') }}</button>
 			<slot name="additionalButton" :bike-id="motorcycle.id"></slot>
 		</div>
-		<div>
-			<router-link :to="{name: 'bike-reviews', params: {bikeId: motorcycle.id}}" class="review-link">
-				<span v-for="n in 5" :key="n">
-					<font-awesome-icon :icon ="['far', 'star']"/>
-				</span>
-				
-				<p>{{ $t('card.reviews') }}</p>
-			</router-link>
-		</div>
+		
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex';
+import StarRatingComponent from '../StarRatingComponent.vue';
+
 	export default {
 		name: 'CardComponent',
+
+		components: {
+			StarRatingComponent,
+		},
+
 		props: {
 			motorcycle: {
 				type: Object,
@@ -52,6 +76,7 @@ import { mapGetters } from 'vuex'
 
 		computed: {
 			...mapGetters('storage', ['getImagesReferences']),
+			...mapGetters('reviews', ['getReviewsListByBikeId']),
 
 			logoUrl(){
 				return require(`@/assets/images/logo/${this.motorcycle.make.toLowerCase()}.svg`)
@@ -60,9 +85,28 @@ import { mapGetters } from 'vuex'
 				const image = this.getImagesReferences.find((image) => image.name.includes(this.motorcycle.model))
 				return image? image.url : require('@/assets/images/adv_bike.svg')
 			},
+			currentReviewsList(){
+				return this.getReviewsListByBikeId(this.motorcycle.id);
+			},
+			reviewsCount() {
+				return this.currentReviewsList.length;
+			},
+			overallRating(){
+				let reviewsWithRating = [];
+				this.currentReviewsList.forEach(review => {
+					if (review.rating) {
+						reviewsWithRating.push(review)
+					}
+				})
+				return (reviewsWithRating.reduce((acc, item) => {
+					return acc + item.rating }, 0)) / reviewsWithRating.length;
+			}
 		},
+		
 	
 		methods: {
+			...mapActions('reviews', ['loadReviewsList']),
+			
 			goToDetails(id) {
 				this.$router.push({
 					name: 'bike-details',
@@ -84,35 +128,17 @@ import { mapGetters } from 'vuex'
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	gap: 1rem;
 	&:hover {
 		outline: 4px solid var(--main-color2);
 	}
 }
-.card__title {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 1em;
-	margin-bottom: 1.25rem;
-	.card__title-logo {
-		display: block;
-		width: 35px;
-	}
-	h3{
-		font-size: 1.25rem;
-		font-weight: 600;
-		text-align: center;
-	}
-	
-}
-
 .card__img{
 	height: calc(45% - 2rem);
 	max-width: 100%;
 	border-radius: 0.625rem;
 	background: var(--bg-gradient);
-	margin-bottom: 1.25rem;
+	margin-bottom: .75rem;
 	transition: all .5s ease-in;
 
 	img {
@@ -126,65 +152,67 @@ import { mapGetters } from 'vuex'
 		border-radius: 10px;
 	}
 }
-.card__descr{
-	text-align: left;
-	margin-bottom: 1rem;
-	p::before{
-		content:'';
-		display: inline-block;
-		width: 1.25rem;
-		height: 1.25rem;
-		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgb(211, 175, 55)"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>') center no-repeat;
-		margin-right: .625rem; 
+
+.card__reviews,
+.card__price,
+.card__buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1.25rem;
+
+}
+.card__title {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	align-items: center;
+	gap: 1.25rem;
+	h3{
+		overflow: hidden;
+		font-size: 1.25rem;
+		font-weight: 600;
+		text-align: center;
+	}
+	.card__title-logo {
+		display: block;
+		width: 35px;
 	}
 }
-.card__price{
-	font-size: 1.5rem;
-	font-weight: 600;
-	// text-align: center;
-	margin-bottom: 1.25rem;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	gap: 1em;
-	.auto-ria {
-		width: 60px;
-		
-	}
+.card__reviews {
+	margin-bottom: 1em;
+	font-size: 0.75rem;
+	color: var(--main-color2);
+}
+
+
+.card__descr span{
+	margin-left: 1em;
 }
 .card__moto-type{
-	font-size: 1.125rem;
-	margin-bottom: 1.25rem;
-	// text-align: center;
+	margin-bottom: 1em;
+	.icon {
+		margin-right: .5em;
+	}
 	span{
 		color: var(--main-color2);
 		font-style: italic;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 	}
 }
-.card__buttons{
-	display: flex;
-	justify-content: space-evenly;
+.card__price{
+	font-size: 1.25rem;
+	font-weight: 600;
+	.auto-ria {
+		width: 4em;
+	}
 }
-.button-details, .review-link{
+
+.button-details{
 	padding: .5em 1.5em;
 	border-radius: 10px;
-	display: block;
 	// margin: 0 auto;
 }
-.review-link {
-	background-color: #fff;
-	color: var(--bg-color1);
-	text-align: center;
-	margin-top: 1em;
-	.material-symbols-outlined {
-		font-size: 1rem;
-
-	}
-
-}
-
-
-
 
 </style>
