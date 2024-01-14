@@ -76,7 +76,6 @@ export default({
 		updateCheckedTypesArray(state, typesArr) {
 			state.checkedTypesArray = typesArr;
 		},
-		
 	},
 	actions: {
 		loadMotorcyclesList({ commit }, data) {

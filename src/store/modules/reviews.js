@@ -1,30 +1,20 @@
 import DbOperations from '../helpers/DbOperations';
+import { maskEmail } from '../helpers/formattingHelper';
 const collectionDB = new DbOperations('reviews');
 
 export default {
 	namespaced: true,
 	state: () => ({
 		reviewsList: [],
-		loading: false,
-		error: null,
 	}),
 	getters: {
-		isLoading: (state) => state.loading,
-		hasError: (state) => state.error,
 		getReviewsList: (state) => state.reviewsList,
 		getReviewsListByBikeId: (state) => (bikeId) => {
 			return state.reviewsList.filter(review => review.bikeId == bikeId)
-
-		}
+		},
 		
 	},
 	mutations: {
-		setLoading(state, value) {
-			state.loading = value
-		},
-		setError(state, error) {
-			state.error = error
-		},
 		setReviewsList(state, list){
 			state.reviewsList = list;
 		}
@@ -58,7 +48,7 @@ export default {
 				}
 			}
 			catch (error) {
-				commit('setError', error);
+				commit('setError', error, { root:true });
 			}
 		},
 		async loadReviewsListByMotorcycleId({ commit, dispatch }, bikeId) {
@@ -71,15 +61,35 @@ export default {
 				}
 			} 
 			catch(error) {
-				commit('setError', error);
+				commit('setError', error, { root: true });
 			}
-			
 		},
-
-
-		
-
-
-
+		async getCompletedReviewsList({ state, dispatch, commit, rootGetters}) {
+			let completedReviews = await Promise.all(
+				state.reviewsList.map(async (review) => {
+					let userName;
+					try {
+						const currentUser = await dispatch('users/loadUserById', review.author, { root: true });
+						if (currentUser) {
+							userName = currentUser.name || maskEmail(currentUser.email);
+						}
+					} catch (error) {
+						console.error('Error loading user:', error);
+						commit('setError', error, { root:true });
+					};
+					const currentBike = rootGetters['moto/getMotorcycleById'](review.bikeId);
+					return {
+						id: review.id,
+						bikeMake: currentBike.make,
+						bikeModel: currentBike.model,
+						date: new Date(review.date.seconds * 1000).toLocaleDateString(),
+						author: userName,
+						text: review.text,
+						rating: review.rating
+					};
+				})
+			);
+			return completedReviews;
+		},
 	},
 }

@@ -1,7 +1,10 @@
 <template>
 	<main-masterpage>
 		<div class="wrapper reviews">
-			<h2>{{ getBike.make }} {{ getBike.model }} - reviews</h2>
+			<div class="reviews__title">
+				<img :src="logoUrl" class="reviews__title-logo" :alt="getBike.make">
+				<h2>{{ getBike.make }} {{ getBike.model }} - reviews</h2>
+			</div>
 			<div class="reviews-container">
 				<div class="reviews__text">
 					<div v-if="isReviewsListEmpty" class="review__item">
@@ -67,7 +70,6 @@
 import MainMasterpage from '@/masterpages/MainMasterpage.vue';
 import StarRatingComponent from '@/components/StarRatingComponent.vue';
 import { mapGetters, mapActions } from 'vuex';
-import { maskEmail } from '@/store/helpers/formattingHelper';
 
 	export default {
 		name: 'ReviewsView',
@@ -101,6 +103,10 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 			getBike() {
 				return this.getMotorcycleById(this.bikeId);
 			},
+			logoUrl() {
+				let brand = this.getBike.make;
+				return require(`@/assets/images/logo/make/${brand.toLowerCase()}.svg`)
+			},
 			imageUrl() {
 				const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
 				return image ? image.url : require('@/assets/images/adv_bike.svg')
@@ -112,36 +118,38 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 		},
 		async created () {
 			await this.loadReviewsListByMotorcycleId(this.bikeId);
-			await this.getCompletedReviewsList();
+			this.completedReviews = await this.getCompletedReviewsList();
+			console.log('reviews completed: ', this.completedReviews)
 		},
 		
 		methods: {
-			...mapActions('reviews', ['loadReviewsList', 'loadReviewsListByMotorcycleId', 'addReview']),
+			...mapActions('reviews', ['loadReviewsList', 'loadReviewsListByMotorcycleId', 'getCompletedReviewsList', 'addReview']),
 			...mapActions('users', ['loadUserById']),
+			...mapActions(['setError']),
 
-			async getCompletedReviewsList() {
-				this.completedReviews = await Promise.all(
-					 this.getReviewsList.map(async (review) => {
-						let userName;
-						try{
-							const currentUser = await this.loadUserById(review.author);
-							if (currentUser) {
-								userName = currentUser.name || maskEmail(currentUser.email);
-							}
-						} catch(error) {
-							console.error('Error loading user:', error);
-						}
-						return {
-							id: review.id,
-							date: new Date(review.date.seconds * 1000).toLocaleDateString(),
-							author: userName,
-							text: review.text,
-							rating: review.rating
-						};
-					})
-				)
-				return this.completedReviews;
-			},
+			// async getCompletedReviewsList() {
+			// 	this.completedReviews = await Promise.all(
+			// 		 this.getReviewsList.map(async (review) => {
+			// 			let userName;
+			// 			try{
+			// 				const currentUser = await this.loadUserById(review.author);
+			// 				if (currentUser) {
+			// 					userName = currentUser.name || maskEmail(currentUser.email);
+			// 				}
+			// 			} catch(error) {
+			// 				console.error('Error loading user:', error);
+			// 			}
+			// 			return {
+			// 				id: review.id,
+			// 				date: new Date(review.date.seconds * 1000).toLocaleDateString(),
+			// 				author: userName,
+			// 				text: review.text,
+			// 				rating: review.rating
+			// 			};
+			// 		})
+			// 	)
+			// 	return this.completedReviews;
+			// },
 			async onSubmitReview() {
 				try{
 					await this.addReview({
@@ -151,9 +159,9 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 						rating: this.reviewObj.rating,
 						text: this.reviewObj.text
 					});
-					
 				} catch(error) {
-					console.error("Error submitting review", error)
+					console.error("Error submitting review", error);
+					this.setError(error);
 				} 
 				finally {
 					this.$router.go();
@@ -167,11 +175,20 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 .reviews {
 	background-color: var(--bg-color1);
 	padding: 2rem;
+}
+.reviews__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1em;
 	h2	{
 		font-size: 2rem;
 		font-weight: 600;
-		margin-bottom: 1em;
 		color: var(--main-color2);
+	}
+	.reviews__title-logo {
+		width: 75px;
 	}
 }
 .reviews-container {

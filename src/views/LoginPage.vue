@@ -1,4 +1,5 @@
 <template>
+	<error-component v-if="hasError"/>
 	<div class="wrapper login">
 		<div class="login-container">
 			<div class="login__image">
@@ -72,10 +73,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
+import ErrorComponent from '@/components/ErrorComponent.vue';
 
 	export default {
 		name: 'LoginPage',
-		components: { CurrentLangComponent},
+		components: { CurrentLangComponent, ErrorComponent},
 
 		data() {
 			return {
@@ -111,7 +113,7 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 		},
 
 		computed: {
-			...mapGetters('auth', ['getIntendedRoute']),
+			...mapGetters(['hasError']),
 
 			isDataValid() {
 				return this.user.email && this.user.password
@@ -125,24 +127,25 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 			},
 			errorMsg2() {
 				return this.$i18n.locale == 'en'? "User not found - please, register (sign up)" : "Користувач не знайдений - будь ласка, зареєструйтесь"
-			}
+			},
+			
+		},
+		beforeUnmount() {
+			this.setError(null);
 		},
 		methods: {
 			...mapActions('auth', ['loginWithGoogle', 'signUpWithWithEmailAndPassword', 'signInWithWithEmailAndPassword']),
+			...mapActions(['setError']),
 
 			async onLoginWithGoogle() {
 				try {
-					await this.loginWithGoogle();
-					// if (this.getIntendedRoute) {
-					// 	this.$router.push({
-					// 		name: this.getIntendedRoute
-					// 	})
-					// } else {
+					const success = await this.loginWithGoogle();
+					if (success) {
 						this.$router.go(-1)
-
 					}
+				}
 				catch (error) {
-					alert(error.message);
+					this.setError(error);
 				}
 			},
 			async registerWithEmailAndPassword(user) {
@@ -156,7 +159,8 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 				catch (error) {
 					// console.log(error);
 					if (error =="Firebase: Error (auth/email-already-in-use).") {
-						alert(this.errorMsg1);
+						this.setError(this.errorMsg1);
+						// alert(this.errorMsg1);
 					}
 				}
 			},
@@ -169,7 +173,8 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 				}
 				catch (error) {
 					if (error.message == "Firebase: Error (auth/invalid-credential).") {
-						alert(this.errorMsg2);
+						this.setError(this.errorMsg2);
+						// alert(this.errorMsg2);
 					}
 				}
 			}
@@ -179,7 +184,7 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 
 <style lang="scss" scoped>
 .login {
-	min-height: 100vh;
+	min-height: 85vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -1,16 +1,11 @@
 <template>
 	<div class="error-container">
 		<div class="error__content">
-			<h3 >Something went wrong...</h3>
+			<h3 >{{ $t('errorComponent.title') }}...</h3>
 			<font-awesome-icon :icon="['fas', 'bug']" flip size="2x" style="animation-duration:3s;"/>
 			<h2>{{ hasError }}</h2>
-
 		</div>
-		<router-link :to="{ name: 'home' }" class="button back">
-			<font-awesome-icon :icon="['fas', 'house']" />
-			{{ $t('button.backHome') }}
-		</router-link>
-
+		<slot name="button"></slot>
 	</div>
 </template>
 
@@ -53,9 +48,11 @@ export default {
 		opacity: .2;
 	}
 	h3 {
+		font-size: 1.125rem;
 		margin-bottom: 1em;
 	}
 	h2 {
+		font-size: 1rem;
 		margin-top: 1em;
 	}
 }
@@ -68,10 +65,5 @@ export default {
 	border-radius: 10px;
 
 }
-.back{
-	padding: .75rem 1rem;
-	border-radius: 10px;
-}
-
 
 </style>

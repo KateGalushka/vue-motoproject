@@ -148,8 +148,7 @@ export default {
 		color: var(--main-color2);
 	}
 	.details__title-logo {
-		width: 100px;
-		
+		width: 75px;
 	}
 }
 .details-container {

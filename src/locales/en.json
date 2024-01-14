@@ -10,6 +10,7 @@
 		"home": "Home",
 		"guide": "Motorcycles Guide",
 		"favorites": "Your Favorites",
+		"lastReviews": "Last Reviews",
 		"contacts": "Contacts",
 		"gallery": "Gallery",
 		"login": "Login",
@@ -107,5 +108,8 @@
 		"incorrectURL": "incorrect page URL - check it for errors",
 		"exists": "the page does not exist",
 		"unavailable": " the page is temporarily unavailable or has been deleted"
+	},
+	"errorComponent": {
+		"title": "Something went wrong"
 	}
 }

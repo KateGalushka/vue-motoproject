@@ -30,6 +30,9 @@ export default createStore({
 			commit('setLoading', true)
 			commit ('setError', null)
 		},
+		setError({ commit }, error) {
+			commit('setError', error);
+		},
 
 		async generalApiOperation({commit, dispatch},{ operation, successCallback, errorCallBack }) {
 			dispatch('startLoading')

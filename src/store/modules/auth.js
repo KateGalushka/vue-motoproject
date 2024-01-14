@@ -13,8 +13,6 @@ export default {
 	namespaced: true,
 	state: {
 		user: null,
-		loading: false,
-		error: null,
 	},
 	getters: {
 		getUser: (state) => state.user,
@@ -22,15 +20,6 @@ export default {
 	mutations: {
 		setUser(state, user) {
 			state.user = user;
-		},
-		setLoading(state, loading) {
-			state.loading = loading
-		},
-		setError(state, error) {
-			state.error = error
-		},
-		setIntendedRoute(state, route) {
-			state.intendedRoute = route;
 		},
 	},
 	actions: {
@@ -40,11 +29,10 @@ export default {
 			if (user) {
 				localStorage.setItem('user', JSON.stringify(user));
 			}
-
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			let credential = GoogleAuthProvider.credentialFromResult(loginResult);
 			localStorage.setItem('authCredential', JSON.stringify(credential));
-			dispatch('users/loadUserPermissions', user.uid, { root: true });
+			dispatch('users/loadUserRole', user.uid, { root: true });
 		},
 
 		loginWithGoogle({ commit, dispatch }) {
@@ -62,11 +50,10 @@ export default {
 								favoriteBikes: [],
 							}
 						}, {root:true})
-						console.log('loginResult: ',loginResult)
 						resolve(loginResult)
 					})
 					.catch((error) => {
-						commit('setError', error)
+						commit('setError', error, { root:true })
 						reject(error)
 					});
 			})
@@ -74,8 +61,8 @@ export default {
 
 		async loginWithCredential({ commit, dispatch }) {
 			return new Promise((resolve, reject) => {
-				commit('setLoading', true);
-				commit('setError' , null);
+				commit('setLoading', true, { root: true });
+				commit('setError', null, { root: true });
 				let credential = localStorage.getItem('authCredential');
 
 				if (credential) {
@@ -89,17 +76,17 @@ export default {
 						})
 						.catch((error) => {
 							console.log(error);
-							commit('setError', error);
+							commit('setError', error, { root: true });
 							reject(false);
 						})
 						.finally(() => {
-							commit('setLoading', false)
+							commit('setLoading', false, { root: true })
 						})
 				} else resolve(false)
 			})
 		},
 
-		signUpWithWithEmailAndPassword({ dispatch }, { email, password }) {
+		signUpWithWithEmailAndPassword({ dispatch, commit }, { email, password }) {
 			return new Promise((resolve, reject) => {
 				if (!email || !password) reject(false)
 				else {
@@ -119,12 +106,13 @@ export default {
 							resolve(loginResult)
 						})
 						.catch((error) => {
+							commit('setError', error, { root: true });
 							reject(error.message)
 						})
 				}
 			})
 		},
-  		signInWithWithEmailAndPassword({dispatch}, { email, password }) {
+  		signInWithWithEmailAndPassword({ dispatch, commit }, { email, password }) {
 			return new Promise((resolve, reject) => {
 				if (!email || !password) reject(false)
 				else {
@@ -136,6 +124,7 @@ export default {
 							resolve(loginResult)
 						})
 						.catch((error) => {
+							commit('setError', error, { root: true });
 							reject(error)
 						})
 				}
@@ -148,11 +137,11 @@ export default {
 					localStorage.removeItem('user');
 
 					commit('setUser', null);
-					dispatch('users/clearPermissions', null, { root: true });
+					dispatch('users/clearUserRole', null, { root: true });
 					dispatch('favorites/setFavoriteList', [], { root: true });
 				})
 				.catch((error) => {
-					commit('setError', error)
+					commit('setError', error, { root:true})
 				})
 		},
 	},

@@ -45,7 +45,6 @@ export default {
 		return {
 			currentPage: null,
 			itemsPerPage: 8,
-			// myUserId: this.getUser?.uid
 		}
 	},
 
@@ -79,16 +78,6 @@ export default {
 		await this.loadReviewsList();
 		this.currentPage = this.$route.query.page || 1;
 	},
-	// watch: {
-	// 	myUserId: {
-	// 		immediate: true,
-	// 		handler(newValue) {
-	// 			if (newValue) {
-	// 				this.loadUserFavoriteBikes(newValue)
-	// 			}
-	// 		}
-	// 	},
-	// },
 	
 	methods: {
 		...mapActions('favorites', ['setFavoriteList', 'toggleIsFavorite']),

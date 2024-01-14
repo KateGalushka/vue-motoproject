@@ -13,8 +13,9 @@
 					{{ $t('nav.home') }}
 				</router-link> 
 				<router-link :to="{ name: 'guide' }">{{ $t('nav.guide') }}</router-link> 
-				<router-link :to="{ name: 'favorites' }">
+				<router-link :to="{ name: 'favorites' }" >
 					<v-badge
+						:key="badgeKey"
 						:content="favoritesCount"
 						color="rgb(0, 190, 216)"
 						bordered
@@ -25,6 +26,7 @@
 						{{ $t('nav.favorites') }} 
 					</v-badge>
 				</router-link>
+				<router-link :to="{ name: 'last-reviews' }">{{ $t('nav.lastReviews') }}</router-link> 
 				<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> 
 			</nav>
 			<div class="navbar__user">
@@ -46,7 +48,7 @@ export default {
 	 data() {
 		return {
 			isMenuOpen: false,
-			currentUser: null,
+			badgeKey: 1
 		}
 	 },
 	 computed: {
@@ -55,21 +57,25 @@ export default {
 
 		favoritesCount() {
 			return this.getFavoriteList.length; 
+		},
+		currentUser: {
+			get(){
+				return this.getUser;
+			},
+			set(val){
+				if (!val){
+					this.setFavoriteList([]);
+					this.badgeKey++;
+				}
+			}
 		} 
 	 },
-	 watch: {
-		async currentUser(newValue, oldValue) {
-			if (oldValue && !newValue) {
-				this.setFavoriteList([]);
-				await this.$nextTick();
-			}
-		}
-	 },
-	 created () {
-		this.currentUser = this.getUser;
-		console.log('in navbar user: ', this.currentUser)
+	
+	 async mounted() {
+		// this.currentUser = this.getUser;
+		// console.log('in navbar user: ', this.currentUser)
 		if (this.currentUser) {
-			this.loadUserFavoriteBikes(this.currentUser.uid);
+			await this.loadUserFavoriteBikes(this.currentUser.uid);
 		}
 	 },
 	 methods: {

@@ -55,6 +55,14 @@ const routes = [
 		},
 	},
 	{
+		path: '/last-reviews',
+		name: 'last-reviews',
+		component: () => import("../views/LastReviewsView.vue"),
+		meta: {
+			requiresAuth: false,
+		},
+	},
+	{
 		path: "/contacts",
 		name: "contacts",
 		component: () => import("../views/ContactsView.vue"),
@@ -80,17 +88,8 @@ const router = createRouter({
 router.beforeEach(async (to) => {
 	if (to.meta?.requiresAuth) {
 		let isAuthenticated = store.state.auth.user;
-		// if (!isAuthenticated) {
-		// 	try {
-		// 		isAuthenticated = await store.dispatch('auth/loginWithCredential')
-		// 	} 
-		// 	catch(error) {
-		// 		console.log('not Authenticated', error)
-		// 	}
-		// }
-
+		
 		if (!isAuthenticated) {
-			store.dispatch('auth/setIntendedRoute', to.name);
 			return {
 				name: 'login',
 				query: { redirect: to.fullPath }

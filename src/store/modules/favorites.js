@@ -24,7 +24,7 @@ export default ({
 		},
 		toggleIsFavorite({ dispatch, getters }, { userId, bikeId }) {
 			const isIncludedInFavorList = getters.getFavoriteList.find(id => id == bikeId);
-			console.log('isIncludedInFavorList', isIncludedInFavorList)
+			// console.log('isIncludedInFavorList', isIncludedInFavorList)
 			if (!isIncludedInFavorList) {
 				dispatch('users/updateUserFavoriteBikes', { userId, bikeId }, { root:true });
 			} else {

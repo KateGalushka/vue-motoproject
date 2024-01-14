@@ -8,7 +8,7 @@
 					{{ $t('favorites.nothing') }}
 				</div>
 				<template v-else>
-					<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto">
+					<card-component v-for="moto in getFavoriteListCompleted" :key="moto.id" :motorcycle="moto" @go-to-details="handleGoToDetails">
 							<template #additionalButton="{ bikeId }">
 								<button @click="removeBikeFromFavorites(bikeId)">
 									<span class="material-symbols-outlined tooltip" :data-tooltip="$t('card.tooltip2')">
@@ -66,6 +66,15 @@ export default {
 		...mapActions('users', ['loadUserById', 'loadUserFavoriteBikes','removeUserFavoriteBike']),
 		// ...mapActions('favorites', ['setFavoriteList']),
 		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
+
+		handleGoToDetails(motorcycleId){
+			this.$router.push({
+				name: 'bike-details',
+				params: {
+					bikeId: motorcycleId
+				},
+			})
+		},
 
 		removeBikeFromFavorites(bikeId) {
 			this.removeUserFavoriteBike({

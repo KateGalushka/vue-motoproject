@@ -5,31 +5,19 @@ export default {
 	namespaced: true,
 	state: () => ({
 		imagesReferences: [],
-		
-		loading: false,
-		error: null,
 	}),
 	getters: {
-		isLoading: (state) => state.loading,
-		hasError: (state) => state.error,
 		getImagesReferences: (state) => state.imagesReferences
-		
 	},
 	mutations: {
-		setLoading(state, value) {
-			state.loading = value
-		},
-		setError(state, error) {
-			state.error = error
-		},
 		setImagesReferences(state, array) {
 			state.imagesReferences = array;
 		}
 	},
 	actions: {
 		async fetchImagesUrlsFromStorage({ commit }) {
-			commit('setLoading', true);
-			commit('setError', null)
+			commit('setLoading', true, { root:true });
+			commit('setError', null, { root: true });
 			try {
 				const folderRef = ref(storage, 'motoImages');
 				const folderList = await listAll(folderRef);
@@ -45,9 +33,9 @@ export default {
 
 			} catch (error) {
 				console.error('Error fetching image names:', error);
-				commit('setError', error)
+				commit('setError', error, { root: true });
 			} finally {
-				commit('setLoading', false)
+				commit('setLoading', false, { root: true });
 			}
 		},
 	}
