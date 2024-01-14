@@ -57,7 +57,8 @@
 					</li>
 				</ul>
 				<div class="links">
-					<router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link>
+					<!-- <router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link> -->
+					<button class="button back" @click="goBack()">{{ $t('button.back')}}</button>
 
 					<button v-if="getUser" class="button favor" @click="toggleIsFavorite(bikeId)" >
 						<span v-if="isAdded(bikeId)" class="material-symbols-outlined">heart_minus</span>
@@ -76,6 +77,11 @@ import { mapGetters,mapActions } from 'vuex';
 
 export default {
 	name: 'MotorcycleDetails',
+	data() {
+		return {
+			previousPage: null
+		}
+	},
 
 	computed: {
 		...mapGetters('moto', ['getMotorcycleById']),
@@ -91,7 +97,7 @@ export default {
 		},
 		logoUrl() {
 			let brand = this.getBike.make;
-			return require(`@/assets/images/logo/${brand.toLowerCase()}.svg`)
+			return require(`@/assets/images/logo/make/${brand.toLowerCase()}.svg`)
 		},
 		imageUrl() {
 			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
@@ -104,12 +110,23 @@ export default {
 			return this.$t(title)
 		}
 	},
+	created () {
+		this.previousPage = this.$route.query.page || 1;
+	},
 	methods: {
 		...mapActions('favorites', ['toggleIsFavorite']),
 
 		isAdded(bikeId) {
 			return this.getFavoriteList.some(id => id == bikeId);
 		}, 
+		goBack() {
+			this.$router.push({
+				name: 'guide',
+				query: {
+					page: this.previousPage
+				}
+			});
+		}
 	},
 }
 </script>
@@ -209,40 +226,34 @@ export default {
 .list-item {
 	display: inline-block;
 	min-width: 12.5em;
+	&.type::before, &.info::before, &.engine::before, &.power::before, &.gear::before, &.fuel::before {
+		display: inline-block;
+		margin-right: 7px;
+	}
 	
 	&.type::before, &.info::before
 	{
-		content: url('../../assets/images/1/list-info-33.png');
-		display: inline-block;
-		margin-right: 7px;
+		content: url('../../assets/images/details/list-info-33.png');
 	}
 
 	&.engine::before
 	{
-		content: url('../../assets/images/1/list-info-44.png');
-		display: inline-block;
-		margin-right: 7px;
+		content: url('../../assets/images/details/list-info-44.png');
 	}
 
 	&.power::before
 	{
-		content: url('../../assets/images/1/list-info-55.png');
-		display: inline-block;
-		margin-right: 7px;
+		content: url('../../assets/images/details/list-info-55.png');
 	}
 
 	&.gear::before
 	{
-		content: url('../../assets/images/1/list-gears.png');
-		display: inline-block;
-		margin-right: 7px;
+		content: url('../../assets/images/details/list-gears.png');
 	}
 
 	&.fuel::before
 	{
-		content: url('../../assets/images/1/list-fuell.png');
-		display: inline-block;
-		margin-right: 7px;
+		content: url('../../assets/images/details/list-fuell.png');
 	}
 }
 .links{
@@ -299,7 +310,7 @@ export default {
 			height: 2px;
 			width: 8em;
 			margin: 0.5rem auto;
-	}
+		}
 	}
 		
 	.details__spec{

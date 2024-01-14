@@ -1,6 +1,6 @@
 <template>
 	<header class="wrapper navbar" :class="{'open': isMenuOpen}">
-		<img class="logo-img" src="../assets/images/logo-main.svg" alt="logo-main">
+		<img class="logo-img" src="../assets/images/logo/logo-main.svg" alt="logo-main">
 		<button class="navbar__burger-btn" @click="toggleMenu">
 			<span></span>
 			<span></span>
@@ -25,7 +25,6 @@
 						{{ $t('nav.favorites') }} 
 					</v-badge>
 				</router-link>
-				<!-- <router-link :to="{ name: 'favorites' }">{{ $t('nav.gallery') }}</router-link>  -->
 				<router-link :to="{ name: 'contacts' }">{{ $t('nav.contacts') }}</router-link> 
 			</nav>
 			<div class="navbar__user">
@@ -37,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import CurrentLangComponent from './CurrentLangComponent.vue';
 import UserProfileComponent from './UserProfileComponent.vue';
 
@@ -46,17 +45,37 @@ export default {
     components: { CurrentLangComponent, UserProfileComponent },
 	 data() {
 		return {
-			isMenuOpen: false
+			isMenuOpen: false,
+			currentUser: null,
 		}
 	 },
 	 computed: {
 		...mapGetters('favorites', ['getFavoriteList']),
+		...mapGetters('auth', ['getUser']),
 
 		favoritesCount() {
-			return this.getFavoriteList.length 
+			return this.getFavoriteList.length; 
 		} 
 	 },
+	 watch: {
+		async currentUser(newValue, oldValue) {
+			if (oldValue && !newValue) {
+				this.setFavoriteList([]);
+				await this.$nextTick();
+			}
+		}
+	 },
+	 created () {
+		this.currentUser = this.getUser;
+		console.log('in navbar user: ', this.currentUser)
+		if (this.currentUser) {
+			this.loadUserFavoriteBikes(this.currentUser.uid);
+		}
+	 },
 	 methods: {
+		...mapActions('users', ['loadUserFavoriteBikes']),
+		...mapActions('favorites', ['setFavoriteList']),
+
 		toggleMenu() {
 			return this.isMenuOpen = this.isMenuOpen? false: true;
 		}
@@ -70,7 +89,6 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1em;
-	// padding-bottom: 1em;
 }
 
 .logo-img {
@@ -119,13 +137,11 @@ a {
 	margin: 0 1em;
 	&:hover{
 		color: var(--main-color2);
-		// border-bottom: 2px solid var(--main-color2);
 		text-decoration: underline;
 	}
 	&.router-link-exact-active	{
 		color: var(--main-color2);
 		text-decoration: underline;
-		// border-bottom: 2px solid var(--main-color2);
 	}
 }
 .navbar__menu-links{
@@ -133,7 +149,6 @@ a {
 	gap: 1rem;
 	line-height: 1.25;
 	text-align: center;
-	// margin-right: 2em;
 }
 .navbar__user {
 	display: flex;
@@ -171,9 +186,7 @@ a {
 		flex-direction: column;
 		align-items: flex-end;
 	}
-	.navbar__user {
-		// flex-direction: row;
-	}
+	
 	.navbar.open{
 		.navbar__menu{
 			transform: translateY(25rem);

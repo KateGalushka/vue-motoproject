@@ -64,13 +64,13 @@ export default {
 		return {
 			modules: [Pagination, EffectFade, Autoplay],
 			swiperSlides: [
-				{ imgSrc: require("@/assets/images/main1.jpg") },
-				{ imgSrc: require("@/assets/images/main2.jpg") },
-				{ imgSrc: require("@/assets/images/main3.jpg") },
-				{ imgSrc: require("@/assets/images/main4.jpg") },
-				{ imgSrc: require("@/assets/images/main5.jpg") },
-				{ imgSrc: require("@/assets/images/main6.jpg") },
-				// { imgSrc: require("@/assets/images/main7.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main1.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main2.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main3.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main4.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main5.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main6.jpg") },
+				{ imgSrc: require("@/assets/images/homepage/main7.jpg") },
 			]
 		}
 	},
@@ -86,8 +86,6 @@ export default {
 	display: flex;
 	align-items: center;
 	padding: 1.75rem;
-	// background: var(--bg-img-main) right -7em center no-repeat, var(--bg-grad-main) center center no-repeat;
-	// background-size: cover;
 	color: #fff;
 	border-radius: 10px;
 	margin-bottom: .5em;

@@ -44,8 +44,7 @@ export default createStore({
 				commit('setLoading', false)
 			}
 		}
-	
-  },
+	},
   modules: {
 	moto,
 	favorites,

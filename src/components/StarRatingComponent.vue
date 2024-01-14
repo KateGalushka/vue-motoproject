@@ -14,7 +14,7 @@
 		name: "StarRatingComponent",
 		props: {
 			size: {
-				required: true,
+				type: Number,
 				default: 32
 			},
 		},

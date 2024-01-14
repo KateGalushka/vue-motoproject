@@ -1,8 +1,6 @@
 <template>
-	<div>
-		<motorcycles-filters/>
-		<motorcycles-cards-list/>
-	</div>
+	<motorcycles-filters/>
+	<motorcycles-cards-list/>
 </template>
 
 <script>

@@ -4,12 +4,13 @@
 			<h1>{{ $t('contacts.title') }}</h1>
 			<transition-group name="contact" tag="ul" appear>
 				<li v-for="icon in icons" :key="icon.name">
-					<span class="material-symbols-outlined">{{ icon.name }}</span>
-					<div v-if="isEng">{{ icon.textEn }}</div>
-					<div v-else>{{ icon.textUa }}</div>
+					<a :href="icon.href">
+						<font-awesome-icon :icon="icon.name" size="lg"/>
+						<p v-if="isEng">{{ icon.textEn }}</p>
+						<p v-else>{{ icon.textUa }}</p>
+					</a>
 				</li>
 			</transition-group>
-			
 		</div>
 	</main-masterpage>
 </template>
@@ -25,10 +26,10 @@ export default {
 	data() {
 		return {
 			icons: [
-				{ name: 'alternate_email', textEn: 'by email', textUa: 'е-мейлом' },
-				{ name: 'call', textEn: 'by phone', textUa: 'по телефону' },
-				{ name: 'local_post_office', textEn: 'by post', textUa: 'поштою' },
-				{ name: 'local_fire_department', textEn: 'by smoke signal', textUa: 'сигнальним багаттям' },
+				{ name: ['fas', 'at'], href: 'mailto:kgalushka@gmail.com', textEn: 'by email', textUa: 'е-мейлом' },
+				{ name: ['fas', 'phone'], href: 'tel:+380631112233', textEn: 'by phone', textUa: 'по телефону' },
+				{ name: ['fas', 'envelope-open-text'], href: '#', textEn: 'by post', textUa: 'поштою' },
+				{ name: ['fas', 'fire'], href: '#', textEn: 'by smoke signal', textUa: 'сигнальним багаттям' },
 			]
 		}
 	},

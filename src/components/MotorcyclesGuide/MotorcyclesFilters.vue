@@ -98,7 +98,7 @@
 						density="compact"
 						hide-details
 					>
-						<template v-slot:label>
+						<template #label>
 	          			<span class="checkbox-label">{{type}}</span>
 	        			</template>
 					</v-checkbox>

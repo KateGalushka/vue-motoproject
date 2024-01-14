@@ -12,8 +12,6 @@
 			@click="toggleUkr()">
 			Ua
 		</span>
-		<!-- <span class="currentLang">{{ $t('language.current') }}: {{ currentLanguage }}</span> -->
-
 	</div>
 </template>
 
@@ -65,11 +63,10 @@
 	font-size: 0.75rem;
 	&.active{
 		outline: 2px dotted var(--main-color2);
-
 	}
 }
 .english::before{
-	content: url('../assets/images/en.svg');
+	content: url('../assets/images/logo/en.svg');
 	position: absolute;
 	width: 1.75rem;
 	top: 50%;
@@ -77,7 +74,7 @@
 	transform: translateY(-50%);
 }
 .ukr::before{
-	content: url('../assets/images/ua.svg');
+	content: url('../assets/images/logo/ua.svg');
 	position: absolute;
 	width: 1.75rem;
 	top: 50%;
@@ -85,14 +82,5 @@
 	transform: translateY(-50%);
 }
 
-
-// @media (max-width:992px){
-// 	.langToggle{
-// 		display: flex;
-// 		flex-direction: column;
-// 		gap: 0.5rem;
-// 	}
-
-// }
 
 </style>

@@ -29,6 +29,8 @@
 				required: true
 			},
 		},
+		emits:['page-clicked'],
+
 		data() {
 			return {
 				currentPage: 1

@@ -17,7 +17,6 @@
 								</button>
 							</template>
 					</card-component>
-
 				</template>
 
 				<router-link :to="{ name: 'guide' }" class="button back">

@@ -25,7 +25,7 @@ const routes = [
 		component: () => import("../views/GuideView.vue"),
 		meta: {
 			requiresAuth: false,
-		}
+		},
 	},
 		
 	{

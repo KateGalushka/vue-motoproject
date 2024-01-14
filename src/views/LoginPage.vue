@@ -2,7 +2,7 @@
 	<div class="wrapper login">
 		<div class="login-container">
 			<div class="login__image">
-				<img src="../assets/images/loginImg.png">
+				<img src="../assets/images/bg/loginImg.png">
 			</div>
 			<div class="login__form">
 				<div class="login__lang">
@@ -141,15 +141,12 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 						this.$router.go(-1)
 
 					}
-				
 				catch (error) {
 					alert(error.message);
 				}
 			},
 			async registerWithEmailAndPassword(user) {
 				const {email, password} = user
-				console.log('email: ', email)
-				console.log('passw: ', password)
 				try {
 					await this.signUpWithWithEmailAndPassword({email, password});
 					this.$router.push({
@@ -161,14 +158,11 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 					if (error =="Firebase: Error (auth/email-already-in-use).") {
 						alert(this.errorMsg1);
 					}
-					
 				}
 			},
 
 			async loginWithEmailAndPassword(user) {
 				const { email, password } = user
-				console.log('email: ', email)
-				console.log('passw: ', password)
 				try {
 					await this.signInWithWithEmailAndPassword({email, password});
 					this.$router.go(-1);
@@ -180,8 +174,6 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 				}
 			}
 		}
-
-		
 	}
 </script>
 
@@ -260,7 +252,7 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 	position: relative;
 	display: block;
 	& span::before {
-		content: url('../assets/images/google-logo.png');
+		content: url('../assets/images/logo/google-logo.png');
 		position: absolute;
 		top: 50%;
 		left: 10px;
@@ -289,9 +281,6 @@ import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
 			font-size: 1rem;
 		}
 	}
-	.login-form {
-		
-	}
-
+	
 }
 </style>

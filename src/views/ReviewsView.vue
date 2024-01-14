@@ -27,12 +27,12 @@
 							<div class="review__item-editable">
 								<h3>{{ $t('reviews.rate') }} {{ getBike.make }} {{ getBike.model }}:</h3>
 								<star-rating-component
+									v-model="reviewObj.rating"
 									:size="32"
-									v-model="review.rating"
 								/>
 							</div>
 							<v-textarea
-								v-model="review.text"
+								v-model="reviewObj.text"
 								:label="$t('reviews.write')"
 								variant="solo"
 								color="rgb(37, 44, 51)"
@@ -76,13 +76,14 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 		},
 		props: {
 			bikeId: {
+				type: [Number, String],
 				required: true
 			},
 		},
 		data() {
 			return {
 				completedReviews: [],
-				review: {
+				reviewObj: {
 					author: null,
 					date: null,
 					bikeId: null,
@@ -112,7 +113,6 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 		async created () {
 			await this.loadReviewsListByMotorcycleId(this.bikeId);
 			await this.getCompletedReviewsList();
-			
 		},
 		
 		methods: {
@@ -148,8 +148,8 @@ import { maskEmail } from '@/store/helpers/formattingHelper';
 						author: this.getUser.uid,
 						date: new Date(),
 						bikeId: parseInt(this.bikeId),
-						rating: this.review.rating,
-						text: this.review.text
+						rating: this.reviewObj.rating,
+						text: this.reviewObj.text
 					});
 					
 				} catch(error) {

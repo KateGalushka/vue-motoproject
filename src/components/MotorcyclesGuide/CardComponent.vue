@@ -44,7 +44,7 @@
 		<div class="card__price">
 			<span>€{{ motorcycle.price}}</span>
 			<a :href="motorcycle.link" target="_blank">
-				<img class="auto-ria" src="../../assets/images/autoRia-logo.png" alt="autoRia-link">
+				<img class="auto-ria" src="../../assets/images/logo/autoRia-logo.png" alt="autoRia-link">
 			</a>
 		</div>
 		
@@ -73,13 +73,14 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 				required: true
 			},
 		},
+		emits: ['goToDetails'],
 
 		computed: {
 			...mapGetters('storage', ['getImagesReferences']),
 			...mapGetters('reviews', ['getReviewsListByBikeId']),
 
 			logoUrl(){
-				return require(`@/assets/images/logo/${this.motorcycle.make.toLowerCase()}.svg`)
+				return require(`@/assets/images/logo/make/${this.motorcycle.make.toLowerCase()}.svg`)
 			},
 			imageUrl() {
 				const image = this.getImagesReferences.find((image) => image.name.includes(this.motorcycle.model))
@@ -108,12 +109,7 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 			...mapActions('reviews', ['loadReviewsList']),
 			
 			goToDetails(id) {
-				this.$router.push({
-					name: 'bike-details',
-					params: {
-						bikeId: id
-					}
-				})
+				this.$emit('goToDetails', id)
 			}
 		},
 	}

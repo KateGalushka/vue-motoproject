@@ -8,6 +8,7 @@
 			v-for="moto in displayedCards"
 			:key="moto.id"
 			:motorcycle="moto"
+			@go-to-details="handleGoToDetails"
 		>
 			<template v-if="getUser" #additionalButton="{bikeId}">
 				<button @click="onToggleIsFavorite(bikeId)">
@@ -42,7 +43,7 @@ export default {
 	},
 	data() {
 		return {
-			currentPage: 1,
+			currentPage: null,
 			itemsPerPage: 8,
 			// myUserId: this.getUser?.uid
 		}
@@ -76,6 +77,7 @@ export default {
 	async created() {
 		// await this.fetchImagesUrlsFromStorage();
 		await this.loadReviewsList();
+		this.currentPage = this.$route.query.page || 1;
 	},
 	// watch: {
 	// 	myUserId: {
@@ -96,6 +98,19 @@ export default {
 
 		handlePageChange(page) {
 			this.currentPage = page;
+			this.$router.push({ 
+				name: 'guide',
+				query: { page: page }
+			});
+		},
+		handleGoToDetails(motorcycleId) {
+			this.$router.push({
+				name: 'bike-details',
+				params: {
+					bikeId: motorcycleId
+				},
+				query: { page: this.currentPage }
+			})
 		},
 		isAdded(bikeId){
 			return this.getFavoriteList.some(id => id == bikeId);
@@ -130,7 +145,6 @@ export default {
 	position: relative;
 	transition: all .4s ease;
 	font-size: 1.75rem;
-//   font-variation-settings: 'OPSZ' 32;
 }
 
 .addedToFavorites{

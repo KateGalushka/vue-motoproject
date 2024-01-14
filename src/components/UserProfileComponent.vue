@@ -27,7 +27,7 @@ import { mapGetters, mapActions } from 'vuex'
 		...mapGetters('auth', ['getUser']),
 		
 		imgSrc(){
-			return this.getUser.photoURL ?? require('./../assets/images/user.png')
+			return this.getUser.photoURL ?? require('./../assets/images/logo/user.png')
 		}
 	},
 	methods: {

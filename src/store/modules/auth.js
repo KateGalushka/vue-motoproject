@@ -1,7 +1,6 @@
 import { auth } from '@/firebase-config.js'
 import {
 	GoogleAuthProvider,
-	// EmailAuthProvider,
 	signInWithPopup,
 	signInWithCredential,
 	signOut,
@@ -16,11 +15,9 @@ export default {
 		user: null,
 		loading: false,
 		error: null,
-		intendedRoute: null
 	},
 	getters: {
 		getUser: (state) => state.user,
-		getIntendedRoute: (state) => state.intendedRoute
 	},
 	mutations: {
 		setUser(state, user) {
@@ -37,10 +34,6 @@ export default {
 		},
 	},
 	actions: {
-		setIntendedRoute({ commit }, route) {
-			commit('setIntendedRoute', route)
-
-		},
 		async saveLoginUserData({ commit, dispatch }, loginResult) {
 			const user = loginResult?.user; 
 			commit('setUser', user);
@@ -67,7 +60,6 @@ export default {
 								name: loginResult?.user?.displayName,
 								role: 'authedUser',
 								favoriteBikes: [],
-								reviews: []
 							}
 						}, {root:true})
 						console.log('loginResult: ',loginResult)
@@ -121,16 +113,13 @@ export default {
 									email: loginResult?.user?.email,
 									role: 'authedUser',
 									favoriteBikes: [],
-									reviews: []
 								}
 							}, { root: true })
-							console.log('register with email:', loginResult)
+							// console.log('register with email:', loginResult)
 							resolve(loginResult)
 						})
 						.catch((error) => {
 							reject(error.message)
-							// const errorCode = error.code;
-							// const errorMessage = error.message;
 						})
 				}
 			})
@@ -148,8 +137,6 @@ export default {
 						})
 						.catch((error) => {
 							reject(error)
-							// const errorCode = error.code;
-							// const errorMessage = error.message;
 						})
 				}
 			})
