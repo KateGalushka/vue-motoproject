@@ -66,7 +66,7 @@ export default {
 				commit('setError', error, { root: true });
 			}
 		},
-		
+
 		async getCompletedReviewsList({ state, dispatch, commit, rootGetters}) {
 			let completedReviews = await Promise.all(
 				state.reviewsList.map(async (review) => {
@@ -77,7 +77,6 @@ export default {
 							userName = currentUser.name || maskEmail(currentUser.email);
 						}
 					} catch (error) {
-						console.error('Error loading user:', error);
 						commit('setError', error, { root:true });
 					};
 					const currentBike = rootGetters['moto/getMotorcycleById'](review.bikeId);

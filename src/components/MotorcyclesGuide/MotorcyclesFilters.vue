@@ -149,7 +149,6 @@ export default {
 			}
 			if (newVal) {
 				const checkedType = this.getTypeByModel(newVal);
-				console.log(checkedType);
 				this.checkedTypesArr = [checkedType];
 			}
 			if (newVal == '') {

@@ -1,11 +1,11 @@
 <template>
-	<modal-window-component :modalActive="modalActive" @toggle-modal="toggleModal">
+	<modal-window-component :modal-active="modalActive" @toggle-modal="toggleModal">
 		<error-component />
 	</modal-window-component>
 	<div class="wrapper login">
 		<div class="login-container">
 			<div class="login__image">
-				<img src="../assets/images/bg/loginImg.png">
+				<img src="../assets/images/bg/loginImg.jpg">
 			</div>
 			<div class="login__form">
 				<div class="login__lang">

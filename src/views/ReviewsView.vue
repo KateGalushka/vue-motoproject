@@ -135,7 +135,7 @@ import { mapGetters, mapActions } from 'vuex';
 						text: this.reviewObj.text
 					});
 				} catch(error) {
-					console.error("Error submitting review", error);
+					// console.error("Error submitting review", error);
 					this.setError(error);
 				} 
 				finally {

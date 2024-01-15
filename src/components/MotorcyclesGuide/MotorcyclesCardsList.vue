@@ -27,8 +27,8 @@
 			:total-items="totalItems"
 			:items-per-page="itemsPerPage"
 			:max-pages-shown="pagesShown"
-			@page-clicked="handlePageChange"
 			:show-breakpoint-buttons="false"
+			@page-clicked="handlePageChange"
 		/> 
 </template>
 
@@ -61,13 +61,7 @@ export default {
 		totalItems() {
 			return this.getFilteredList.length;
 		},
-		// computedPagesShown(){
-		// 	return window.innerWidth < 768 ? 2 : Math.ceil(this.getFilteredList.length / this.itemsPerPage) || 1;
-		// },
-		// computedItemsPerPage() {
-		// 	return window.innerWidth < 768 ? 6 : this.itemsPerPage;
-
-		// },
+		
 		displayedCards(){
 			const startIndex = (this.currentPage * this.itemsPerPage) - this.itemsPerPage;
 			const endIndex = startIndex + this.itemsPerPage;

@@ -75,7 +75,6 @@ export default {
 							resolve(loginResult);
 						})
 						.catch((error) => {
-							console.log(error);
 							commit('setError', error, { root: true });
 							reject(false);
 						})
@@ -120,7 +119,6 @@ export default {
 					signInWithEmailAndPassword(auth, email, password)
 						.then((loginResult) => {
 							dispatch('saveLoginUserData', loginResult)
-							console.log('loginResult after signIn', loginResult)
 							resolve(loginResult)
 						})
 						.catch((error) => {

@@ -2,7 +2,7 @@
 	<nav-bar/>
 	<main>
 		<loading-comp v-if="isLoading"/>
-		<modal-window-component :modalActive="modalActive" @toggle-modal="toggleModal">
+		<modal-window-component :modal-active="modalActive" @toggle-modal="toggleModal">
 			<error-component>
 				<template #button>
 					<button class="button back" @click="goBackHome">

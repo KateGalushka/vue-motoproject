@@ -68,7 +68,6 @@ export default {
 				{ imgSrc: require("@/assets/images/homepage/main2.jpg") },
 				{ imgSrc: require("@/assets/images/homepage/main3.jpg") },
 				{ imgSrc: require("@/assets/images/homepage/main4.jpg") },
-				{ imgSrc: require("@/assets/images/homepage/main5.jpg") },
 				{ imgSrc: require("@/assets/images/homepage/main6.jpg") },
 				{ imgSrc: require("@/assets/images/homepage/main7.jpg") },
 			]
