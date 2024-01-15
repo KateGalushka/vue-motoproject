@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import StarRatingComponent from '../StarRatingComponent.vue';
 
 	export default {
@@ -96,7 +96,7 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 				let reviewsWithRating = [];
 				this.currentReviewsList.forEach(review => {
 					if (review.rating) {
-						reviewsWithRating.push(review)
+						reviewsWithRating.push(review);
 					}
 				})
 				return (reviewsWithRating.reduce((acc, item) => {
@@ -106,8 +106,6 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 		
 	
 		methods: {
-			...mapActions('reviews', ['loadReviewsList']),
-			
 			goToDetails(id) {
 				this.$emit('goToDetails', id)
 			}

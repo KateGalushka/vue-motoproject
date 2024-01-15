@@ -9,22 +9,24 @@ import reviews from "./modules/reviews";
 export default createStore({
   state: {
 		loading: null,
-		error: null
-	
+		error: null,
   },
+
   getters: {
 	  isLoading: (state) => state.loading,
 	  hasError: (state) => state.error,
-		
   },
+
   mutations: {
 	  setLoading(state, value) {
-		  state.loading = value
+		  state.loading = value;
 	  },
 	  setError(state, error) {
-		  state.error = error
+		  state.error = error;
+		//   console.log('error: ', error)
 	  },
   },
+
   actions: {
 		startLoading({commit}) {
 			commit('setLoading', true)

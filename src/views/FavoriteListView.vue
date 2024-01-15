@@ -63,9 +63,9 @@ export default {
 	},
 
 	methods: {
-		...mapActions('users', ['loadUserById', 'loadUserFavoriteBikes','removeUserFavoriteBike']),
+		...mapActions('users', ['loadUserFavoriteBikes','removeUserFavoriteBike']),
 		// ...mapActions('favorites', ['setFavoriteList']),
-		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
+		// ...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 
 		handleGoToDetails(motorcycleId){
 			this.$router.push({
@@ -79,7 +79,7 @@ export default {
 		removeBikeFromFavorites(bikeId) {
 			this.removeUserFavoriteBike({
 				userId: this.myUserId,
-				bikeId: bikeId.toString()
+				bikeId: parseInt(bikeId)
 			});
 		}
 	}
@@ -105,7 +105,6 @@ export default {
 .favor-title{
 	font-size: 2rem;
 	background-color: var(--bg-color1);
-	// color: var(--bg-color1);
 	line-height: 2rem;
 	padding: 1rem 2rem;
 }

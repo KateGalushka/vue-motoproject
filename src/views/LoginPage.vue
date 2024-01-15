@@ -1,5 +1,7 @@
 <template>
-	<error-component v-if="hasError"/>
+	<modal-window-component :modalActive="modalActive" @toggle-modal="toggleModal">
+		<error-component />
+	</modal-window-component>
 	<div class="wrapper login">
 		<div class="login-container">
 			<div class="login__image">
@@ -73,11 +75,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import CurrentLangComponent from '@/components/CurrentLangComponent.vue';
+import ModalWindowComponent from '@/components/ModalWindowComponent.vue';
 import ErrorComponent from '@/components/ErrorComponent.vue';
 
 	export default {
 		name: 'LoginPage',
-		components: { CurrentLangComponent, ErrorComponent},
+		components: { CurrentLangComponent, ErrorComponent, ModalWindowComponent},
 
 		data() {
 			return {
@@ -109,6 +112,8 @@ import ErrorComponent from '@/components/ErrorComponent.vue';
 						return this.isEng? 'Password must be 6 characters at least.' : "Пароль повинен складатися з мінім. 6 символів ";
 					},
 				],
+
+				modalActive: false
 			}
 		},
 
@@ -118,7 +123,7 @@ import ErrorComponent from '@/components/ErrorComponent.vue';
 			isDataValid() {
 				return this.user.email && this.user.password
 			},
-
+			
 			isEng() {
 				return this.$i18n.locale == 'en'? true :false
 			},
@@ -130,12 +135,23 @@ import ErrorComponent from '@/components/ErrorComponent.vue';
 			},
 			
 		},
+		watch: {
+			hasError(newValue) {
+				if (newValue) {
+					this.modalActive = true;
+				}
+			}
+		},
 		beforeUnmount() {
 			this.setError(null);
 		},
 		methods: {
 			...mapActions('auth', ['loginWithGoogle', 'signUpWithWithEmailAndPassword', 'signInWithWithEmailAndPassword']),
 			...mapActions(['setError']),
+
+			toggleModal(){
+				this.modalActive = !this.modalActive;
+			},
 
 			async onLoginWithGoogle() {
 				try {
@@ -157,7 +173,6 @@ import ErrorComponent from '@/components/ErrorComponent.vue';
 					})
 				}
 				catch (error) {
-					// console.log(error);
 					if (error =="Firebase: Error (auth/email-already-in-use).") {
 						this.setError(this.errorMsg1);
 						// alert(this.errorMsg1);

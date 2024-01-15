@@ -60,7 +60,7 @@
 					<!-- <router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link> -->
 					<button class="button back" @click="goBack()">{{ $t('button.back')}}</button>
 
-					<button v-if="getUser" class="button favor" @click="toggleIsFavorite(bikeId)" >
+					<button v-if="getUser" class="button favor" @click="onToggleIsFavorite(bikeId)" >
 						<span v-if="isAdded(bikeId)" class="material-symbols-outlined">heart_minus</span>
 						<span v-else class="material-symbols-outlined">favorite</span>
 						{{ btnFavorTitle }}
@@ -90,7 +90,7 @@ export default {
 		...mapGetters('storage', ['getImagesReferences']),
 
 		bikeId() {
-			return this.$route.params.bikeId;
+			return parseInt(this.$route.params.bikeId);
 		},
 		getBike() {
 			return this.getMotorcycleById(this.bikeId);
@@ -101,7 +101,7 @@ export default {
 		},
 		imageUrl() {
 			const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
-			return image ? image.url : require('@/assets/images/adv_bike.svg')
+			return image ? image?.url : require('@/assets/images/adv_bike.svg')
 		},
 		
 		btnFavorTitle(){
@@ -126,7 +126,13 @@ export default {
 					page: this.previousPage
 				}
 			});
-		}
+		},
+		onToggleIsFavorite(bikeId) {
+			this.toggleIsFavorite({
+				userId: this.getUser.uid,
+				bikeId: parseInt(bikeId)
+			})
+		},
 	},
 }
 </script>

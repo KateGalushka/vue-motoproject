@@ -105,51 +105,26 @@ import { mapGetters, mapActions } from 'vuex';
 			},
 			logoUrl() {
 				let brand = this.getBike.make;
-				return require(`@/assets/images/logo/make/${brand.toLowerCase()}.svg`)
+				return require(`@/assets/images/logo/make/${brand.toLowerCase()}.svg`);
 			},
 			imageUrl() {
-				const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model))
+				const image = this.getImagesReferences.find((image) => image.name.includes(this.getBike.model));
 				return image ? image.url : require('@/assets/images/adv_bike.svg')
 			},
 			isReviewsListEmpty(){
 				return !this.completedReviews.length;
 			}
-			
 		},
+
 		async created () {
 			await this.loadReviewsListByMotorcycleId(this.bikeId);
 			this.completedReviews = await this.getCompletedReviewsList();
-			console.log('reviews completed: ', this.completedReviews)
 		},
 		
 		methods: {
-			...mapActions('reviews', ['loadReviewsList', 'loadReviewsListByMotorcycleId', 'getCompletedReviewsList', 'addReview']),
-			...mapActions('users', ['loadUserById']),
+			...mapActions('reviews', ['loadReviewsListByMotorcycleId', 'getCompletedReviewsList', 'addReview']),
 			...mapActions(['setError']),
 
-			// async getCompletedReviewsList() {
-			// 	this.completedReviews = await Promise.all(
-			// 		 this.getReviewsList.map(async (review) => {
-			// 			let userName;
-			// 			try{
-			// 				const currentUser = await this.loadUserById(review.author);
-			// 				if (currentUser) {
-			// 					userName = currentUser.name || maskEmail(currentUser.email);
-			// 				}
-			// 			} catch(error) {
-			// 				console.error('Error loading user:', error);
-			// 			}
-			// 			return {
-			// 				id: review.id,
-			// 				date: new Date(review.date.seconds * 1000).toLocaleDateString(),
-			// 				author: userName,
-			// 				text: review.text,
-			// 				rating: review.rating
-			// 			};
-			// 		})
-			// 	)
-			// 	return this.completedReviews;
-			// },
 			async onSubmitReview() {
 				try{
 					await this.addReview({

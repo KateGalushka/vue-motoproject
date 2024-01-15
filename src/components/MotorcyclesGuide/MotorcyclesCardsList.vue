@@ -28,6 +28,7 @@
 			:items-per-page="itemsPerPage"
 			:max-pages-shown="pagesShown"
 			@page-clicked="handlePageChange"
+			:show-breakpoint-buttons="false"
 		/> 
 </template>
 
@@ -45,6 +46,7 @@ export default {
 		return {
 			currentPage: null,
 			itemsPerPage: 8,
+			pagesShown: 8
 		}
 	},
 
@@ -59,29 +61,37 @@ export default {
 		totalItems() {
 			return this.getFilteredList.length;
 		},
-		pagesShown(){
-			return Math.ceil(this.getFilteredList.length / this.itemsPerPage) || 1;
-		},
+		// computedPagesShown(){
+		// 	return window.innerWidth < 768 ? 2 : Math.ceil(this.getFilteredList.length / this.itemsPerPage) || 1;
+		// },
+		// computedItemsPerPage() {
+		// 	return window.innerWidth < 768 ? 6 : this.itemsPerPage;
+
+		// },
 		displayedCards(){
-			const startIndex = (this.currentPage * this.itemsPerPage) -this.itemsPerPage;
+			const startIndex = (this.currentPage * this.itemsPerPage) - this.itemsPerPage;
 			const endIndex = startIndex + this.itemsPerPage;
 			return this.getFilteredList.slice(startIndex, endIndex); 
 		},
 		myUserId() {
 			return this.getUser?.uid
 		}
-		
-		
 	},
+
+	
 	async created() {
-		// await this.fetchImagesUrlsFromStorage();
 		await this.loadReviewsList();
 		this.currentPage = this.$route.query.page || 1;
+	},
+	mounted() {
+		window.addEventListener('resize', this.handleWindowResize);
+	},
+	beforeUnmount() {
+		window.removeEventListener('resize', this.handleWindowResize);
 	},
 	
 	methods: {
 		...mapActions('favorites', ['setFavoriteList', 'toggleIsFavorite']),
-		...mapActions('storage', ['fetchImagesUrlsFromStorage']),
 		...mapActions('users', ['loadUserFavoriteBikes', 'updateUserFavoriteBikes']),
 		...mapActions('reviews', ['loadReviewsList']),
 
@@ -107,9 +117,13 @@ export default {
 		onToggleIsFavorite(bikeId){
 			this.toggleIsFavorite({
 				userId: this.myUserId,
-				bikeId: bikeId.toString()
+				bikeId: parseInt(bikeId)
 			})
-		}
+		},
+		handleWindowResize() {
+			this.itemsPerPage = window.innerWidth < 768 ? 6 : 8;
+			this.pagesShown = window.innerWidth < 768 ? 2 : 8;
+		},
 	},
 }
 </script>

@@ -2,18 +2,18 @@
 	<nav-bar/>
 	<main>
 		<loading-comp v-if="isLoading"/>
-		<error-component v-else-if="hasError">
-			<template #button>
-				<button class="button back" @click="goBackHome">
-					<font-awesome-icon :icon="['fas', 'house']" />
-					{{ $t('button.backHome') }}
-				</button>
-			</template>
-		</error-component>
-		<template v-if="!hasError">
-			<slot></slot>
+		<modal-window-component :modalActive="modalActive" @toggle-modal="toggleModal">
+			<error-component>
+				<template #button>
+					<button class="button back" @click="goBackHome">
+						<font-awesome-icon :icon="['fas', 'house']" />
+						{{ $t('button.backHome') }}
+					</button>
+				</template>
+			</error-component>
+		</modal-window-component>
+		<slot></slot>
 
-		</template>
 	</main>
 	<footer-component/>
 </template>
@@ -22,16 +22,29 @@
 import NavBar from '@/components/NavBar.vue';
 import LoadingComp from '@/components/LoadingComp.vue';
 import ErrorComponent from '@/components/ErrorComponent.vue';
+import ModalWindowComponent from '@/components/ModalWindowComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 	export default {
 		name: 'MainMasterpage',
 		components: {
-			NavBar, FooterComponent, LoadingComp, ErrorComponent
+			NavBar, FooterComponent, LoadingComp, ErrorComponent, ModalWindowComponent
+		},
+		data() {
+			return {
+				modalActive: false
+			}
 		},
 		computed: {
 			...mapGetters(['isLoading', 'hasError']) 
+		},
+		watch: {
+			hasError(newValue) {
+				if (newValue) {
+					this.modalActive = true;
+				}
+			}
 		},
 		methods: {
 			...mapActions(['setError']),
@@ -41,7 +54,10 @@ import { mapGetters, mapActions } from 'vuex';
 					name: 'home'
 				});
 				this.setError(null);
-			}
+			},
+			toggleModal() {
+				this.modalActive = !this.modalActive;
+			},
 		},
 
 		

@@ -7,21 +7,22 @@ export default {
 	state: () => ({
 		reviewsList: [],
 	}),
+
 	getters: {
 		getReviewsList: (state) => state.reviewsList,
 		getReviewsListByBikeId: (state) => (bikeId) => {
 			return state.reviewsList.filter(review => review.bikeId == bikeId)
 		},
-		
 	},
+
 	mutations: {
 		setReviewsList(state, list){
 			state.reviewsList = list;
 		}
 	},
+
 	actions: {
 		async addReview({ dispatch }, reviewData) {
-			console.log('reviewData: ', reviewData)
 			await dispatch('generalApiOperation', {
 				operation: () => collectionDB.addItem(reviewData)
 			}, { root: true })
@@ -51,6 +52,7 @@ export default {
 				commit('setError', error, { root:true });
 			}
 		},
+
 		async loadReviewsListByMotorcycleId({ commit, dispatch }, bikeId) {
 			try {
 				const result = await dispatch('generalApiOperation', {
@@ -64,6 +66,7 @@ export default {
 				commit('setError', error, { root: true });
 			}
 		},
+		
 		async getCompletedReviewsList({ state, dispatch, commit, rootGetters}) {
 			let completedReviews = await Promise.all(
 				state.reviewsList.map(async (review) => {

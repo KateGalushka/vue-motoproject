@@ -41,13 +41,16 @@ const app = createApp(App);
 // Check if user data exists in LocalStorage and update the store
 const storedCredential = JSON.parse(localStorage.getItem('authCredential'));
 if (storedCredential) {
-	store.dispatch('auth/loginWithCredential', storedCredential)
-		.then((loginResult) => {
-			console.log('User authenticated:', loginResult);
-		})
-		.catch((error) => {
-			console.error('Error while logging in with stored credential:', error);
-		});
+	try {
+		store.dispatch('auth/loginWithCredential', storedCredential)
+			.then((loginResult) => {
+				console.log('User authenticated:', loginResult);
+			})
+	}
+	catch(error) {
+		console.error('Error while logging in with stored credential:', error);
+		store.dispatch('setError', error);
+	};
 } else {
 	const storedUser = localStorage.getItem('user');
 	if (storedUser) {

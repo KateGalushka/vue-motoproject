@@ -5,7 +5,6 @@
 				<div v-for="review in lastReviewsWithImages" :key="review.id" class="review__item">
 					<div class="review__item-img">
 						<img :src="review.imageUrl" :alt="review.bikeModel">
-						<!-- <img src="../assets/images/adv_bike.svg" alt=""> -->
 					</div>
 					<div class="review__item-content">
 						<h2 class="review__item-title">{{ review.bikeMake }} {{ review.bikeModel }}</h2>
@@ -81,7 +80,7 @@ import { parseDate} from '../store/helpers/formattingHelper';
 					const image = this.getImagesReferences.find((image) => image.name.includes(review.bikeModel));
 					return {
 						...review,
-						imageUrl: image.url || require('@/assets/images/adv_bike.svg')
+						imageUrl: image?.url || require('@/assets/images/adv_bike.svg')
 					}
 				})
 			}
@@ -89,7 +88,6 @@ import { parseDate} from '../store/helpers/formattingHelper';
 		async created () {
 			await this.loadReviewsList();
 			this.lastReviews = await this.getCompletedReviewsList();
-			console.log('reviews completed in last: ', this.lastReviews)
 		},
 		methods: {
 			...mapActions('reviews', ['loadReviewsList', 'getCompletedReviewsList']),

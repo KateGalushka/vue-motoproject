@@ -23,7 +23,7 @@ export default {
 		});
 		this.loadMotorcyclesList(moto);
 		//load images from storage
-		await this.fetchImagesUrlsFromStorage();
+		// await this.fetchImagesUrlsFromStorage();
 	},
 	methods: {
 		...mapActions('moto', ['loadMotorcyclesList']),

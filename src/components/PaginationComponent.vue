@@ -6,7 +6,6 @@
 			:items-per-page="itemsPerPage"
 			:max-pages-shown="maxPagesShown"
 			:hide-prev-next-when-ends="true"
-			:show-jump-buttons="true"
 			@click="onClickHandler"
 		/>
 	</div>
@@ -81,6 +80,17 @@
 		background-color: var(--main-color1);
 		border: 1px solid var(--bg-color1);
 	}
+}
+@media (max-width:768px) {
+	:deep(.pagination-container) {
+		column-gap: 8px;
+	}
+	:deep(.paginate-buttons) {
+		height: 30px;
+		width: 30px;
+		font-size: 0.875rem;
+	}
+
 }
 
 </style>
