@@ -52,7 +52,7 @@
 						<p>{{ $t('reviews.addReview') }}</p>
 						<div class="reviews__buttons">
 							<router-link :to="{name: 'login'}" class="button review-login">{{ $t('button.login') }}</router-link>
-							<router-link :to="{ name: 'guide' }" class="button review-back">{{ $t('button.back') }}</router-link>
+							<button class="button review-back" @click="goBack">{{ $t('button.back') }}</button>
 						</div>
 					</div>
 
@@ -91,7 +91,8 @@ import { mapGetters, mapActions } from 'vuex';
 					bikeId: null,
 					rating: null,
 					text: ''
-				}
+				},
+				previousPage: null
 			}
 		},
 		computed: {
@@ -119,6 +120,8 @@ import { mapGetters, mapActions } from 'vuex';
 		async created () {
 			await this.loadReviewsListByMotorcycleId(this.bikeId);
 			this.completedReviews = await this.getCompletedReviewsList();
+
+			this.previousPage = this.$route.query.page || 1;
 		},
 		
 		methods: {
@@ -141,7 +144,16 @@ import { mapGetters, mapActions } from 'vuex';
 				finally {
 					this.$router.go();
 				}
-			}
+			},
+
+			goBack() {
+				this.$router.push({
+					name: 'guide',
+					query: {
+						page: this.previousPage
+					}
+				});
+			},
 		}
 	}
 </script>

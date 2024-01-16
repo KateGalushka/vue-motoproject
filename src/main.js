@@ -48,11 +48,12 @@ if (storedCredential) {
 		.catch((error) => {
 			console.error('Error while logging in with stored credential:', error);
 			// store.dispatch('setError', error);
-			// if (error) {
+			if (error) {
 				store.commit('auth/setUser', null);
 				localStorage.removeItem('authCredential');
-			// }
+			}
 		})
+		.finally(() => store.dispatch('setError', null));
 	} else {
 		const storedUser = localStorage.getItem('user');
 		if (storedUser) {

@@ -18,16 +18,9 @@
 				:model-value="overallRating"
 			/>
 			<span v-if="overallRating">{{ overallRating.toFixed(2) }}/5</span>
-			<router-link 
-				:to="{
-					name: 'bike-reviews',
-					params: {
-						bikeId: motorcycle.id
-					}
-				}"
-				class="review-link">
-					<span>{{ reviewsCount }} {{ $t('card.reviews') }}</span>
-			</router-link>
+			<button class="review-link" @click="goToReviews(motorcycle.id)">
+				<span>{{ reviewsCount }} {{ $t('card.reviews') }}</span>
+			</button>
 		</div>
 		<div class="card__descr">
 			<font-awesome-icon :icon="['fas', 'bolt']" />
@@ -73,7 +66,7 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 				required: true
 			},
 		},
-		emits: ['goToDetails'],
+		emits: ['goToDetails', 'goToReviews'],
 
 		computed: {
 			...mapGetters('storage', ['getImagesReferences']),
@@ -107,6 +100,9 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 		methods: {
 			goToDetails(id) {
 				this.$emit('goToDetails', id)
+			},
+			goToReviews(id) {
+				this.$emit('goToReviews', id)
 			}
 		},
 	}

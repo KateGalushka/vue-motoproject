@@ -8,6 +8,7 @@
 			v-for="moto in displayedCards"
 			:key="moto.id"
 			:motorcycle="moto"
+			@go-to-reviews="handleGoToReviews"
 			@go-to-details="handleGoToDetails"
 		>
 			<template v-if="getUser" #additionalButton="{bikeId}">
@@ -60,7 +61,6 @@ export default {
 		totalItems() {
 			return this.getFilteredList.length;
 		},
-		
 		displayedCards(){
 			const startIndex = (this.currentPage * this.itemsPerPage) - this.itemsPerPage;
 			const endIndex = startIndex + this.itemsPerPage;
@@ -70,7 +70,6 @@ export default {
 			return this.getUser?.uid
 		}
 	},
-
 	
 	async created() {
 		await this.loadReviewsList();
@@ -98,6 +97,15 @@ export default {
 		handleGoToDetails(motorcycleId) {
 			this.$router.push({
 				name: 'bike-details',
+				params: {
+					bikeId: motorcycleId
+				},
+				query: { page: this.currentPage }
+			})
+		},
+		handleGoToReviews(motorcycleId) {
+			this.$router.push({
+				name: 'bike-reviews',
 				params: {
 					bikeId: motorcycleId
 				},

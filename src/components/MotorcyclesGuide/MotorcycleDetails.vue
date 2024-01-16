@@ -57,8 +57,7 @@
 					</li>
 				</ul>
 				<div class="links">
-					<!-- <router-link :to="{ name: 'guide' }" class="button back">{{ $t('button.back')}}</router-link> -->
-					<button class="button back" @click="goBack()">{{ $t('button.back')}}</button>
+					<button class="button back" @click="goBack">{{ $t('button.back')}}</button>
 
 					<button v-if="getUser" class="button favor" @click="onToggleIsFavorite(bikeId)" >
 						<span v-if="isAdded(bikeId)" class="material-symbols-outlined">heart_minus</span>
