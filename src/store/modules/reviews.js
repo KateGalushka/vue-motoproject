@@ -33,6 +33,12 @@ export default {
 				operation: () => collectionDB.updateItem(id, data)
 			}, { root: true })
 		},
+		async updateReviewText({ dispatch }, { id, text }) {
+			await dispatch('generalApiOperation', {
+				operation: () => collectionDB.updateItemOneField(id, "text", text)
+			}, { root: true })
+		},
+
 		async deleteReview({ dispatch }, id) {
 			await dispatch('generalApiOperation', {
 				operation: () => collectionDB.deleteItem(id)
@@ -82,6 +88,7 @@ export default {
 					const currentBike = rootGetters['moto/getMotorcycleById'](review.bikeId);
 					return {
 						id: review.id,
+						authorId: review.author,
 						bikeMake: currentBike.make,
 						bikeModel: currentBike.model,
 						date: new Date(review.date.seconds * 1000).toLocaleDateString(),

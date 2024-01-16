@@ -24,7 +24,9 @@
 		"login": "Login",
 		"register": "Register",
 		"withGoogle": "Login with Google",
-		"backHome": "Back to Home Page"
+		"backHome": "Back to Home Page",
+		"submit": "Submit",
+		"cancel": "Cancel"
 	},
 
 	"search": {

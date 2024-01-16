@@ -103,8 +103,7 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 					return acc + item.rating }, 0)) / reviewsWithRating.length;
 			}
 		},
-		
-	
+			
 		methods: {
 			goToDetails(id) {
 				this.$emit('goToDetails', id)
@@ -129,6 +128,7 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 }
 .card__img{
 	height: calc(45% - 2rem);
+	min-height: 225px;
 	max-width: 100%;
 	border-radius: 0.625rem;
 	background: var(--bg-gradient);
@@ -206,7 +206,6 @@ import StarRatingComponent from '../StarRatingComponent.vue';
 .button-details{
 	padding: .5em 1.5em;
 	border-radius: 10px;
-	// margin: 0 auto;
 }
 
 </style>

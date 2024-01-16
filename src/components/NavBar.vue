@@ -72,8 +72,6 @@ export default {
 	 },
 	
 	 async mounted() {
-		// this.currentUser = this.getUser;
-		// console.log('in navbar user: ', this.currentUser)
 		if (this.currentUser) {
 			await this.loadUserFavoriteBikes(this.currentUser.uid);
 		}

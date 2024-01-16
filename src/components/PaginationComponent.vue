@@ -6,6 +6,8 @@
 			:items-per-page="itemsPerPage"
 			:max-pages-shown="maxPagesShown"
 			:hide-prev-next-when-ends="true"
+			:show-breakpoint-buttons="false"
+			:show-jump-buttons="true"
 			@click="onClickHandler"
 		/>
 	</div>

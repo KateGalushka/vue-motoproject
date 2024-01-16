@@ -36,6 +36,31 @@
 								<font-awesome-icon :icon="['fas', 'angles-right']" />
 							</p> 
 						</div>
+						<div v-if="showEditButtonsForUser(review.id)" class="review__item-edit-buttons">
+							<button class="button button-edit" @click="toggleEditing(review.id)">
+								<font-awesome-icon :icon="['far', 'pen-to-square']" />
+								Edit
+							</button>
+							<button class="button button-edit" @click="onDelete(review.id)">
+								<font-awesome-icon :icon="['far', 'trash-can']" />
+								Delete
+							</button>
+							<modal-window-component :modal-active="modalActive[review.id]" @toggle-modal="toggleEditing(review.id)">
+								<v-textarea
+									v-model="editedReviewText[review.id]"
+									variant="solo"
+									color="rgb(37, 44, 51)"
+									clearable
+									auto-grow
+									class="mt-4"
+								/>
+								<div class="reviews__buttons">
+									<button class="button submit" @click="onSubmitReview(review.id)">{{ $t('button.submit') }}</button>
+									<button class="button submit" @click="toggleEditing(review.id)" >{{ $t('button.cancel') }}</button>
+								</div>
+							</modal-window-component>
+
+						</div>
 					</div>
 				</div>
 			</div>
@@ -48,6 +73,7 @@
 <script>
 import MainMasterpage from '@/masterpages/MainMasterpage.vue';
 import StarRatingComponent from '@/components/StarRatingComponent.vue';
+import ModalWindowComponent from '@/components/ModalWindowComponent.vue';
 import { mapGetters, mapActions } from 'vuex';
 import { parseDate} from '../store/helpers/formattingHelper';
 
@@ -55,18 +81,21 @@ import { parseDate} from '../store/helpers/formattingHelper';
 		name: 'LastReviewsView',
 
 		components: {
-			MainMasterpage, StarRatingComponent
+			MainMasterpage, StarRatingComponent, ModalWindowComponent
 		},
 		data() {
 			return {
 				lastReviews: [],
 				textMaxLength: 200,
-				showFullText: []
+				showFullText: [],
+				modalActive: {},
+				editedReviewText: {}
 			}
 		},
 		computed: {
 			...mapGetters('reviews', ['getReviewsList']),
 			...mapGetters('storage', ['getImagesReferences']),
+			...mapGetters('auth', ['getUser']),
 			
 			lastDozenReviews() {
 				return this.lastReviews.slice().sort((a,b)=>{
@@ -83,17 +112,50 @@ import { parseDate} from '../store/helpers/formattingHelper';
 						imageUrl: image?.url || require('@/assets/images/adv_bike.svg')
 					}
 				})
-			}
+			},
+			isEng() {
+				return this.$i18n.locale == 'en' ? true : false;
+			},
+			
 		},
 		async created () {
 			await this.loadReviewsList();
 			this.lastReviews = await this.getCompletedReviewsList();
+			this.lastReviews.forEach(review => {
+				this.editedReviewText[review.id] = review.text;
+				this.modalActive[review.id] = false;
+			});
 		},
+
 		methods: {
-			...mapActions('reviews', ['loadReviewsList', 'getCompletedReviewsList']),
+			...mapActions('reviews', ['loadReviewsList', 'getCompletedReviewsList', 'deleteReview', 'updateReviewText']),
 
 			readMore(reviewId) {
-				this.showFullText[reviewId] = !this.showFullText[reviewId]
+				this.showFullText[reviewId] = !this.showFullText[reviewId];
+			},
+			showEditButtonsForUser(reviewId) {
+				const currentUserReview = this.lastReviews.find(review => (review.id === reviewId) && (review.authorId === this.getUser?.uid));
+				return currentUserReview !== undefined;
+			},
+			async onDelete(reviewId) {
+				let msg = this.isEng ? 'Do you really want to delete the review?' : 'Ви дійсно бажаєте видалити відгук?'
+				let answer = window.confirm(msg);
+				if (answer) {
+					await this.deleteReview(reviewId);
+					this.$router.go();
+				}
+			},
+			toggleEditing(reviewId) {
+				this.modalActive[reviewId] = !this.modalActive[reviewId];
+			},
+			
+			async onSubmitReview(reviewId){
+				await this.updateReviewText({
+						id: reviewId,
+						text: this.editedReviewText[reviewId]
+					});
+				this.toggleEditing(reviewId);
+				this.$router.go();
 			}
 		},
 	}
@@ -127,6 +189,7 @@ import { parseDate} from '../store/helpers/formattingHelper';
 }
 .review__item-img {
 	place-self: center;
+	min-height: 170px;
 	// max-width: 200px;
 	img {
 		width: 100%;
@@ -158,6 +221,26 @@ import { parseDate} from '../store/helpers/formattingHelper';
 	padding-top: 1.25rem;
 	cursor: pointer;
 }
+.review__item-edit-buttons {
+	font-size: 0.875rem;
+	text-align: right;
+}
+.button-edit {
+	padding: 0.5rem;
+	border-radius: .5rem;
+	margin: .5rem .5rem 0;
+}
+.reviews__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+}
+.submit {
+	padding: .5rem 1.5rem;
+	border-radius: .5rem;
+}
+
 @media (max-width:768px) {
 	.review__item {
 		grid-template-columns: 1fr;

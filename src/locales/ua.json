@@ -23,7 +23,9 @@
 		"login": "Увійти",
 		"register": "Зареєструватись",
 		"withGoogle": "Увійти з Google",
-		"backHome": "Назад на головну"
+		"backHome": "Назад на головну",
+		"submit": "Відправити",
+		"cancel": "Відмінити"
 	},
 
 	"search": {

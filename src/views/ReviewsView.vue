@@ -43,8 +43,8 @@
 								auto-grow
 							/>
 							<div class="reviews__buttons">
-								<button class="button submit" @click="onSubmitReview">Submit</button>
-								<router-link :to="{name:'guide'}" class="button submit">Cancel</router-link>
+								<button class="button submit" @click="onSubmitReview">{{ $t('button.submit') }}</button>
+								<router-link :to="{name:'guide'}" class="button submit">{{ $t('button.cancel') }}</router-link>
 							</div>
 						</div>
 					</div>
@@ -227,6 +227,7 @@ import { mapGetters, mapActions } from 'vuex';
  
 .reviews__buttons {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1rem;
 }

@@ -41,21 +41,23 @@ const app = createApp(App);
 // Check if user data exists in LocalStorage and update the store
 const storedCredential = JSON.parse(localStorage.getItem('authCredential'));
 if (storedCredential) {
-	try {
-		store.dispatch('auth/loginWithCredential', storedCredential)
-			.then((loginResult) => {
-				console.log('User authenticated:', loginResult);
+	store.dispatch('auth/loginWithCredential', storedCredential)
+		.then((loginResult) => {
+			console.log('User authenticated:', loginResult);
 			})
-	}
-	catch(error) {
-		console.error('Error while logging in with stored credential:', error);
-		store.dispatch('setError', error);
-	};
-} else {
-	const storedUser = localStorage.getItem('user');
-	if (storedUser) {
-		store.commit('auth/setUser', JSON.parse(storedUser))
-	}
+		.catch((error) => {
+			console.error('Error while logging in with stored credential:', error);
+			// store.dispatch('setError', error);
+			// if (error) {
+				store.commit('auth/setUser', null);
+				localStorage.removeItem('authCredential');
+			// }
+		})
+	} else {
+		const storedUser = localStorage.getItem('user');
+		if (storedUser) {
+			store.commit('auth/setUser', JSON.parse(storedUser))
+		}
 }
 
 app.use(store).use(router).use(vuetify).use(i18n).use(VueAwesomePaginate).component('font-awesome-icon', FontAwesomeIcon).mount("#app");

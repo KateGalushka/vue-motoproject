@@ -27,7 +27,6 @@
 			:total-items="totalItems"
 			:items-per-page="itemsPerPage"
 			:max-pages-shown="pagesShown"
-			:show-breakpoint-buttons="false"
 			@page-clicked="handlePageChange"
 		/> 
 </template>
@@ -116,7 +115,7 @@ export default {
 		},
 		handleWindowResize() {
 			this.itemsPerPage = window.innerWidth < 768 ? 6 : 8;
-			this.pagesShown = window.innerWidth < 768 ? 2 : 8;
+			this.pagesShown = window.innerWidth < 768 ? 4 : 8;
 		},
 	},
 }

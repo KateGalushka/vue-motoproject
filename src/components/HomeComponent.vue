@@ -80,7 +80,7 @@ export default {
 	@import url('@/assets/styles/_mySwiper.scss');
 
 .home{
-	min-height: calc(100vh - 8.75em);
+	min-height: 80vh;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -99,7 +99,6 @@ export default {
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 2px;
-		
 	}
 	p{
 		font-size: 1.25rem;
@@ -119,7 +118,6 @@ export default {
 	h2 {
 		align-self: flex-end;
 	}
-
 }
 .title-enter-from{
 	opacity:0;
@@ -151,6 +149,7 @@ export default {
 		}
 	}
 }
+
 @media (max-width:768px) {
 	.home {
 		justify-content: center;
@@ -174,6 +173,7 @@ export default {
 	}
 
 }
+
 @media (max-width:570px) {
 	.home__descr {
 		h1, h2 {

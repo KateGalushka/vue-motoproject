@@ -100,6 +100,20 @@ class DbOperations {
 				})
 		})
 	};
+	updateItemOneField(itemId, fieldName, fieldData) {
+		return new Promise((resolve, reject) => {
+			const oldDocRef = doc(this.dbCollection, itemId)
+			updateDoc(oldDocRef, {
+				[fieldName]: fieldData
+			})
+				.then(() => {
+					resolve(true)
+				})
+				.catch((error) => {
+					reject(error)
+				})
+		})
+	};
 	getItemById(itemId) {
 		return new Promise((resolve, reject) => {
 			const docRef = doc(this.dbCollection, itemId)
