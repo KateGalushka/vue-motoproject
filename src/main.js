@@ -51,6 +51,7 @@ if (storedCredential) {
 			if (error) {
 				store.commit('auth/setUser', null);
 				localStorage.removeItem('authCredential');
+				this.$router.push({name: 'home'});
 			}
 		})
 		.finally(() => store.dispatch('setError', null));

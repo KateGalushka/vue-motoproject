@@ -18,7 +18,7 @@ export default {
 		window.addEventListener('storage', function () {
 			if (self.$i18n.locale !== this.localStorage.getItem('lastLocale')) {
 				self.$i18n.locale = this.localStorage.getItem('lastLocale');
-				self.$router.go()
+				self.$router.go();
 			}
 		});
 		this.loadMotorcyclesList(moto);
